@@ -1,10 +1,10 @@
 <template>
   <div>
     <!-- Sidebar backdrop (mobile only) -->
-    <div class="fixed inset-0 bg-slate-900 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200" :class="sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'" aria-hidden="true"></div>
+    <div class="fixed inset-0 bg-blue-950 bg-opacity-30 z-40 lg:hidden lg:z-auto transition-opacity duration-200" :class="sidebarOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'" aria-hidden="true"></div>
 
     <!-- Sidebar -->
-    <div id="sidebar" ref="sidebar" class="flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:!w-64 shrink-0 bg-slate-800 p-4 transition-all duration-200 ease-in-out" :class="sidebarOpen ? 'translate-x-0' : '-translate-x-64'">
+    <div id="sidebar" ref="sidebar" class="flex flex-col absolute z-40 left-0 top-0 lg:static lg:left-auto lg:top-auto lg:translate-x-0 h-screen overflow-y-scroll lg:overflow-y-auto no-scrollbar w-64 lg:w-20 lg:sidebar-expanded:!w-64 2xl:!w-64 shrink-0 bg-blue-950   p-4 transition-all duration-200 ease-in-out" :class="sidebarOpen ? 'translate-x-0' : '-translate-x-64'">
 
       <!-- Sidebar header -->
       <div class="flex justify-between mb-10 pr-3 sm:px-2">
@@ -17,22 +17,10 @@
         </button>
         <!-- Logo -->
         <router-link class="block" to="/">
-          <svg width="32" height="32" viewBox="0 0 32 32">
-            <defs>
-              <linearGradient x1="28.538%" y1="20.229%" x2="100%" y2="108.156%" id="logo-a">
-                <stop stop-color="#A5B4FC" stop-opacity="0" offset="0%" />
-                <stop stop-color="#A5B4FC" offset="100%" />
-              </linearGradient>
-              <linearGradient x1="88.638%" y1="29.267%" x2="22.42%" y2="100%" id="logo-b">
-                <stop stop-color="#38BDF8" stop-opacity="0" offset="0%" />
-                <stop stop-color="#38BDF8" offset="100%" />
-              </linearGradient>
-            </defs>
-            <rect fill="#6366F1" width="32" height="32" rx="16" />
-            <path d="M18.277.16C26.035 1.267 32 7.938 32 16c0 8.837-7.163 16-16 16a15.937 15.937 0 01-10.426-3.863L18.277.161z" fill="#4F46E5" />
-            <path d="M7.404 2.503l18.339 26.19A15.93 15.93 0 0116 32C7.163 32 0 24.837 0 16 0 10.327 2.952 5.344 7.404 2.503z" fill="url(#logo-a)" />
-            <path d="M2.223 24.14L29.777 7.86A15.926 15.926 0 0132 16c0 8.837-7.163 16-16 16-5.864 0-10.991-3.154-13.777-7.86z" fill="url(#logo-b)" />
-          </svg>
+          <h3 class="text-xs uppercase text-slate-500 font-semibold pl-3">
+            <span class="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6" aria-hidden="true">PM</span>
+            <span class="lg:hidden lg:sidebar-expanded:block 2xl:block text-white ml-5 mt-2">Pipeline Management</span>
+          </h3>
         </router-link>
       </div>
 
@@ -42,7 +30,7 @@
         <div>
           <h3 class="text-xs uppercase text-slate-500 font-semibold pl-3">
             <span class="hidden lg:block lg:sidebar-expanded:hidden 2xl:hidden text-center w-6" aria-hidden="true">•••</span>
-            <span class="lg:hidden lg:sidebar-expanded:block 2xl:block">Halaman</span>
+            <span class="lg:hidden lg:sidebar-expanded:block 2xl:block text-white">Halaman</span>
           </h3>
           <ul class="mt-3">
             <!-- Dashboard -->
@@ -61,16 +49,16 @@
               </a>
             </SidebarLinkGroup>
             <!-- Menu 2  -->
-            <SidebarLinkGroup v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('menu1')">
+            <SidebarLinkGroup v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('retention')">
               <a class="block text-slate-200 truncate transition duration-150" :class="currentRoute.fullPath.includes('menu1') ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="sidebarExpanded ? parentLink.handleClick() : sidebarExpanded = true">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center">
                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                      <path class="fill-current" :class="currentRoute.fullPath.includes('menu1') ? 'text-indigo-300' : 'text-slate-400'" d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z" />
-                      <path class="fill-current" :class="currentRoute.fullPath.includes('menu1') ? 'text-indigo-600' : 'text-slate-700'" d="M13 15L0 7v9c0 .355.189.685.496.864L13 24v-9z" />
-                      <path class="fill-current" :class="currentRoute.fullPath.includes('menu1') ? 'text-indigo-500' : 'text-slate-600'" d="M13 15.047V24l10.573-7.181A.999.999 0 0024 16V8l-11 7.047z" />
+                      <path class="fill-current" :class="currentRoute.fullPath.includes('retention') ? 'text-indigo-300' : 'text-slate-400'" d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z" />
+                      <path class="fill-current" :class="currentRoute.fullPath.includes('retention') ? 'text-indigo-600' : 'text-slate-700'" d="M13 15L0 7v9c0 .355.189.685.496.864L13 24v-9z" />
+                      <path class="fill-current" :class="currentRoute.fullPath.includes('retention') ? 'text-indigo-500' : 'text-slate-600'" d="M13 15.047V24l10.573-7.181A.999.999 0 0024 16V8l-11 7.047z" />
                     </svg>
-                    <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Menu 1 </span>
+                    <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Retention</span>
                   </div>
                   <!-- Icon -->
                   <div class="flex shrink-0 ml-2">
@@ -82,14 +70,14 @@
               </a>
               <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
                 <ul class="pl-9 mt-1" :class="!parentLink.expanded && 'hidden'">
-                  <router-link to="/menu1/listdatamenu1" custom v-slot="{ href, navigate, isExactActive }">
+                  <router-link to="/retention/listdataretention" custom v-slot="{ href, navigate, isExactActive }">
                     <li class="mb-1 last:mb-0">
                       <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-indigo-500' : 'text-slate-400 hover:text-slate-200'" :href="href" @click="navigate">
                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">List Data</span>
                       </a>
                     </li>
                   </router-link>
-                  <router-link to="/menu1/tambahdatamenu1" custom v-slot="{ href, navigate, isExactActive }">
+                  <router-link to="/retention/tambahdataretention" custom v-slot="{ href, navigate, isExactActive }">
                     <li class="mb-1 last:mb-0">
                       <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-indigo-500' : 'text-slate-400 hover:text-slate-200'" :href="href" @click="navigate">
                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Tambah Data</span>
@@ -100,16 +88,16 @@
               </div>
             </SidebarLinkGroup>
             <!-- Menu 3  -->
-            <SidebarLinkGroup v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('ecommerce')">
-              <a class="block text-slate-200 truncate transition duration-150" :class="currentRoute.fullPath.includes('ecommerce') ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="sidebarExpanded ? parentLink.handleClick() : sidebarExpanded = true">
+            <SidebarLinkGroup v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('calonpelanggan')">
+              <a class="block text-slate-200 truncate transition duration-150" :class="currentRoute.fullPath.includes('calonpelanggan') ? 'hover:text-slate-200' : 'hover:text-white'" href="#0" @click.prevent="sidebarExpanded ? parentLink.handleClick() : sidebarExpanded = true">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center">
                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
-                      <path class="fill-current" :class="currentRoute.fullPath.includes('ecommerce') ? 'text-indigo-300' : 'text-slate-400'" d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z" />
-                      <path class="fill-current" :class="currentRoute.fullPath.includes('ecommerce') ? 'text-indigo-600' : 'text-slate-700'" d="M13 15L0 7v9c0 .355.189.685.496.864L13 24v-9z" />
-                      <path class="fill-current" :class="currentRoute.fullPath.includes('ecommerce') ? 'text-indigo-500' : 'text-slate-600'" d="M13 15.047V24l10.573-7.181A.999.999 0 0024 16V8l-11 7.047z" />
+                      <path class="fill-current" :class="currentRoute.fullPath.includes('calonpelanggan') ? 'text-indigo-300' : 'text-slate-400'" d="M13 15l11-7L11.504.136a1 1 0 00-1.019.007L0 7l13 8z" />
+                      <path class="fill-current" :class="currentRoute.fullPath.includes('calonpelanggan') ? 'text-indigo-600' : 'text-slate-700'" d="M13 15L0 7v9c0 .355.189.685.496.864L13 24v-9z" />
+                      <path class="fill-current" :class="currentRoute.fullPath.includes('calonpelanggan') ? 'text-indigo-500' : 'text-slate-600'" d="M13 15.047V24l10.573-7.181A.999.999 0 0024 16V8l-11 7.047z" />
                     </svg>
-                    <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Menu 2 </span>
+                    <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Calon Pelanggan</span>
                   </div>
                   <!-- Icon -->
                   <div class="flex shrink-0 ml-2">
@@ -121,17 +109,24 @@
               </a>
               <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
                 <ul class="pl-9 mt-1" :class="!parentLink.expanded && 'hidden'">
-                  <router-link to="/ecommerce/customers" custom v-slot="{ href, navigate, isExactActive }">
+                  <router-link to="/calonpelanggan/listdatacalonpelanggan" custom v-slot="{ href, navigate, isExactActive }">
                     <li class="mb-1 last:mb-0">
                       <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-indigo-500' : 'text-slate-400 hover:text-slate-200'" :href="href" @click="navigate">
                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">List Data</span>
                       </a>
                     </li>
                   </router-link>
-                  <router-link to="/ecommerce/orders" custom v-slot="{ href, navigate, isExactActive }">
+                  <router-link to="/calonpelanggan/tambahdatacalonpelanggan" custom v-slot="{ href, navigate, isExactActive }">
                     <li class="mb-1 last:mb-0">
                       <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-indigo-500' : 'text-slate-400 hover:text-slate-200'" :href="href" @click="navigate">
                         <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Tambah Data</span>
+                      </a>
+                    </li>
+                  </router-link>
+                  <router-link to="/calonpelanggan/importexcelcalonpelanggan" custom v-slot="{ href, navigate, isExactActive }">
+                    <li class="mb-1 last:mb-0">
+                      <a class="block transition duration-150 truncate" :class="isExactActive ? 'text-indigo-500' : 'text-slate-400 hover:text-slate-200'" :href="href" @click="navigate">
+                        <span class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Import Excel</span>
                       </a>
                     </li>
                   </router-link>

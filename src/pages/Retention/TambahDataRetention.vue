@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: 'TambahDataMenu1',
+    name: 'TambahDataRetention',
 }
 </script>
 
