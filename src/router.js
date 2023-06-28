@@ -12,7 +12,8 @@ const router = createRouter({
   history: routerHistory,
   routes: [
     {
-      path: '/',
+      path: '/dashboard',
+      name: 'Dashboard',
       component: Dashboard
     },
     {
