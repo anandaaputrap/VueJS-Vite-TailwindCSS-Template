@@ -35,7 +35,7 @@
           <ul class="mt-3">
             <!-- Dashboard -->
             <SidebarLinkGroup v-slot="parentLink" :activeCondition="currentRoute.fullPath === '/dashboard' || currentRoute.fullPath.includes('dashboard')">
-              <a class="block text-slate-200 truncate transition duration-150" :class="(currentRoute.fullPath === '/dashboard' || currentRoute.fullPath.includes('dashboard')) ? 'hover:text-slate-200' : 'hover:text-white'" href="/dashboard" @click.prevent="sidebarExpanded ? parentLink.handleClick() : sidebarExpanded = true">
+              <router-link class="block text-slate-200 truncate transition duration-150" :class="(currentRoute.fullPath === '/dashboard' || currentRoute.fullPath.includes('dashboard')) ? 'hover:text-slate-200' : 'hover:text-white'" :to="{ path: '/dashboard' }" @click.prevent="sidebarExpanded ? parentLink.handleClick() : sidebarExpanded = true">
                 <div class="flex items-center justify-between">
                   <div class="flex items-center">
                     <svg class="shrink-0 h-6 w-6" viewBox="0 0 24 24">
@@ -46,7 +46,7 @@
                     <span class="text-sm font-medium ml-3 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">Dashboard</span>
                   </div>
                 </div>
-              </a>
+              </router-link>
             </SidebarLinkGroup>
             <!-- Menu 2  -->
             <SidebarLinkGroup v-slot="parentLink" :activeCondition="currentRoute.fullPath.includes('retention')">

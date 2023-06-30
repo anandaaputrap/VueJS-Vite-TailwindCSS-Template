@@ -1,47 +1,47 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import Dashboard from './pages/Dashboard.vue'
-import ListDataRetention from './pages/Retention/ListDataRetention.vue'
-import TambahDataRetention from './pages/Retention/TambahDataRetention.vue'
-import ListDataCalonPelanggan from './pages/CalonPelanggan/ListDataCalonPelanggan.vue'
-import TambahDataCalonPelanggan from './pages/CalonPelanggan/TambahDataCalonPelanggan.vue'
-import ImportExcelCalonPelanggan from './pages/CalonPelanggan/ImportExcelCalonPelanggan.vue'
+import { createRouter, createWebHistory } from "vue-router";
+import Dashboard from "./pages/Dashboard.vue";
+import ListDataRetention from "./pages/Retention/ListDataRetention.vue";
+import TambahDataRetention from "./pages/Retention/TambahDataRetention.vue";
+import ListDataCalonPelanggan from "./pages/CalonPelanggan/ListDataCalonPelanggan.vue";
+import TambahDataCalonPelanggan from "./pages/CalonPelanggan/TambahDataCalonPelanggan.vue";
+import ImportExcelCalonPelanggan from "./pages/CalonPelanggan/ImportExcelCalonPelanggan.vue";
 
-const routerHistory = createWebHistory()
+const routerHistory = createWebHistory();
 
 const router = createRouter({
   history: routerHistory,
   routes: [
     {
-      path: '/dashboard',
-      name: 'Dashboard',
-      component: Dashboard
+      path: "/dashboard",
+      name: "Dashboard",
+      component: Dashboard,
     },
     {
-      path: '/listdataretention',
-      name: 'ListDataRetention',
-      component: ListDataRetention
+      path: "/listdataretention",
+      name: "ListDataRetention",
+      component: ListDataRetention,
     },
     {
-      path: '/tambahdataretention',
-      name: 'TambahDataRetention',
-      component: TambahDataRetention
+      path: "/tambahdataretention",
+      name: "TambahDataRetention",
+      component: TambahDataRetention,
     },
     {
-      path: '/listdatacalonpelanggan',
-      name: 'ListDataCalonPelanggan',
-      component: ListDataCalonPelanggan
+      path: "/listdatacalonpelanggan",
+      name: "ListDataCalonPelanggan",
+      component: ListDataCalonPelanggan,
     },
     {
-      path: '/tambahdatacalonpelanggan',
-      name: 'TambahDataCalonPelanggan',
-      component: TambahDataCalonPelanggan
+      path: "/tambahdatacalonpelanggan",
+      name: "TambahDataCalonPelanggan",
+      component: TambahDataCalonPelanggan,
     },
     {
-      path: '/importexcelcalonpelanggan',
-      name: 'ImportExcelCalonPelanggan',
-      component: ImportExcelCalonPelanggan
+      path: "/importexcelcalonpelanggan",
+      name: "ImportExcelCalonPelanggan",
+      component: ImportExcelCalonPelanggan,
     },
-  ]
-})
+  ],
+});
 
-export default router
+export default router;
