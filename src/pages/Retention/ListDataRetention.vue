@@ -19,6 +19,57 @@
             ></div>
           </div>
 
+          <!-- Filter Tanggal -->
+          <div
+            class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 mb-5"
+          >
+            <div class="px-5 pt-5">
+              <h2
+                class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2"
+              >
+                Filter Berdasarkan Tanggal
+              </h2>
+            </div>
+
+            <div class="px-5 pb-5">
+              <label
+                for="tanggalAwal"
+                class="text-xs font-semibold text-slate-400 dark:text-slate-500"
+                >Tanggal Awal :</label
+              >
+              <input
+                type="date"
+                v-model="tanggalAwal"
+                id="tanggalAwal"
+                class="border border-slate-300 dark:border-slate-600 p-1 mb-2"
+              />
+              <br />
+              <label
+                for="tanggalAkhir"
+                class="text-xs font-semibold text-slate-400 dark:text-slate-500"
+                >Tanggal Akhir :</label
+              >
+              <input
+                type="date"
+                v-model="tanggalAkhir"
+                id="tanggalAkhir"
+                class="border border-slate-300 dark:border-slate-600 p-1 mb-2"
+              />
+              <br />
+              <button
+                @click="cariTanggal"
+                class="bg-cyan-500 hover:bg-cyan-600 text-white py-1 px-3 rounded"
+              >
+                Cari
+              </button>
+
+              <div v-if="hasilPencarian" class="mt-4">
+                Anda mencari dari tanggal {{ tanggalAwal }} hingga tanggal
+                {{ tanggalAkhir }}
+              </div>
+            </div>
+          </div>
+          <!-- Filter Tanggal -->
           <div
             class="col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
           >
