@@ -39,7 +39,13 @@
                   >
                     <tr>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Checklist</div>
+                        <div class="flex items-center">
+                          <input
+                            type="checkbox"
+                            v-model="selectAll"
+                            @change="toggleAllCheckboxes"
+                          />
+                        </div>
                       </th>
                       <th class="p-2">
                         <div class="font-semibold text-left">Nomor Nota</div>
@@ -58,12 +64,6 @@
                       </th>
                       <th class="p-2">
                         <div class="font-semibold text-left">Toleransi TOP</div>
-                      </th>
-                      <th class="p-2">
-                        <div class="font-semibold text-center">Aksi</div>
-                      </th>
-                      <th class="p-2">
-                        <div class="font-semibold text-center">Aksi</div>
                       </th>
                       <th class="p-2">
                         <div class="font-semibold text-center">Aksi</div>
@@ -119,12 +119,10 @@
       </main>
 
       <!-- Modal -->
-      <!-- Modal -->
       <div
         v-show="showDetails"
         class="fixed inset-0 flex items-center justify-center z-50"
       >
-        <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="bg-white rounded shadow-lg p-4 max-w-md w-full">
           <h3 class="text-lg font-semibold mb-2">Detail Data</h3>
           <div v-if="selectedItemIndex !== null">
@@ -197,6 +195,7 @@ export default {
         },
         // Add more data here if needed
       ],
+      selectAll: false,
       showAddForm: false,
       showDetails: false,
       selectedItemIndex: null,
@@ -210,6 +209,11 @@ export default {
     closeDetail() {
       this.selectedItemIndex = null;
       this.showDetails = false;
+    },
+    toggleAllCheckboxes() {
+      this.items.forEach((item) => {
+        item.checked = this.selectAll;
+      });
     },
   },
 };
