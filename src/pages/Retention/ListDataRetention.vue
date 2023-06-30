@@ -27,7 +27,7 @@
               <h2
                 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2"
               >
-                Filter Berdasarkan Tanggal
+                Cari Berdasarkan Tanggal
               </h2>
             </div>
 
@@ -35,8 +35,8 @@
               <label
                 for="tanggalAwal"
                 class="text-xs font-semibold text-slate-400 dark:text-slate-500"
-                >Tanggal Awal :</label
-              >
+                >Tanggal Awal :
+              </label>
               <input
                 type="date"
                 v-model="tanggalAwal"
@@ -47,8 +47,8 @@
               <label
                 for="tanggalAkhir"
                 class="text-xs font-semibold text-slate-400 dark:text-slate-500"
-                >Tanggal Akhir :</label
-              >
+                >Tanggal Akhir :
+              </label>
               <input
                 type="date"
                 v-model="tanggalAkhir"
@@ -196,11 +196,13 @@
               <strong>Toleransi TOP:</strong>
               {{ items[selectedItemIndex].toleranceTop }}
             </div>
-            <div class="mb-2">
-              <strong>Detail:</strong> {{ items[selectedItemIndex].detail }}
-            </div>
           </div>
-          <button class="btn btn-primary" @click="closeDetail">Tutup</button>
+          <button
+            class="btn btn-primary bg-red-500 hover:bg-red-600 text-white"
+            @click="closeDetail"
+          >
+            Tutup
+          </button>
         </div>
       </div>
     </div>
@@ -230,8 +232,6 @@ export default {
           cost: "100",
           top: "14",
           toleranceTop: "2",
-          detail:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris commodo condimentum sagittis.",
         },
         {
           checked: false,
@@ -241,8 +241,6 @@ export default {
           cost: "200",
           top: "30",
           toleranceTop: "5",
-          detail:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris commodo condimentum sagittis.",
         },
         // Add more data here if needed
       ],
@@ -250,6 +248,9 @@ export default {
       showAddForm: false,
       showDetails: false,
       selectedItemIndex: null,
+      tanggalAwal: "",
+      tanggalAkhir: "",
+      isSearching: false,
     };
   },
   methods: {
@@ -265,6 +266,19 @@ export default {
       this.items.forEach((item) => {
         item.checked = this.selectAll;
       });
+    },
+    cariTanggal() {
+      // Filter data berdasarkan rentang tanggal
+      const filteredItems = this.items.filter((item) => {
+        const tanggalItem = new Date(item.tanggal);
+        const tanggalAwal = new Date(this.tanggalAwal);
+        const tanggalAkhir = new Date(this.tanggalAkhir);
+
+        return tanggalItem >= tanggalAwal && tanggalItem <= tanggalAkhir;
+      });
+
+      // Tampilkan data yang sesuai di tabel
+      this.items = filteredItems;
     },
   },
 };

@@ -31,6 +31,14 @@
             <DashboardCard02 />
             <!-- Line chart (Acme Professional) -->
             <DashboardCard03 />
+
+            <!-- Doughnut chart (Products) -->
+            <DashboardCard04 />
+            <DashboardCard05 />
+            <DashboardCard06 />
+            <DashboardCard07 />
+            <DashboardCard08 />
+            <DashboardCard09 />
           </div>
         </div>
       </main>
@@ -46,6 +54,12 @@ import WelcomeBanner from "../partials/dashboard/WelcomeBanner.vue";
 import DashboardCard01 from "../partials/dashboard/DashboardCard01.vue";
 import DashboardCard02 from "../partials/dashboard/DashboardCard02.vue";
 import DashboardCard03 from "../partials/dashboard/DashboardCard03.vue";
+import DashboardCard04 from "../partials/dashboard/DashboardCard04.vue";
+import DashboardCard05 from "../partials/dashboard/DashboardCard05.vue";
+import DashboardCard06 from "../partials/dashboard/DashboardCard06.vue";
+import DashboardCard07 from "../partials/dashboard/DashboardCard07.vue";
+import DashboardCard08 from "../partials/dashboard/DashboardCard08.vue";
+import DashboardCard09 from "../partials/dashboard/DashboardCard09.vue";
 
 export default {
   name: "Dashboard",
@@ -56,6 +70,12 @@ export default {
     DashboardCard01,
     DashboardCard02,
     DashboardCard03,
+    DashboardCard04,
+    DashboardCard05,
+    DashboardCard06,
+    DashboardCard07,
+    DashboardCard08,
+    DashboardCard09,
   },
   setup() {
     const sidebarOpen = ref(false);
