@@ -184,6 +184,7 @@
       >
         <div class="bg-white rounded shadow-lg p-4 max-w-md w-full">
           <h3 class="text-lg font-semibold mb-2">Detail Data</h3>
+          <hr class="border-2 border-cyan-500 cursor-pointer hover:border-cyan-600 duration-500">
           <div v-if="selectedItemIndex !== null">
             <div class="mb-2">
               <strong>Kode :</strong> {{ items[selectedItemIndex].kode }}

@@ -80,6 +80,7 @@ export default {
   setup() {
     const sidebarOpen = ref(false);
 
+
     return {
       sidebarOpen,
     };
