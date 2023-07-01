@@ -182,7 +182,7 @@
         v-show="showDetails"
         class="fixed inset-0 flex items-center justify-center z-50"
       >
-        <div class="bg-white rounded shadow-lg p-4 max-w-md w-full">
+        <div class="bg-white rounded shadow-lg p-4 max-w-md w-full border-solid border-2 border-slate-500">
           <h3 class="text-lg font-semibold mb-2">Detail Data</h3>
           <hr class="border-2 border-cyan-500 cursor-pointer hover:border-cyan-600 duration-500">
           <div v-if="selectedItemIndex !== null">
