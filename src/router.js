@@ -12,7 +12,7 @@ const router = createRouter({
   history: routerHistory,
   routes: [
     {
-      path: "/dashboard",
+      path: "/",
       name: "Dashboard",
       component: Dashboard,
     },

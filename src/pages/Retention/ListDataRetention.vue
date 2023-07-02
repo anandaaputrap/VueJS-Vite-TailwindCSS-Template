@@ -82,7 +82,7 @@
             </header>
             <div class="p-3">
               <!-- Table -->
-              <div class="overflow-x-scroll">
+              <div class="overflow-x-scroll overflow-y-scroll max-h-96">
                 <table class="table-auto w-full dark:text-slate-300">
                   <!-- Table header -->
                   <thead
@@ -174,9 +174,13 @@
         v-show="showDetails"
         class="fixed inset-0 flex items-center justify-center z-50"
       >
-        <div class="bg-white rounded shadow-lg p-4 max-w-md w-full border-solid border-2 border-slate-500">
+        <div
+          class="bg-white rounded shadow-lg p-4 max-w-md w-full border-solid border-2 border-slate-500"
+        >
           <h3 class="text-lg font-semibold mb-2">Detail Data</h3>
-          <hr class="border-2 border-cyan-500 cursor-pointer hover:border-cyan-600 duration-500">
+          <hr
+            class="border-2 border-cyan-500 cursor-pointer hover:border-cyan-600 duration-500"
+          />
           <div v-if="selectedItemIndex !== null">
             <div class="mb-2">
               <strong>Nomor Nota:</strong> {{ items[selectedItemIndex].nota }}
