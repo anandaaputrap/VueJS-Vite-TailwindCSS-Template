@@ -19,89 +19,154 @@
             <div
               class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2"
             >
-              <div class="p-3">
-                <div class="flex flex-wrap gap-4">
-                  <div class="w-full sm:w-1/2 md:w-1/3">
-                    <label for="sales" class="block mb-1">Sales</label>
-                    <input type="text" id="sales" v-model="sales" />
-                  </div>
-                  <div class="w-full sm:w-1/2 md:w-1/3">
-                    <label for="tanggal" class="block mb-1">Tanggal</label>
-                    <input type="date" id="tanggal" v-model="tanggal" />
-                  </div>
-                  <div class="w-full sm:w-1/2 md:w-1/3">
-                    <label for="top" class="block mb-1">TOP</label>
-                    <input type="text" id="top" v-model="top" />
-                  </div>
-                  <div class="w-full sm:w-1/2 md:w-1/3">
-                    <label for="toleransi" class="block mb-1"
-                      >Toleransi TOP</label
-                    >
-                    <input type="text" id="toleransi" v-model="toleransi" />
-                  </div>
-                  <div class="w-full sm:w-1/2 md:w-1/3">
-                    <label for="tipeDokumen" class="block mb-1"
-                      >Tipe Dokumen</label
-                    >
-                    <input type="text" id="tipeDokumen" v-model="tipeDokumen" />
-                  </div>
-                  <div class="w-full sm:w-1/2 md:w-1/3">
-                    <label for="keterangan" class="block mb-1"
-                      >Keterangan</label
-                    >
-                    <input type="text" id="keterangan" v-model="keterangan" />
-                  </div>
-                </div>
-
-                <div class="flex flex-col">
-                  <div class="flex items-center">
-                    <input
-                      type="checkbox"
-                      id="segmentCheckbox"
-                      v-model="segmentChecked"
-                    />
-                    <label for="segmentCheckbox" class="ml-2">Segment</label>
-                  </div>
-                  <div class="flex items-center">
-                    <input
-                      type="checkbox"
-                      id="alamatCheckbox"
-                      v-model="alamatChecked"
-                    />
-                    <label for="alamatCheckbox" class="ml-2">Alamat</label>
-                  </div>
-                  <div class="flex items-center">
-                    <input
-                      type="checkbox"
-                      id="telpCheckbox"
-                      v-model="telpChecked"
-                    />
-                    <label for="telpCheckbox" class="ml-2">Telp</label>
-                  </div>
-                  <div class="flex items-center">
-                    <input
-                      type="checkbox"
-                      id="kotaCheckbox"
-                      v-model="kotaChecked"
-                    />
-                    <label for="kotaCheckbox" class="ml-2">Kota</label>
-                  </div>
-                </div>
-
-                <div>
-                  <button
-                    class="btn btn-sm bg-cyan-500 hover:bg-cyan-600 text-white"
-                    @click="showData"
-                  >
-                    Show
-                  </button>
-                </div>
-              </div>
             </div>
           </div>
 
+          <form class="w-full max-w-lg">
+            <div class="flex flex-wrap -mx-3 mb-6">
+              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-first-name"
+                >
+                  Sales
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="sales"
+                  name="sales"
+                  type="text"
+                  placeholder="Masukkan Disini"
+                />
+              </div>
+              <div class="w-full md:w-1/2 px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-first-name"
+                >
+                  Top
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="top"
+                  name="top"
+                  type="text"
+                  placeholder="Masukkan Disini"
+                />
+              </div>
+              <div class="w-full md:w-1/2 px-3 mt-5">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-first-name"
+                >
+                  Tipe Dokumen
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="tipedokumen"
+                  name="tipedokumen"
+                  type="text"
+                  placeholder="Masukkan Disini"
+                />
+              </div>
+              <div class="w-full md:w-1/2 px-3 mt-5">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-first-name"
+                >
+                  Toleransi Top
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="toleransitop"
+                  name="toleransitop"
+                  type="text"
+                  placeholder="Masukkan Disini"
+                />
+              </div>
+              <div class="w-full md:w-1/2 px-3 mt-5">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="keterangan"
+                >
+                  Keterangan
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="keterangan"
+                  name="keterangan"
+                  type="text"
+                  placeholder="Masukkan Disini"
+                />
+              </div>
+              <div class="w-full md:w-1/2 px-3 mt-5">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="keterangan"
+                >
+                  Tanggal
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="tanggal"
+                  name="tanggal"
+                  type="date"
+                />
+              </div>
+              <div class="w-full md:w-1/2 px-3 mt-5">
+                <div class="flex items-center">
+                  <!-- Segment -->
+                  <input
+                    type="checkbox"
+                    id="segmentCheckbox"
+                    name="segmentCheckbox"
+                    v-model="segmentChecked"
+                  />
+                  <label for="segmentCheckbox" class="ml-2">Segment</label>
+                  <!-- Segment -->
+
+                  <!-- Alamat -->
+                  <input
+                    class="ml-5"
+                    type="checkbox"
+                    id="alamatCheckbox"
+                    v-model="alamatChecked"
+                  />
+                  <label for="alamatCheckbox" class="ml-2">Alamat</label>
+                  <!-- Alamat -->
+
+                  <!-- Telp -->
+                  <input
+                    class="ml-5"
+                    type="checkbox"
+                    id="telpCheckbox"
+                    v-model="telpChecked"
+                  />
+                  <label for="telpChecked" class="ml-2">Telp</label>
+                  <!-- Telp -->
+
+                  <!-- Kota -->
+                  <input
+                    class="ml-5"
+                    type="checkbox"
+                    id="kotaCheckbox"
+                    v-model="kotaChecked"
+                  />
+                  <label for="kotaCheckboc" class="ml-2">Kota</label>
+                  <!-- Kota -->
+                </div>
+              </div>
+            </div>
+            <button
+              class="btn btn-sm bg-cyan-500 hover:bg-cyan-600 text-white"
+              @click="showData"
+            >
+              Show
+            </button>
+          </form>
+
           <div
-            class="col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+            class="mt-5 col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
           >
             <header
               class="px-5 py-4 border-b border-slate-100 dark:border-slate-700"

@@ -33,27 +33,31 @@
 
             <div class="px-5 pb-5">
               <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 for="tanggalAwal"
-                class="text-xs font-semibold text-slate-400 dark:text-slate-500"
-                >Tanggal Awal :
+              >
+                Tanggal Awal
               </label>
               <input
-                type="date"
-                v-model="tanggalAwal"
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="tanggalAwal"
-                class="border border-slate-300 dark:border-slate-600 p-1 mb-2"
+                name="tanggalAwal"
+                v-model="tanggalAwal"
+                type="date"
               />
               <br />
               <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
                 for="tanggalAkhir"
-                class="text-xs font-semibold text-slate-400 dark:text-slate-500"
-                >Tanggal Akhir :
+              >
+                Tanggal Akhir
               </label>
               <input
-                type="date"
-                v-model="tanggalAkhir"
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="tanggalAkhir"
-                class="border border-slate-300 dark:border-slate-600 p-1 mb-2"
+                name="tanggalAkhir"
+                v-model="tanggalAkhir"
+                type="date"
               />
               <br />
               <button
