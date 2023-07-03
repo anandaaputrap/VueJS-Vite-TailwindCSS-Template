@@ -27,7 +27,7 @@
                   </div>
                   <div class="w-full sm:w-1/2 md:w-1/3">
                     <label for="tanggal" class="block mb-1">Tanggal</label>
-                    <input type="text" id="tanggal" v-model="tanggal" />
+                    <input type="date" id="tanggal" v-model="tanggal" />
                   </div>
                   <div class="w-full sm:w-1/2 md:w-1/3">
                     <label for="top" class="block mb-1">TOP</label>
