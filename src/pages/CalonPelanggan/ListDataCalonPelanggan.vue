@@ -81,7 +81,7 @@
               class="px-5 py-4 border-b border-slate-100 dark:border-slate-700"
             >
               <h2 class="font-semibold text-slate-800 dark:text-slate-100">
-                List Data Retention
+                List Data Calon Pelanggan
               </h2>
             </header>
             <div class="p-3">
@@ -234,6 +234,7 @@
 import { ref } from "vue";
 import Sidebar from "../../partials/Sidebar.vue";
 import Header from "../../partials/Header.vue";
+import axios from "axios";
 
 export default {
   name: "ListDataCalonPelanggan",
@@ -267,11 +268,15 @@ export default {
         },
         // Add more data here if needed
       ],
+      products: [],
       selectAll: false,
       showAddForm: false,
       showDetails: false,
       selectedItemIndex: null,
     };
+  },
+  mounted() {
+    this.fetchProducts();
   },
   methods: {
     showDetail(index) {
@@ -286,6 +291,16 @@ export default {
       this.items.forEach((item) => {
         item.checked = this.selectAll;
       });
+    },
+    fetchProducts() {
+      axios
+        .get("https://dummyjson.com/products")
+        .then((response) => {
+          this.products = response.data;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     },
   },
 };
