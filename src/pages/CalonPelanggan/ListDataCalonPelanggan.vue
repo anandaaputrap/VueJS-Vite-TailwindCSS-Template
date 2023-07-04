@@ -292,15 +292,15 @@ export default {
         item.checked = this.selectAll;
       });
     },
-    fetchProducts() {
-      axios
-        .get("https://dummyjson.com/products")
-        .then((response) => {
-          this.products = response.data;
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+    async fetchProducts() {
+      try {
+        const response = await axios.get(
+          "https://dummyjson.com/products"
+        );
+        this.products = response.data;
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };
