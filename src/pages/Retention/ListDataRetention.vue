@@ -32,7 +32,7 @@
             </div>
             <div class="px-5 pb-5">
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 dark:text-white"
                 for="tanggalAwal"
               >
                 Tanggal Awal
@@ -46,7 +46,7 @@
               />
               <br />
               <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 dark:text-white"
                 for="tanggalAkhir"
               >
                 Tanggal Akhir
@@ -102,22 +102,25 @@
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Nomor Nota</div>
+                        <div class="font-semibold text-left">Kode Nota</div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Tanggal</div>
+                        <div class="font-semibold text-left">Kode Sales</div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Sales</div>
+                        <div class="font-semibold text-left">Nama Sales</div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Cost</div>
+                        <div class="font-semibold text-left">Kode Calon Customer</div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">TOP</div>
+                        <div class="font-semibold text-left">Nama Calon Customer</div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Toleransi TOP</div>
+                        <div class="font-semibold text-left">Tanggal Awal</div>
+                      </th>
+                      <th class="p-2">
+                        <div class="font-semibold text-left">Tanggal Akhir</div>
                       </th>
                       <th class="p-2">
                         <div class="font-semibold text-center">Aksi</div>
@@ -154,6 +157,9 @@
                         <div class="text-left">{{ item.toleranceTop }}</div>
                       </td>
                       <td class="p-2">
+                        <div class="text-left">{{ item.toleranceTop }}</div>
+                      </td>
+                      <td class="p-2">
                         <div class="flex items-center justify-center">
                           <button
                             class="btn btn-sm bg-cyan-500 hover:bg-cyan-600 text-white"
@@ -175,7 +181,7 @@
       <!-- Modal -->
       <div
         v-show="showDetails"
-        class="fixed inset-0 flex items-center justify-center z-50"
+        class="fixed inset-0 flex items-center justify-center z-50 animate-fade-up animate-once"
       >
         <div
           class="bg-white rounded shadow-lg p-4 max-w-md w-full border-solid border-2 border-slate-500"
@@ -186,22 +192,26 @@
           />
           <div v-if="selectedItemIndex !== null">
             <div class="mb-2">
-              <strong>Nomor Nota:</strong> {{ items[selectedItemIndex].nota }}
+              <strong>Kode Nota :</strong> {{ items[selectedItemIndex].nota }}
             </div>
             <div class="mb-2">
-              <strong>Tanggal:</strong> {{ items[selectedItemIndex].tanggal }}
+              <strong>Kode Sales :</strong> {{ items[selectedItemIndex].tanggal }}
             </div>
             <div class="mb-2">
-              <strong>Sales:</strong> {{ items[selectedItemIndex].sales }}
+              <strong>Nama Sales :</strong> {{ items[selectedItemIndex].sales }}
             </div>
             <div class="mb-2">
-              <strong>Cost:</strong> {{ items[selectedItemIndex].cost }}
+              <strong>Kode Calon Customer :</strong> {{ items[selectedItemIndex].cost }}
             </div>
             <div class="mb-2">
-              <strong>TOP:</strong> {{ items[selectedItemIndex].top }}
+              <strong>Nama Calon Customer :</strong> {{ items[selectedItemIndex].top }}
             </div>
             <div class="mb-2">
-              <strong>Toleransi TOP:</strong>
+              <strong>Tanggal Awal:</strong>
+              {{ items[selectedItemIndex].toleranceTop }}
+            </div>
+            <div class="mb-2">
+              <strong>Tanggal Akhir:</strong>
               {{ items[selectedItemIndex].toleranceTop }}
             </div>
           </div>

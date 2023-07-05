@@ -184,7 +184,7 @@
       <!-- Modal -->
       <div
         v-show="showDetails"
-        class="fixed inset-0 flex items-center justify-center z-50"
+        class="fixed inset-0 flex items-center justify-center z-50 animate-fade-up animate-once"
       >
         <div
           class="bg-white rounded shadow-lg p-4 max-w-md w-full border-solid border-2 border-slate-500"
