@@ -27,14 +27,19 @@
                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                       >Sales</label
                     >
-                    <input
-                      type="text"
+                    <select
                       id="sales"
                       name="sales"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Sales"
                       required
-                    />
+                    >
+                      <option value="" disabled selected>
+                        Silahkan Pilih Sales
+                      </option>
+                      <option value="option1">Sales 1</option>
+                      <option value="option2">Sales 2</option>
+                      <option value="option3">Sales 3</option>
+                    </select>
                   </div>
                   <div>
                     <label
@@ -42,14 +47,19 @@
                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                       >Tipe Dokumen</label
                     >
-                    <input
-                      type="text"
+                    <select
                       id="tipedokumen"
                       name="tipedokumen"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Doe"
                       required
-                    />
+                    >
+                      <option value="" disabled selected>
+                        Silahkan Pilih Tipe Dokumen
+                      </option>
+                      <option value="option1">Tipe 1</option>
+                      <option value="option2">Tipe 2</option>
+                      <option value="option3">Tipe 3</option>
+                    </select>
                   </div>
                   <div>
                     <label
