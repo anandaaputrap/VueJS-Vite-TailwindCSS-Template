@@ -33,9 +33,7 @@
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required
                     >
-                      <option value="" disabled selected>
-                        Silahkan Pilih Sales
-                      </option>
+                      <option value="" disabled selected>Pilih Sales</option>
                       <option value="option1">Sales 1</option>
                       <option value="option2">Sales 2</option>
                       <option value="option3">Sales 3</option>
@@ -54,7 +52,7 @@
                       required
                     >
                       <option value="" disabled selected>
-                        Silahkan Pilih Tipe Dokumen
+                        Pilih Tipe Dokumen
                       </option>
                       <option value="option1">Tipe 1</option>
                       <option value="option2">Tipe 2</option>
@@ -102,6 +100,7 @@
                     <input
                       type="date"
                       id="tanggal"
+                      name="tanggal"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       required
                     />
@@ -122,192 +121,80 @@
                     required
                   ></textarea>
                 </div>
+                <hr class="my-4 text-black dark:text-white" />
+                <h1 class="text-lg text-black dark:text-white">Filter :</h1>
+                <div class="grid gap-6 mb-6 md:grid-cols-2">
+                  <div class="mt-5">
+                    <label
+                      for="segment"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      >Segment</label
+                    >
+                    <input
+                      type="text"
+                      id="segment"
+                      name="segment"
+                      placeholder="Masukkan Segment"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      required
+                    />
+                  </div>
+                  <div class="mt-5">
+                    <label
+                      for="alamat"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      >Alamat</label
+                    >
+                    <input
+                      type="text"
+                      id="alamat"
+                      name="alamat"
+                      placeholder="Masukkan Alamat"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      required
+                    />
+                  </div>
+                  <div class="">
+                    <label
+                      for="telp"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      >Telp</label
+                    >
+                    <input
+                      type="number"
+                      min="0"
+                      id="telp"
+                      name="telp"
+                      placeholder="0"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      required
+                    />
+                  </div>
+                  <div class="">
+                    <label
+                      for="kota"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      >Kota</label
+                    >
+                    <input
+                      type="text"
+                      id="kota"
+                      name="kota"
+                      placeholder="Masukkan Kota"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      required
+                    />
+                  </div>
+                </div>
                 <button
                   type="submit"
                   class="text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
                 >
-                  Submit
+                  Show
                 </button>
               </form>
             </div>
           </div>
-
-          <form class="w-full max-w-lg">
-            <div class="flex flex-wrap -mx-3 mb-6">
-              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                <label
-                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="sales"
-                >
-                  Sales
-                </label>
-                <div class="relative">
-                  <select
-                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="sales"
-                    name="sales"
-                  >
-                    <option value="">Pilih Salah Satu</option>
-                    <option value="sales1">Sales 1</option>
-                    <option value="sales2">Sales 2</option>
-                    <option value="sales3">Sales 3</option>
-                  </select>
-                </div>
-              </div>
-              <div class="w-full md:w-1/2 px-3">
-                <label
-                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="grid-first-name"
-                >
-                  Top
-                </label>
-                <input
-                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="top"
-                  name="top"
-                  type="number"
-                  min="0"
-                  placeholder="Masukkan Disini"
-                />
-              </div>
-              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0 mt-5">
-                <label
-                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="sales"
-                >
-                  Tipe Dokumen
-                </label>
-                <div class="relative">
-                  <select
-                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                    id="tipedokumen"
-                    name="tipedokumen"
-                  >
-                    <option value="">Pilih Salah Satu</option>
-                    <option value="sales1">Tipe Dokumen 1</option>
-                    <option value="sales2">Tipe Dokumen 2</option>
-                    <option value="sales3">Tipe Dokumen 3</option>
-                  </select>
-                </div>
-              </div>
-              <div class="w-full md:w-1/2 px-3 mt-5">
-                <label
-                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="grid-first-name"
-                >
-                  Toleransi Top
-                </label>
-                <input
-                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="toleransitop"
-                  name="toleransitop"
-                  type="number"
-                  min="0"
-                  placeholder="Masukkan Disini"
-                />
-              </div>
-              <div class="w-full md:w-1/2 px-3 mt-5">
-                <label
-                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="keterangan"
-                >
-                  Keterangan
-                </label>
-                <textarea
-                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="keterangan"
-                  name="keterangan"
-                  placeholder="Masukkan Disini"
-                ></textarea>
-              </div>
-              <div class="w-full md:w-1/2 px-3 mt-5">
-                <label
-                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="tanggal"
-                >
-                  Tanggal
-                </label>
-                <input
-                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="tanggal"
-                  name="tanggal"
-                  type="date"
-                />
-              </div>
-            </div>
-            <!-- Filter -->
-            <h3 class="text-2xl font-bold text-gray-900">Filter</h3>
-            <div class="flex flex-wrap -mx-3 mb-">
-              <br />
-              <div class="w-full md:w-1/2 px-3 mt-5">
-                <label
-                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="segment"
-                >
-                  Segment
-                </label>
-                <input
-                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="segment"
-                  name="segment"
-                  type="text"
-                  placeholder="Masukkan Segment Disini"
-                />
-              </div>
-              <div class="w-full md:w-1/2 px-3 mt-5">
-                <label
-                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="alamat"
-                >
-                  Alamat
-                </label>
-                <input
-                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="alamat"
-                  name="alamat"
-                  type="text"
-                  placeholder="Masukkan Alamat Disini"
-                />
-              </div>
-              <div class="w-full md:w-1/2 px-3 mt-5">
-                <label
-                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="telp"
-                >
-                  Telp
-                </label>
-                <input
-                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="telp"
-                  name="telp"
-                  type="text"
-                  placeholder="Masukkan Telp Disini"
-                />
-              </div>
-              <div class="w-full md:w-1/2 px-3 mt-5">
-                <label
-                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for="kota"
-                >
-                  Kota
-                </label>
-                <input
-                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="kota"
-                  name="kota"
-                  type="text"
-                  placeholder="Masukkan Kota Disini"
-                />
-              </div>
-              <!-- Filter -->
-            </div>
-            <button
-              class="btn btn-sm bg-cyan-500 hover:bg-cyan-600 text-white"
-              @click="showData"
-            >
-              Show
-            </button>
-          </form>
 
           <div
             class="mt-5 col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
