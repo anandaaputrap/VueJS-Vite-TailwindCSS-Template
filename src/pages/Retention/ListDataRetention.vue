@@ -111,10 +111,14 @@
                         <div class="font-semibold text-left">Nama Sales</div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Kode Calon Customer</div>
+                        <div class="font-semibold text-left">
+                          Kode Calon Customer
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Nama Calon Customer</div>
+                        <div class="font-semibold text-left">
+                          Nama Calon Customer
+                        </div>
                       </th>
                       <th class="p-2">
                         <div class="font-semibold text-left">Tanggal Awal</div>
@@ -139,25 +143,25 @@
                         </div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.nota }}</div>
+                        <div class="text-left">{{ item.KodeNota }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.tanggal }}</div>
+                        <div class="text-left">{{ item.KodeSales }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.sales }}</div>
+                        <div class="text-left">{{ item.NamaSales }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.cost }}</div>
+                        <div class="text-left">{{ item.KodeCalonCust }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.top }}</div>
+                        <div class="text-left">{{ item.NamaCalonCust }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.toleranceTop }}</div>
+                        <div class="text-left">{{ item.TglAwal }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.toleranceTop }}</div>
+                        <div class="text-left">{{ item.TglAkhir }}</div>
                       </td>
                       <td class="p-2">
                         <div class="flex items-center justify-center">
@@ -192,27 +196,32 @@
           />
           <div v-if="selectedItemIndex !== null">
             <div class="mb-2">
-              <strong>Kode Nota :</strong> {{ items[selectedItemIndex].nota }}
+              <strong>Kode Nota :</strong>
+              {{ items[selectedItemIndex].KodeNota }}
             </div>
             <div class="mb-2">
-              <strong>Kode Sales :</strong> {{ items[selectedItemIndex].tanggal }}
+              <strong>Kode Sales :</strong>
+              {{ items[selectedItemIndex].KodeSales }}
             </div>
             <div class="mb-2">
-              <strong>Nama Sales :</strong> {{ items[selectedItemIndex].sales }}
+              <strong>Nama Sales :</strong>
+              {{ items[selectedItemIndex].NamaSales }}
             </div>
             <div class="mb-2">
-              <strong>Kode Calon Customer :</strong> {{ items[selectedItemIndex].cost }}
+              <strong>Kode Calon Customer :</strong>
+              {{ items[selectedItemIndex].KodeCalonCust }}
             </div>
             <div class="mb-2">
-              <strong>Nama Calon Customer :</strong> {{ items[selectedItemIndex].top }}
+              <strong>Nama Calon Customer :</strong>
+              {{ items[selectedItemIndex].NamaCalonCust }}
             </div>
             <div class="mb-2">
               <strong>Tanggal Awal:</strong>
-              {{ items[selectedItemIndex].toleranceTop }}
+              {{ items[selectedItemIndex].TglAwal }}
             </div>
             <div class="mb-2">
               <strong>Tanggal Akhir:</strong>
-              {{ items[selectedItemIndex].toleranceTop }}
+              {{ items[selectedItemIndex].TglAkhir }}
             </div>
           </div>
           <button
@@ -231,6 +240,7 @@
 import { ref } from "vue";
 import Sidebar from "../../partials/Sidebar.vue";
 import Header from "../../partials/Header.vue";
+import axios from "axios";
 
 export default {
   name: "ListDataRetention",
@@ -242,24 +252,6 @@ export default {
     return {
       sidebarOpen: false,
       items: [
-        {
-          checked: false,
-          nota: "001",
-          tanggal: "2023-06-01",
-          sales: "John Doe",
-          cost: "100",
-          top: "14",
-          toleranceTop: "2",
-        },
-        {
-          checked: false,
-          nota: "002",
-          tanggal: "2023-06-02",
-          sales: "Jane Smith",
-          cost: "200",
-          top: "30",
-          toleranceTop: "5",
-        },
         // Add more data here if needed
       ],
       selectAll: false,
@@ -270,6 +262,17 @@ export default {
       tanggalAkhir: "",
       isSearching: false,
     };
+  },
+  created() {
+    axios
+      .get("http://192.168.11.54:8000/api/retentionsql")
+      .then((response) => {
+        this.items = response.data.data;
+        console.log(response.data.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
   methods: {
     showDetail(index) {
@@ -297,6 +300,12 @@ export default {
 
       // Tampilkan data yang sesuai di tabel
       this.items = filteredItems;
+    },
+    editItem(item) {
+      // Logika untuk mengedit item
+    },
+    deleteItem(item) {
+      // Logika untuk menghapus item
     },
   },
 };
