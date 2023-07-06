@@ -241,19 +241,19 @@
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Nama</div>
+                        <div class="font-semibold text-left dark:text-white">Nama</div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Kode</div>
+                        <div class="font-semibold text-left dark:text-white">Kode</div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Alamat</div>
+                        <div class="font-semibold text-left dark:text-white">Alamat</div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Telp</div>
+                        <div class="font-semibold text-left dark:text-white">Telp</div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Segment</div>
+                        <div class="font-semibold text-left dark:text-white">Segment</div>
                       </th>
                     </tr>
                   </thead>
