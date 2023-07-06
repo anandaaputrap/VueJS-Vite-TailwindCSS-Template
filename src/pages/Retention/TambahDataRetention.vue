@@ -122,7 +122,7 @@
                   ></textarea>
                 </div>
                 <hr class="my-4 text-black dark:text-white" />
-                <!--Pembatas Cuy-->
+                
                 <div
                   class="col-span-full xl:col-span-2 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
                 >
@@ -135,8 +135,7 @@
                       Filter
                     </h2>
                   </header>
-                  <div class="p-3">
-                    <!-- Card content -->
+                  <div class="p-5">
                     <div class="grid gap-6 mb-6 md:grid-cols-2">
                       <div class="mt-5">
                         <label
@@ -297,7 +296,7 @@
               </div>
             </div>
           </div>
-          <!--Tabel Selesai Disini-->
+          <!--Tabel Selesai Dibawah Ini-->
         </div>
       </main>
     </div>
