@@ -34,7 +34,7 @@
             </div>
             <form class="px-5 py-3">
               <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700">
+                <label class="block text-sm font-medium text-gray-700 dark:text-slate-100">
                   Nama
                 </label>
                 <input
@@ -45,7 +45,7 @@
                 />
               </div>
               <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700">
+                <label class="block text-sm font-medium text-gray-700 dark:text-slate-100">
                   Alamat
                 </label>
                 <textarea
@@ -55,7 +55,7 @@
                 ></textarea>
               </div>
               <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700">
+                <label class="block text-sm font-medium text-gray-700 dark:text-slate-100">
                   Email
                 </label>
                 <input
@@ -66,7 +66,7 @@
                 />
               </div>
               <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700">
+                <label class="block text-sm font-medium text-gray-700 dark:text-slate-100">
                   Telp
                 </label>
                 <input
@@ -77,7 +77,7 @@
                 />
               </div>
               <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700">
+                <label class="block text-sm font-medium text-gray-700 dark:text-slate-100">
                   Segment
                 </label>
                 <input
@@ -88,7 +88,7 @@
                 />
               </div>
               <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700">
+                <label class="block text-sm font-medium text-gray-700 dark:text-slate-100">
                   Sumber
                 </label>
                 <input

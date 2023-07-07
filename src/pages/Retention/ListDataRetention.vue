@@ -261,6 +261,7 @@ export default {
       tanggalAwal: "",
       tanggalAkhir: "",
       isSearching: false,
+      allItems: [],
     };
   },
   created() {
@@ -268,6 +269,7 @@ export default {
       .get("http://192.168.11.54:8000/api/retentionsql")
       .then((response) => {
         this.items = response.data.data;
+        this.allItems = response.data.data;
         console.log(response.data.data);
       })
       .catch((error) => {
@@ -290,12 +292,12 @@ export default {
     },
     cariTanggal() {
       // Filter data berdasarkan rentang tanggal
-      const filteredItems = this.items.filter((item) => {
-        const tanggalItem = new Date(item.tanggal);
-        const tanggalAwal = new Date(this.tanggalAwal);
-        const tanggalAkhir = new Date(this.tanggalAkhir);
+      const filteredItems = this.allItems.filter((item) => {
+        const itemDate = new Date(item.TglAwal);
+        const startDate = new Date(this.tanggalAwal);
+        const endDate = new Date(this.tanggalAkhir);
 
-        return tanggalItem >= tanggalAwal && tanggalItem <= tanggalAkhir;
+        return itemDate >= startDate && itemDate <= endDate;
       });
 
       // Tampilkan data yang sesuai di tabel
