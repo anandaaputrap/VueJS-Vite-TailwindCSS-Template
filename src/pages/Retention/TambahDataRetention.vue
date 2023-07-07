@@ -100,127 +100,125 @@
                 </div>
               </div>
               <!--Kolom Selanjutnya-->
-                <div
-                  class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
-                >
-                  <div class="px-5 pt-5">
-                    <h2
-                      class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2"
-                    >
-                      Non Filter
-                    </h2>
-                    <hr class="my-4" />
-                    <div class="grid gap-6 mb-6 md:grid-cols-2 px-5">
-                      <div>
-                        <label
-                          for="sales"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                          >Sales</label
-                        >
-                        <select
-                          id="sales"
-                          name="sales"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          required
-                        >
-                          <option value="" disabled selected>
-                            Pilih Sales
-                          </option>
-                          <option value="option1">Sales 1</option>
-                          <option value="option2">Sales 2</option>
-                          <option value="option3">Sales 3</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label
-                          for="tipedokumen"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                          >Tipe Dokumen</label
-                        >
-                        <select
-                          id="tipedokumen"
-                          name="tipedokumen"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          required
-                        >
-                          <option value="" disabled selected>
-                            Pilih Tipe Dokumen
-                          </option>
-                          <option value="option1">Tipe 1</option>
-                          <option value="option2">Tipe 2</option>
-                          <option value="option3">Tipe 3</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label
-                          for="top"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                          >Top</label
-                        >
-                        <input
-                          type="number"
-                          id="top"
-                          name="top"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          placeholder="0"
-                          min="0"
-                          required
-                        />
-                      </div>
-                      <div>
-                        <label
-                          for="toleransitop"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                          >Toleransi Top</label
-                        >
-                        <input
-                          type="number"
-                          id="toleransitop"
-                          name="toleransitop"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          placeholder="0"
-                          min="0"
-                          required
-                        />
-                      </div>
-                      <div>
-                        <label
-                          for="tanggal"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                          >Tanggal</label
-                        >
-                        <input
-                          type="date"
-                          id="tanggal"
-                          name="tanggal"
-                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div class="mb-6 px-5">
+              <div
+                class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+              >
+                <div class="px-5 pt-5">
+                  <h2
+                    class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2"
+                  >
+                    Non Filter
+                  </h2>
+                  <hr class="my-4" />
+                  <div class="grid gap-6 mb-6 md:grid-cols-2 px-5">
+                    <div>
                       <label
-                        for="keterangan"
+                        for="sales"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Keterangan</label
+                        >Sales</label
                       >
-                      <textarea
-                        type="text"
-                        id="keterangan"
-                        name="keterangan"
+                      <select
+                        id="sales"
+                        name="sales"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Keterangan"
                         required
-                      ></textarea>
-                      <button
-                        type="submit"
-                        class="mt-5 text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
                       >
-                        Show
-                      </button>
+                        <option value="" disabled selected>Pilih Sales</option>
+                        <option value="option1">Sales 1</option>
+                        <option value="option2">Sales 2</option>
+                        <option value="option3">Sales 3</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        for="tipedokumen"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Tipe Dokumen</label
+                      >
+                      <select
+                        id="tipedokumen"
+                        name="tipedokumen"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required
+                      >
+                        <option value="" disabled selected>
+                          Pilih Tipe Dokumen
+                        </option>
+                        <option value="option1">Tipe 1</option>
+                        <option value="option2">Tipe 2</option>
+                        <option value="option3">Tipe 3</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label
+                        for="top"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Top</label
+                      >
+                      <input
+                        type="number"
+                        id="top"
+                        name="top"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="0"
+                        min="0"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label
+                        for="toleransitop"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Toleransi Top</label
+                      >
+                      <input
+                        type="number"
+                        id="toleransitop"
+                        name="toleransitop"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="0"
+                        min="0"
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label
+                        for="tanggal"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Tanggal</label
+                      >
+                      <input
+                        type="date"
+                        id="tanggal"
+                        name="tanggal"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required
+                      />
                     </div>
                   </div>
+                  <div class="mb-6 px-5">
+                    <label
+                      for="keterangan"
+                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      >Keterangan</label
+                    >
+                    <textarea
+                      type="text"
+                      id="keterangan"
+                      name="keterangan"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Keterangan"
+                      required
+                    ></textarea>
+                    <button
+                      type="submit"
+                      class="mt-5 text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
+                    >
+                      Show
+                    </button>
+                  </div>
                 </div>
+              </div>
             </div>
           </form>
           <!--Coba Form Lagi-->
