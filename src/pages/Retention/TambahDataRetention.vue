@@ -18,9 +18,216 @@
             <!-- Right: Actions -->
             <div
               class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2"
-            >
-            </div>
+            ></div>
           </div>
+
+          <!--Coba Form Lagi-->
+          <form action="">
+            <div class="grid grid-cols-12 gap-6">
+              <div
+                class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+              >
+                <div class="px-5 pt-5">
+                  <h2
+                    class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2"
+                  >
+                    Filter
+                  </h2>
+                  <hr class="my-4" />
+                  <div class="grid gap-6 mb-6 md:grid-cols-2 px-5">
+                    <div class="mt-5">
+                      <label
+                        for="segment"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Segment</label
+                      >
+                      <input
+                        type="text"
+                        id="segment"
+                        name="segment"
+                        placeholder="Masukkan Segment"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required
+                      />
+                    </div>
+                    <div class="mt-5">
+                      <label
+                        for="alamat"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Alamat</label
+                      >
+                      <input
+                        type="text"
+                        id="alamat"
+                        name="alamat"
+                        placeholder="Masukkan Alamat"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required
+                      />
+                    </div>
+                    <div class="">
+                      <label
+                        for="telp"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Telp</label
+                      >
+                      <input
+                        type="number"
+                        min="0"
+                        id="telp"
+                        name="telp"
+                        placeholder="0"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required
+                      />
+                    </div>
+                    <div class="">
+                      <label
+                        for="kota"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Kota</label
+                      >
+                      <input
+                        type="text"
+                        id="kota"
+                        name="kota"
+                        placeholder="Masukkan Kota"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Kolom Selanjutnya-->
+              <div
+                class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+              >
+                <div
+                  class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+                >
+                  <div class="px-5 pt-5">
+                    <h2
+                      class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2"
+                    >
+                      Non Filter
+                    </h2>
+                    <hr class="my-4" />
+                    <div class="grid gap-6 mb-6 md:grid-cols-2 px-5">
+                      <div>
+                        <label
+                          for="sales"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >Sales</label
+                        >
+                        <select
+                          id="sales"
+                          name="sales"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          required
+                        >
+                          <option value="" disabled selected>
+                            Pilih Sales
+                          </option>
+                          <option value="option1">Sales 1</option>
+                          <option value="option2">Sales 2</option>
+                          <option value="option3">Sales 3</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label
+                          for="tipedokumen"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >Tipe Dokumen</label
+                        >
+                        <select
+                          id="tipedokumen"
+                          name="tipedokumen"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          required
+                        >
+                          <option value="" disabled selected>
+                            Pilih Tipe Dokumen
+                          </option>
+                          <option value="option1">Tipe 1</option>
+                          <option value="option2">Tipe 2</option>
+                          <option value="option3">Tipe 3</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label
+                          for="top"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >Top</label
+                        >
+                        <input
+                          type="number"
+                          id="top"
+                          name="top"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="0"
+                          min="0"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="toleransitop"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >Toleransi Top</label
+                        >
+                        <input
+                          type="number"
+                          id="toleransitop"
+                          name="toleransitop"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          placeholder="0"
+                          min="0"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="tanggal"
+                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >Tanggal</label
+                        >
+                        <input
+                          type="date"
+                          id="tanggal"
+                          name="tanggal"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="mb-6 px-5">
+                      <label
+                        for="keterangan"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Keterangan</label
+                      >
+                      <textarea
+                        type="text"
+                        id="keterangan"
+                        name="keterangan"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Keterangan"
+                        required
+                      ></textarea>
+                      <button
+                        type="submit"
+                        class="mt-5 text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
+                      >
+                        Show
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+          <!--Coba Form Lagi-->
 
           <form action="">
             <div
@@ -96,11 +303,11 @@
                   />
                 </div>
               </div>
-              <hr class="my-4">
+              <hr class="my-4" />
               <h2 class="font-semibold text-slate-800 dark:text-slate-100 ml-5">
                 Non Filter
               </h2>
-              <br>
+              <br />
               <div class="grid gap-6 mb-6 md:grid-cols-2 px-5">
                 <div>
                   <label
@@ -241,19 +448,54 @@
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left dark:text-white">Nama</div>
+                        <div class="font-semibold text-left dark:text-white">
+                          Segment
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left dark:text-white">Kode</div>
+                        <div class="font-semibold text-left dark:text-white">
+                          Alamat
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left dark:text-white">Alamat</div>
+                        <div class="font-semibold text-left dark:text-white">
+                          Telp
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left dark:text-white">Telp</div>
+                        <div class="font-semibold text-left dark:text-white">
+                          Kota
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left dark:text-white">Segment</div>
+                        <div class="font-semibold text-left dark:text-white">
+                          Sales
+                        </div>
+                      </th>
+                      <th class="p-2">
+                        <div class="font-semibold text-left dark:text-white">
+                          Tipe Dokumen
+                        </div>
+                      </th>
+                      <th class="p-2">
+                        <div class="font-semibold text-left dark:text-white">
+                          Top
+                        </div>
+                      </th>
+                      <th class="p-2">
+                        <div class="font-semibold text-left dark:text-white">
+                          Toleransi Top
+                        </div>
+                      </th>
+                      <th class="p-2">
+                        <div class="font-semibold text-left dark:text-white">
+                          Tanggal
+                        </div>
+                      </th>
+                      <th class="p-2">
+                        <div class="font-semibold text-left dark:text-white">
+                          Keterangan
+                        </div>
                       </th>
                     </tr>
                   </thead>
@@ -269,10 +511,7 @@
                         </div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.nama }}</div>
-                      </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ item.kode }}</div>
+                        <div class="text-left">{{ item.segment }}</div>
                       </td>
                       <td class="p-2">
                         <div class="text-left">{{ item.alamat }}</div>
@@ -281,7 +520,25 @@
                         <div class="text-left">{{ item.telp }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.segment }}</div>
+                        <div class="text-left">{{ item.kota }}</div>
+                      </td>
+                      <td class="p-2">
+                        <div class="text-left">{{ item.sales }}</div>
+                      </td>
+                      <td class="p-2">
+                        <div class="text-left">{{ item.tipedokumen }}</div>
+                      </td>
+                      <td class="p-2">
+                        <div class="text-left">{{ item.top }}</div>
+                      </td>
+                      <td class="p-2">
+                        <div class="text-left">{{ item.toleransitop }}</div>
+                      </td>
+                      <td class="p-2">
+                        <div class="text-left">{{ item.tanggal }}</div>
+                      </td>
+                      <td class="p-2">
+                        <div class="text-left">{{ item.keterangan }}</div>
                       </td>
                     </tr>
                   </tbody>
