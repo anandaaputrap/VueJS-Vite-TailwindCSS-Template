@@ -33,11 +33,11 @@
               </h2>
             </div>
             <form>
-              <div class="grid gap-6 mb-6 md:grid-cols-2 px-5">
+              <div class="grid gap-2 mb-2 md:grid-cols-2 px-5">
                 <div>
                   <label
                     for="telp"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    class="block text-sm font-medium text-gray-900 dark:text-white"
                     >Telp</label
                   >
                   <input
@@ -49,11 +49,24 @@
                     placeholder="Masukkan Nomor Telepon"
                     required
                   />
+                  <button
+                    class="px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg mt-2"
+                    onclick="checkNumber()"
+                  >
+                    Cek Nomor Telp
+                  </button>
+                  <input
+                    type="checkbox"
+                    id="checklist"
+                    name="checklist"
+                    class="ml-2"
+                    disabled
+                  />
                 </div>
                 <div>
                   <label
                     for="email"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    class="block text-sm font-medium text-gray-900 dark:text-white"
                     >Email</label
                   >
                   <input
@@ -68,7 +81,7 @@
                 <div>
                   <label
                     for="nama"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    class="block text-sm font-medium text-gray-900 dark:text-white"
                     >Nama</label
                   >
                   <input
@@ -83,7 +96,7 @@
                 <div>
                   <label
                     for="segment"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    class="block text-sm font-medium text-gray-900 dark:text-white"
                     >Segment</label
                   >
                   <input
@@ -98,7 +111,7 @@
                 <div class="">
                   <label
                     for="alamat"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    class="block text-sm font-medium text-gray-900 dark:text-white"
                     >Alamat</label
                   >
                   <textarea
@@ -113,7 +126,7 @@
                 <div>
                   <label
                     for="sumber"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    class="block text-sm font-medium text-gray-900 dark:text-white"
                     >Sumber</label
                   >
                   <input

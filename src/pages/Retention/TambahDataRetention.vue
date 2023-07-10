@@ -19,8 +19,8 @@
             <div
               class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2"
             >
-            <h2></h2>
-          </div>
+              <h2></h2>
+            </div>
           </div>
 
           <!--Coba Form Lagi-->
@@ -35,7 +35,7 @@
                   >
                     Filter
                   </h2>
-                  <hr class="my-1" />
+                  <hr />
                   <div class="grid gap-2 md:grid-cols-2 px-5">
                     <div class="">
                       <label
@@ -100,11 +100,11 @@
                     </div>
                   </div>
                   <button
-                      type="submit"
-                      class="mt-5 ml-5 bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
-                    >
-                      Show
-                    </button>
+                    type="submit"
+                    class="mt-5 ml-5 bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
+                  >
+                    Show
+                  </button>
                 </div>
               </div>
               <!--Kolom Selanjutnya-->
@@ -117,7 +117,7 @@
                   >
                     Non Filter
                   </h2>
-                  <hr class="my-1"/>
+                  <hr />
                   <div class="grid gap-2 mb-6 md:grid-cols-2 px-5">
                     <div>
                       <label
@@ -133,7 +133,7 @@
                         required
                       />
                     </div>
-                    <hr>
+                    <br />
                     <div>
                       <label
                         for="sales"
@@ -175,7 +175,7 @@
                     <div>
                       <label
                         for="top"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block text-sm font-medium text-gray-900 dark:text-white"
                         >Top</label
                       >
                       <input
@@ -191,7 +191,7 @@
                     <div>
                       <label
                         for="toleransitop"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block text-sm font-medium text-gray-900 dark:text-white"
                         >Toleransi Top</label
                       >
                       <input
@@ -203,12 +203,12 @@
                         min="0"
                         required
                       />
-                    </div>                   
+                    </div>
                   </div>
-                  <div class="mb-2 px-5">
+                  <div class="mb-1 px-5">
                     <label
                       for="keterangan"
-                      class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                      class="block text-sm font-medium text-gray-900 dark:text-white"
                       >Keterangan</label
                     >
                     <textarea
@@ -256,52 +256,72 @@
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
+                        <div
+                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                        >
                           Segment
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
+                        <div
+                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                        >
                           Alamat
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
+                        <div
+                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                        >
                           Telp
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
+                        <div
+                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                        >
                           Kota
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
+                        <div
+                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                        >
                           Sales
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
+                        <div
+                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                        >
                           Tipe Dokumen
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
+                        <div
+                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                        >
                           Top
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
+                        <div
+                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                        >
                           Toleransi Top
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
+                        <div
+                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                        >
                           Tanggal
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
+                        <div
+                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                        >
                           Keterangan
                         </div>
                       </th>
