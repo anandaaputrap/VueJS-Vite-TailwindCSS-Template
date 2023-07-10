@@ -14,28 +14,30 @@
       <main>
         <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
           <!-- Dashboard actions -->
-          <div class="sm:flex sm:justify-between sm:items-center mb-8">
+          <div class="sm:flex sm:justify-between sm:items-center">
             <!-- Right: Actions -->
             <div
               class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2"
-            ></div>
+            >
+            <h2></h2>
+          </div>
           </div>
 
           <!--Coba Form Lagi-->
           <form action="">
-            <div class="grid grid-cols-8 gap-5">
+            <div class="grid grid-cols-8 gap-1">
               <div
-                class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+                class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border-cyan-400 border-2 dark:border-slate-700"
               >
-                <div class="px-5 pt-5">
+                <div class="px-1 pt-1">
                   <h2
-                    class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2"
+                    class="text-lg font-semibold text-slate-800 dark:text-slate-100 ml-5"
                   >
                     Filter
                   </h2>
-                  <hr class="my-4" />
-                  <div class="grid gap-6 mb-6 md:grid-cols-2 px-5">
-                    <div class="mt-5">
+                  <hr class="my-1" />
+                  <div class="grid gap-2 md:grid-cols-2 px-5">
+                    <div class="">
                       <label
                         for="segment"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -50,7 +52,7 @@
                         required
                       />
                     </div>
-                    <div class="mt-5">
+                    <div class="">
                       <label
                         for="alamat"
                         class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -97,20 +99,41 @@
                       />
                     </div>
                   </div>
+                  <button
+                      type="submit"
+                      class="mt-5 ml-5 bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
+                    >
+                      Show
+                    </button>
                 </div>
               </div>
               <!--Kolom Selanjutnya-->
               <div
-                class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+                class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border-cyan-400 border-2 dark:border-slate-700"
               >
-                <div class="px-5 pt-5">
+                <div class="px-1 pt-1">
                   <h2
-                    class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2"
+                    class="text-lg font-semibold text-slate-800 dark:text-slate-100 ml-5"
                   >
                     Non Filter
                   </h2>
-                  <hr class="my-4" />
-                  <div class="grid gap-6 mb-6 md:grid-cols-2 px-5">
+                  <hr class="my-1"/>
+                  <div class="grid gap-2 mb-6 md:grid-cols-2 px-5">
+                    <div>
+                      <label
+                        for="tanggal"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        >Tanggal</label
+                      >
+                      <input
+                        type="date"
+                        id="tanggal"
+                        name="tanggal"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        required
+                      />
+                    </div>
+                    <hr>
                     <div>
                       <label
                         for="sales"
@@ -180,23 +203,9 @@
                         min="0"
                         required
                       />
-                    </div>
-                    <div>
-                      <label
-                        for="tanggal"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Tanggal</label
-                      >
-                      <input
-                        type="date"
-                        id="tanggal"
-                        name="tanggal"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required
-                      />
-                    </div>
+                    </div>                   
                   </div>
-                  <div class="mb-6 px-5">
+                  <div class="mb-2 px-5">
                     <label
                       for="keterangan"
                       class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -210,12 +219,6 @@
                       placeholder="Keterangan"
                       required
                     ></textarea>
-                    <button
-                      type="submit"
-                      class="mt-5 text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
-                    >
-                      Show
-                    </button>
                   </div>
                 </div>
               </div>
@@ -225,15 +228,15 @@
 
           <!--Tabel Dimulai Dibawah Ini-->
           <div
-            class="mt-5 col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+            class="mt-1 col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-cyan-400 border-2 dark:border-slate-700"
           >
-            <header
+            <!-- <header
               class="px-5 py-4 border-b border-slate-100 dark:border-slate-700"
             >
               <h2 class="font-semibold text-slate-800 dark:text-slate-100">
                 Tambah Data Retention
               </h2>
-            </header>
+            </header> -->
             <div class="p-3">
               <!-- Table -->
               <div class="overflow-x-scroll overflow-y-scroll max-h-96">
@@ -253,52 +256,52 @@
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left dark:text-white">
+                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
                           Segment
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left dark:text-white">
+                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
                           Alamat
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left dark:text-white">
+                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
                           Telp
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left dark:text-white">
+                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
                           Kota
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left dark:text-white">
+                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
                           Sales
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left dark:text-white">
+                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
                           Tipe Dokumen
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left dark:text-white">
+                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
                           Top
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left dark:text-white">
+                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
                           Toleransi Top
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left dark:text-white">
+                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
                           Tanggal
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left dark:text-white">
+                        <div class="font-semibold text-left text-cyan-400 dark:text-white">
                           Keterangan
                         </div>
                       </th>
@@ -306,7 +309,7 @@
                   </thead>
                   <!-- Table body -->
                   <tbody
-                    class="text-sm font-medium divide-y divide-slate-100 dark:divide-slate-700"
+                    class="text-sfm font-medium divide-y divide-slate-100 dark:divide-slate-700"
                   >
                     <!-- Row -->
                     <tr v-for="(item, index) in filteredItems" :key="index">

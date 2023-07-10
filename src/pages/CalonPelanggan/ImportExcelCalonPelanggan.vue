@@ -14,7 +14,7 @@
       <main>
         <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
           <!-- Dashboard actions -->
-          <div class="sm:flex sm:justify-between sm:items-center mb-8">
+          <div class="sm:flex sm:justify-between sm:items-center">
             <!-- Right: Actions -->
             <div
               class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2"
@@ -22,7 +22,7 @@
           </div>
           <!-- Main -->
           <div
-            class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 mb-5"
+            class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-cyan-400 border-2 dark:border-slate-700 mb-5"
           >
             <div class="px-5 pt-5">
               <h2
@@ -33,10 +33,13 @@
             </div>
             <div class="px-5 py-3">
               <ul class="list-disc list-inside">
-                <li>File Excel Harus Berisi 3 Kolom</li>
-                <li>Kolom Pertama Berisi Nama</li>
-                <li>Kolom Kedua Berisi Nomor Telepon</li>
-                <li>Kolom Ketiga Berisi Alamat</li>
+                <li>File Excel Harus Berisi 6 Kolom</li>
+                <li>Kolom Pertama Berisi Nomor Telepon</li>
+                <li>Kolom Kedua Berisi Email</li>
+                <li>Kolom Ketiga Berisi Nama</li>
+                <li>Kolom Keempat Berisi Segment</li>
+                <li>Kolom Kelima Berisi Alamat</li>
+                <li>Kolom Keenam Berisi Sumber</li>
                 <li>File Excel Harus Berisi Minimal 1 Data</li>
               </ul>
             </div>

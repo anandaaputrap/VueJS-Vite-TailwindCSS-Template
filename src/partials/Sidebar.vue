@@ -202,29 +202,6 @@
               <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
                 <ul class="pl-9 mt-1" :class="!parentLink.expanded && 'hidden'">
                   <router-link
-                    to="/listdataretention"
-                    custom
-                    v-slot="{ href, navigate, isExactActive }"
-                  >
-                    <li class="mb-1 last:mb-0">
-                      <a
-                        class="block transition duration-150 truncate"
-                        :class="
-                          isExactActive
-                            ? 'text-indigo-500'
-                            : 'text-slate-400 hover:text-slate-200'
-                        "
-                        :href="href"
-                        @click="navigate"
-                      >
-                        <span
-                          class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200"
-                          >List Data</span
-                        >
-                      </a>
-                    </li>
-                  </router-link>
-                  <router-link
                     to="/tambahdataretention"
                     custom
                     v-slot="{ href, navigate, isExactActive }"
@@ -243,6 +220,29 @@
                         <span
                           class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200"
                           >Tambah Data</span
+                        >
+                      </a>
+                    </li>
+                  </router-link>
+                  <router-link
+                    to="/listdataretention"
+                    custom
+                    v-slot="{ href, navigate, isExactActive }"
+                  >
+                    <li class="mb-1 last:mb-0">
+                      <a
+                        class="block transition duration-150 truncate"
+                        :class="
+                          isExactActive
+                            ? 'text-indigo-500'
+                            : 'text-slate-400 hover:text-slate-200'
+                        "
+                        :href="href"
+                        @click="navigate"
+                      >
+                        <span
+                          class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200"
+                          >List Data</span
                         >
                       </a>
                     </li>
@@ -322,29 +322,6 @@
               <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
                 <ul class="pl-9 mt-1" :class="!parentLink.expanded && 'hidden'">
                   <router-link
-                    to="/listdatacalonpelanggan"
-                    custom
-                    v-slot="{ href, navigate, isExactActive }"
-                  >
-                    <li class="mb-1 last:mb-0">
-                      <a
-                        class="block transition duration-150 truncate"
-                        :class="
-                          isExactActive
-                            ? 'text-indigo-500'
-                            : 'text-slate-400 hover:text-slate-200'
-                        "
-                        :href="href"
-                        @click="navigate"
-                      >
-                        <span
-                          class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200"
-                          >List Data</span
-                        >
-                      </a>
-                    </li>
-                  </router-link>
-                  <router-link
                     to="/tambahdatacalonpelanggan"
                     custom
                     v-slot="{ href, navigate, isExactActive }"
@@ -363,6 +340,29 @@
                         <span
                           class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200"
                           >Tambah Data</span
+                        >
+                      </a>
+                    </li>
+                  </router-link>
+                  <router-link
+                    to="/listdatacalonpelanggan"
+                    custom
+                    v-slot="{ href, navigate, isExactActive }"
+                  >
+                    <li class="mb-1 last:mb-0">
+                      <a
+                        class="block transition duration-150 truncate"
+                        :class="
+                          isExactActive
+                            ? 'text-indigo-500'
+                            : 'text-slate-400 hover:text-slate-200'
+                        "
+                        :href="href"
+                        @click="navigate"
+                      >
+                        <span
+                          class="text-sm font-medium lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200"
+                          >List Data</span
                         >
                       </a>
                     </li>

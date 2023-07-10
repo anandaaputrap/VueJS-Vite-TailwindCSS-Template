@@ -12,16 +12,16 @@
       <main>
         <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
           <!-- Dashboard actions -->
-          <div class="sm:flex sm:justify-between sm:items-center mb-8">
+          <div class="sm:flex sm:justify-between sm:items-center">
             <!-- Right: Actions -->
             <div
               class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2"
             ></div>
           </div>
-
           <!-- Filter Tanggal -->
+
           <div
-            class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 mb-5"
+            class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-cyan-400 border-2 dark:border-slate-700 mb-3"
           >
             <div class="px-5 pt-5">
               <h2
@@ -30,51 +30,53 @@
                 Cari Berdasarkan Tanggal
               </h2>
             </div>
-            <div class="px-5 pb-5">
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 dark:text-white"
-                for="tanggalAwal"
-              >
-                Tanggal Awal
-              </label>
-              <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="tanggalAwal"
-                name="tanggalAwal"
-                v-model="tanggalAwal"
-                type="date"
-              />
-              <br />
-              <label
-                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 dark:text-white"
-                for="tanggalAkhir"
-              >
-                Tanggal Akhir
-              </label>
-              <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="tanggalAkhir"
-                name="tanggalAkhir"
-                v-model="tanggalAkhir"
-                type="date"
-              />
-              <br />
+            <form>
+              <div class="grid gap-6 mb-6 md:grid-cols-2 px-5">
+                <div>
+                  <label
+                    for="tanggalawal"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Tanggal Awal</label
+                  >
+                  <input
+                    type="date"
+                    id="tanggalawal"
+                    name="tanggalawal"
+                    v-model="tanggalAwal"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="tanggalakhir"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Tanggal Akhir</label
+                  >
+                  <input
+                    type="date"
+                    id="tanggalakhir"
+                    name="tanggalakhir"
+                    v-model="tanggalAkhir"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Doe"
+                    required
+                  />
+                </div>
+              </div>
               <button
-                @click="cariTanggal"
-                class="bg-cyan-500 hover:bg-cyan-600 text-white py-1 px-3 rounded"
+                type="submit"
+                class="text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ml-5 mb-3"
               >
                 Cari
               </button>
-
-              <div v-if="hasilPencarian" class="mt-4">
-                Anda mencari dari tanggal {{ tanggalAwal }} hingga tanggal
-                {{ tanggalAkhir }}
-              </div>
-            </div>
+            </form>
           </div>
+
+          <hr />
           <!-- Filter Tanggal -->
           <div
-            class="col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700"
+            class="col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-cyan-400 border-2 dark:border-slate-700"
           >
             <header
               class="px-5 py-4 border-b border-slate-100 dark:border-slate-700"
@@ -102,32 +104,44 @@
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Kode Nota</div>
+                        <div class="font-semibold text-left text-cyan-400">
+                          Kode Nota
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Kode Sales</div>
+                        <div class="font-semibold text-left text-cyan-400">
+                          Kode Sales
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Nama Sales</div>
+                        <div class="font-semibold text-left text-cyan-400">
+                          Nama Sales
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">
+                        <div class="font-semibold text-left text-cyan-400">
                           Kode Calon Customer
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">
+                        <div class="font-semibold text-left text-cyan-400">
                           Nama Calon Customer
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Tanggal Awal</div>
+                        <div class="font-semibold text-left text-cyan-400">
+                          Tanggal Awal
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Tanggal Akhir</div>
+                        <div class="font-semibold text-left text-cyan-400">
+                          Tanggal Akhir
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-center">Aksi</div>
+                        <div class="font-semibold text-center text-cyan-400">
+                          Aksi
+                        </div>
                       </th>
                     </tr>
                   </thead>
@@ -188,7 +202,7 @@
         class="fixed inset-0 flex items-center justify-center z-50 animate-fade-up animate-once"
       >
         <div
-          class="bg-white rounded shadow-lg p-4 max-w-md w-full border-solid border-2 border-slate-500"
+          class="bg-white rounded shadow-lg p-4 max-w-md w-full border-solid border-2 border-cyan-500"
         >
           <h3 class="text-lg font-semibold mb-2">Detail Data</h3>
           <hr

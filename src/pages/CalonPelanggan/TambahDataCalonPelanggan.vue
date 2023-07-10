@@ -14,7 +14,7 @@
       <main>
         <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
           <!-- Dashboard actions -->
-          <div class="sm:flex sm:justify-between sm:items-center mb-8">
+          <div class="sm:flex sm:justify-between sm:items-center">
             <!-- Right: Actions -->
             <div
               class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2"
@@ -23,7 +23,7 @@
 
           <!-- Main -->
           <div
-            class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-slate-200 dark:border-slate-700 mb-5"
+            class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-cyan-500 border-2 dark:border-slate-700 mb-5"
           >
             <div class="px-5 pt-5">
               <h2
@@ -32,82 +32,106 @@
                 Input Data Baru Calon Pelanggan
               </h2>
             </div>
-            <form class="px-5 py-3">
-              <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 dark:text-slate-100">
-                  Nama
-                </label>
-                <input
-                  name="nama"
-                  id="nama"
-                  type="text"
-                  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                />
+            <form>
+              <div class="grid gap-6 mb-6 md:grid-cols-2 px-5">
+                <div>
+                  <label
+                    for="telp"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Telp</label
+                  >
+                  <input
+                    type="number"
+                    min="0"
+                    id="telp"
+                    name="telp"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Masukkan Nomor Telepon"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="email"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Email</label
+                  >
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="example@example.com"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="nama"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Nama</label
+                  >
+                  <input
+                    type="text"
+                    id="nama"
+                    name="nama"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Masukkan Nama Disini"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="segment"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Segment</label
+                  >
+                  <input
+                    type="text"
+                    id="segment"
+                    name="segment"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Masukkan Segment Disini"
+                    required
+                  />
+                </div>
+                <div class="">
+                  <label
+                    for="alamat"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Alamat</label
+                  >
+                  <textarea
+                    type="text"
+                    id="alamat"
+                    name="alamat"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Masukkan Alamat Disini"
+                    required
+                  ></textarea>
+                </div>
+                <div>
+                  <label
+                    for="sumber"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >Sumber</label
+                  >
+                  <input
+                    type="text"
+                    id="sumber"
+                    name="sumber"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Masukkan Sumber Disini"
+                    required
+                  />
+                </div>
               </div>
-              <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 dark:text-slate-100">
-                  Alamat
-                </label>
-                <textarea
-                  name="alamat"
-                  id="alamat"
-                  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                ></textarea>
-              </div>
-              <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 dark:text-slate-100">
-                  Email
-                </label>
-                <input
-                  name="email"
-                  id="email"
-                  type="text"
-                  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                />
-              </div>
-              <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 dark:text-slate-100">
-                  Telp
-                </label>
-                <input
-                  name="telp"
-                  id="telp"
-                  type="text"
-                  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                />
-              </div>
-              <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 dark:text-slate-100">
-                  Segment
-                </label>
-                <input
-                  name="segment"
-                  id="segment"
-                  type="text"
-                  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                />
-              </div>
-              <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 dark:text-slate-100">
-                  Sumber
-                </label>
-                <input
-                  name="sumber"
-                  id="sumber"
-                  type="text"
-                  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                />
-              </div>
-              <div class="flex justify-end">
-                <button
-                  name="submit"
-                  id="submit"
-                  type="submit"
-                  class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  Simpan
-                </button>
-              </div>
+              <button
+                type="submit"
+                class="text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ml-5 mb-3"
+              >
+                Simpan
+              </button>
             </form>
           </div>
           <!-- Main -->
