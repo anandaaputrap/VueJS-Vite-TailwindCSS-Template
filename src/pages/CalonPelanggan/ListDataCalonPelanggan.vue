@@ -10,24 +10,24 @@
         @toggle-sidebar="sidebarOpen = !sidebarOpen"
       />
       <main>
-        <div class="sm:px-3 lg:px-2 py-2 w-full max-w-9xl mx-auto">
+        <div class="sm:px-1 lg:px-1 py-2 w-full max-w-9xl mx-auto">
           <!-- Filter Tanggal -->
           <div
             class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-cyan-400 border-2 dark:border-slate-700 mb-1"
           >
-            <div class="px-5 pt-5">
+            <!-- <div class="px-5 pt-5">
               <h2
                 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2"
               >
                 Cari Berdasarkan Tanggal
               </h2>
-            </div>
+            </div> -->
             <form>
-              <div class="grid gap-6 mb-6 md:grid-cols-2 px-5">
+              <div class="grid gap-1 mb-1 md:grid-cols-2 px-1">
                 <div>
                   <label
                     for="tanggalawal"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
                     >Tanggal Awal</label
                   >
                   <input
@@ -42,7 +42,7 @@
                 <div>
                   <label
                     for="tanggalakhir"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
                     >Tanggal Akhir</label
                   >
                   <input
@@ -58,7 +58,7 @@
               </div>
               <button
                 type="submit"
-                class="text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ml-5 mb-3"
+                class="text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2 text-center ml-1 mb-1"
               >
                 Cari
               </button>
@@ -66,9 +66,9 @@
           </div>
           <!-- Filter Tanggal -->
           <div
-            class="col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-cyan-400 border-2 dark:border-slate-700"
+            class="col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border-cyan-400 border-2 dark:border-slate-700"
           >
-            <div class="p-3">
+            <div class="">
               <!-- Table -->
               <div class="overflow-x-scroll overflow-y-scroll max-h-96">
                 <table class="table-auto w-full dark:text-slate-300">
@@ -102,7 +102,9 @@
                         <div class="font-semibold text-left">Alamat</div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Tipe Pelanggan</div>
+                        <div class="font-semibold text-left">
+                          Tipe Pelanggan
+                        </div>
                       </th>
                       <th class="p-2">
                         <div class="font-semibold text-left">Sumber</div>
@@ -230,9 +232,7 @@ export default {
       items: [
         // Add more data here if needed
       ],
-      allItems: [
-
-      ],
+      allItems: [],
       selectAll: false,
       showAddForm: false,
       showDetails: false,
@@ -249,8 +249,8 @@ export default {
     fetchData() {
       const requestBody = {
         App: "2",
-        Sif: '',
-        Search: "A"
+        Sif: "",
+        Search: "A",
       };
 
       axios
@@ -285,5 +285,4 @@ export default {
     },
   },
 };
-
 </script>

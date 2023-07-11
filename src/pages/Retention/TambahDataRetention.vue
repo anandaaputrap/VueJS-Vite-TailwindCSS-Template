@@ -12,20 +12,20 @@
         @toggle-sidebar="sidebarOpen = !sidebarOpen"
       />
       <main>
-        <div class="sm:px-3 lg:px-3 py-2 w-full max-w-9xl mx-auto">
-          <h1 class="text-black">RETENTION</h1>
+        <div class="sm:px-2 lg:px-2 py-1 w-full max-w-9xl mx-auto">
+          <!-- <h1 class="text-black">RETENTION</h1> -->
           <!--Coba Form Lagi-->
           <form action="">
             <div class="grid grid-cols-8 gap-1">
               <div
                 class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border-cyan-400 border-2 dark:border-slate-700"
               >
-                <div class="px-1 pt-1">
-                  <div class="grid gap-2 md:grid-cols-2 px-5">
+                <div class="pt-1">
+                  <div class="grid gap-1 md:grid-cols-2 px-1">
                     <div class="">
                       <label
                         for="segment"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
                         >Segment</label
                       >
                       <input
@@ -40,7 +40,7 @@
                     <div class="">
                       <label
                         for="alamat"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
                         >Alamat</label
                       >
                       <input
@@ -55,7 +55,7 @@
                     <div class="">
                       <label
                         for="telp"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
                         >Telp</label
                       >
                       <input
@@ -71,7 +71,7 @@
                     <div class="">
                       <label
                         for="kota"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
                         >Kota</label
                       >
                       <input
@@ -91,11 +91,11 @@
                 class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border-cyan-400 border-2 dark:border-slate-700"
               >
                 <div class="px-1 pt-1">
-                  <div class="grid gap-2 mb-6 md:grid-cols-2 px-5">
+                  <div class="grid gap-1 mb-1 md:grid-cols-2 px-1">
                     <div>
                       <label
                         for="tanggal"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
                         >Tanggal</label
                       >
                       <input
@@ -110,7 +110,7 @@
                     <div>
                       <label
                         for="sales"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
                         >Sales</label
                       >
                       <select
@@ -128,7 +128,7 @@
                     <div>
                       <label
                         for="tipedokumen"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
                         >Tipe Dokumen</label
                       >
                       <select
@@ -178,7 +178,7 @@
                       />
                     </div>
                   </div>
-                  <div class="mb-1 px-5">
+                  <div class="mb-1 px-1">
                     <label
                       for="keterangan"
                       class="block text-sm font-medium text-gray-900 dark:text-white"
@@ -196,11 +196,11 @@
                 </div>
               </div>
               <button
-                    type="submit"
-                    class="mt-1 ml-1 bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
-                  >
-                    Show
-                  </button>
+                type="submit"
+                class="ml-1 bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
+              >
+                Show
+              </button>
             </div>
           </form>
           <!--Coba Form Lagi-->
@@ -216,7 +216,7 @@
                 Tambah Data Retention
               </h2>
             </header> -->
-            <div class="p-3">
+            <div class="">
               <!-- Table -->
               <div class="overflow-x-scroll overflow-y-scroll max-h-96">
                 <table class="table-auto w-full dark:text-slate-300">
@@ -351,7 +351,7 @@
                   </tbody>
                 </table>
               </div>
-              <div class="flex justify-end mt-3">
+              <div class="flex justify-end mt-1 mr-1 mb-1">
                 <button
                   class="btn btn-sm bg-cyan-500 hover:bg-cyan-600 text-white"
                   @click="saveData"

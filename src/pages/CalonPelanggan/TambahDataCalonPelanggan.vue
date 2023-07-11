@@ -13,20 +13,19 @@
       />
       <main>
         <div class="sm:px-3 lg:px-2 py-2 w-full max-w-9xl mx-auto">
-
           <!-- Main -->
           <div
             class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-cyan-500 border-2 dark:border-slate-700 mb-5"
           >
-            <div class="px-5 pt-5">
+            <!-- <div class="px-5 pt-5">
               <h2
                 class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2"
               >
                 Input Data Baru Calon Pelanggan
               </h2>
-            </div>
+            </div> -->
             <form>
-              <div class="grid gap-2 mb-2 md:grid-cols-2 px-5">
+              <div class="grid gap-1 mb-2 md:grid-cols-2 px-1">
                 <div>
                   <label
                     for="telp"
@@ -43,7 +42,7 @@
                     required
                   />
                   <button
-                    class="px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg mt-2"
+                    class="px-1 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg mt-2"
                     onclick="checkNumber()"
                   >
                     Cek Nomor Telp
@@ -134,7 +133,7 @@
               </div>
               <button
                 type="submit"
-                class="text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center ml-5 mb-3"
+                class="text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-1 py-2 text-center ml-1 mb-1"
               >
                 Simpan
               </button>
