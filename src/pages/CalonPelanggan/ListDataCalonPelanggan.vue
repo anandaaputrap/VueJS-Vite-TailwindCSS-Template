@@ -21,7 +21,7 @@
 
           <!-- Filter Tanggal -->
           <div
-            class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-cyan-400 border-2 dark:border-slate-700 mb-3"
+            class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-cyan-400 border-2 dark:border-slate-700 mb-1"
           >
             <div class="px-5 pt-5">
               <h2
@@ -111,18 +111,16 @@
                         <div class="font-semibold text-left">Nama</div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Alamat</div>
-                      </th>
-                      <th class="p-2">
                         <div class="font-semibold text-left">Email</div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Segment</div>
+                        <div class="font-semibold text-left">Alamat</div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">
-                          Terdaftar Pada
-                        </div>
+                        <div class="font-semibold text-left">Tipe Pelanggan</div>
+                      </th>
+                      <th class="p-2">
+                        <div class="font-semibold text-left">Sumber</div>
                       </th>
                       <th class="p-2">
                         <div class="font-semibold text-center">Aksi</div>
@@ -141,25 +139,25 @@
                         </div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.kode }}</div>
+                        <div class="text-left">{{ item.Kode }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.telp }}</div>
+                        <div class="text-left">{{ item.Telp }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.nama }}</div>
+                        <div class="text-left">{{ item.Nama }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.alamat }}</div>
+                        <div class="text-left">{{ item.Email }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.email }}</div>
+                        <div class="text-left">{{ item.Alamat }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.segment }}</div>
+                        <div class="text-left">{{ item.TipePelanggan }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.terdaftarpada }}</div>
+                        <div class="text-left">{{ item.Sumber }}</div>
                       </td>
                       <td class="p-2">
                         <div class="flex items-center justify-center">
@@ -194,27 +192,27 @@
           />
           <div v-if="selectedItemIndex !== null">
             <div class="mb-2">
-              <strong>Kode :</strong> {{ items[selectedItemIndex].kode }}
+              <strong>Kode :</strong> {{ items[selectedItemIndex].Kode }}
             </div>
             <div class="mb-2">
-              <strong>Telepon :</strong> {{ items[selectedItemIndex].telp }}
+              <strong>Telepon :</strong> {{ items[selectedItemIndex].Telp }}
             </div>
             <div class="mb-2">
-              <strong>Nama :</strong> {{ items[selectedItemIndex].nama }}
+              <strong>Nama :</strong> {{ items[selectedItemIndex].Nama }}
             </div>
             <div class="mb-2">
-              <strong>Alamat :</strong> {{ items[selectedItemIndex].alamat }}
+              <strong>Email :</strong> {{ items[selectedItemIndex].Email }}
             </div>
             <div class="mb-2">
-              <strong>Email : </strong> {{ items[selectedItemIndex].email }}
+              <strong>Alamat : </strong> {{ items[selectedItemIndex].Alamat }}
             </div>
             <div class="mb-2">
-              <strong>Segment : </strong>
-              {{ items[selectedItemIndex].segment }}
+              <strong>Tipe Pelanggan : </strong>
+              {{ items[selectedItemIndex].TipePelanggan }}
             </div>
             <div class="mb-2">
-              <strong>Terdaftar Pada : </strong>
-              {{ items[selectedItemIndex].terdaftarpada }}
+              <strong>Sumber : </strong>
+              {{ items[selectedItemIndex].Sumber }}
             </div>
           </div>
           <button
@@ -245,39 +243,36 @@ export default {
     return {
       sidebarOpen: false,
       items: [
-        {
-          checked: false,
-          kode: "001",
-          telp: "081234567890",
-          nama: "John Doe",
-          alamat: "Jl. Surabaya",
-          email: "123@gmail.com",
-          segment: "2",
-          terdaftarpada: "2023-08-01",
-        },
-        {
-          checked: false,
-          kode: "002",
-          telp: "081234567891",
-          nama: "Amanda Doe",
-          alamat: "Jl. Nginden Semolo",
-          email: "456@gmail.com",
-          segment: "4",
-          terdaftarpada: "2023-08-02",
-        },
         // Add more data here if needed
       ],
-      products: [],
+      allItems: [
+
+      ],
       selectAll: false,
       showAddForm: false,
       showDetails: false,
       selectedItemIndex: null,
+      tanggalAwal: "",
+      tanggalAkhir: "",
+      isSearching: false,
     };
   },
-  mounted() {
-    this.fetchProducts();
+  created() {
+    this.fetchData();
   },
   methods: {
+    fetchData() {
+      axios
+        .get("http://192.168.11.54:8000/api/listCalonPelanggan")
+        .then((response) => {
+          this.items = response.data.data;
+          this.allItems = response.data.data;
+          console.log(response.data.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     showDetail(index) {
       this.selectedItemIndex = index;
       this.showDetails = true;
@@ -300,6 +295,12 @@ export default {
       } catch (error) {
         console.log(error);
       }
+    },
+    editItem(item) {
+      // Logika untuk mengedit item
+    },
+    deleteItem(item) {
+      // Logika untuk menghapus item
     },
   },
 };
