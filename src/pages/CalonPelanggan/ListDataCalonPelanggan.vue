@@ -262,12 +262,18 @@ export default {
   },
   methods: {
     fetchData() {
+      const requestBody = {
+        Key: "2",
+        Sif: "BL001/01/00002",
+        Search: "A"
+      };
+
       axios
-        .get("http://192.168.11.54:8000/api/listCalonPelanggan")
+        .post("http://192.168.11.54:8000/api/listCalonPelanggan", requestBody)
         .then((response) => {
-          this.items = response.data.data;
-          this.allItems = response.data.data;
-          console.log(response.data.data);
+          this.items = response.data;
+          this.allItems = response.data;
+          console.log(response.data);
         })
         .catch((error) => {
           console.log(error);
@@ -285,16 +291,6 @@ export default {
       this.items.forEach((item) => {
         item.checked = this.selectAll;
       });
-    },
-    async fetchProducts() {
-      try {
-        const response = await axios.get(
-          "https://dummyjson.com/products"
-        );
-        this.products = response.data;
-      } catch (error) {
-        console.log(error);
-      }
     },
     editItem(item) {
       // Logika untuk mengedit item
