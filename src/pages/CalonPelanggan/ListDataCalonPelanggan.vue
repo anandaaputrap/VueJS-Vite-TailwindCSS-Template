@@ -139,7 +139,7 @@
                         </div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.Kode }}</div>
+                        <div class="text-left">{{ item.kode }}</div>
                       </td>
                       <td class="p-2">
                         <div class="text-left">{{ item.Telp }}</div>
@@ -192,7 +192,7 @@
           />
           <div v-if="selectedItemIndex !== null">
             <div class="mb-2">
-              <strong>Kode :</strong> {{ items[selectedItemIndex].Kode }}
+              <strong>Kode :</strong> {{ items[selectedItemIndex].kode }}
             </div>
             <div class="mb-2">
               <strong>Telepon :</strong> {{ items[selectedItemIndex].Telp }}
@@ -264,7 +264,7 @@ export default {
     fetchData() {
       const requestBody = {
         Key: "2",
-        Sif: "BL001/01/00002",
+        Sif: '',
         Search: "A"
       };
 
