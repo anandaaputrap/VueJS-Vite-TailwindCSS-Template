@@ -12,14 +12,7 @@
         @toggle-sidebar="sidebarOpen = !sidebarOpen"
       />
       <main>
-        <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-          <!-- Dashboard actions -->
-          <div class="sm:flex sm:justify-between sm:items-center">
-            <!-- Right: Actions -->
-            <div
-              class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2"
-            ></div>
-          </div>
+        <div class="sm:px-3 lg:px-2 py-2 w-full max-w-9xl mx-auto">
 
           <!-- Main -->
           <div

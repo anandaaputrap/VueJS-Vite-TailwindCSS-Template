@@ -12,17 +12,8 @@
         @toggle-sidebar="sidebarOpen = !sidebarOpen"
       />
       <main>
-        <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-          <!-- Dashboard actions -->
-          <div class="sm:flex sm:justify-between sm:items-center">
-            <!-- Right: Actions -->
-            <div
-              class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2"
-            >
-              <h2></h2>
-            </div>
-          </div>
-
+        <div class="sm:px-3 lg:px-3 py-2 w-full max-w-9xl mx-auto">
+          <h1 class="text-black">RETENTION</h1>
           <!--Coba Form Lagi-->
           <form action="">
             <div class="grid grid-cols-8 gap-1">
@@ -30,12 +21,6 @@
                 class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border-cyan-400 border-2 dark:border-slate-700"
               >
                 <div class="px-1 pt-1">
-                  <h2
-                    class="text-lg font-semibold text-slate-800 dark:text-slate-100 ml-5"
-                  >
-                    Filter
-                  </h2>
-                  <hr />
                   <div class="grid gap-2 md:grid-cols-2 px-5">
                     <div class="">
                       <label
@@ -99,12 +84,6 @@
                       />
                     </div>
                   </div>
-                  <button
-                    type="submit"
-                    class="mt-5 ml-5 bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
-                  >
-                    Show
-                  </button>
                 </div>
               </div>
               <!--Kolom Selanjutnya-->
@@ -112,12 +91,6 @@
                 class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border-cyan-400 border-2 dark:border-slate-700"
               >
                 <div class="px-1 pt-1">
-                  <h2
-                    class="text-lg font-semibold text-slate-800 dark:text-slate-100 ml-5"
-                  >
-                    Non Filter
-                  </h2>
-                  <hr />
                   <div class="grid gap-2 mb-6 md:grid-cols-2 px-5">
                     <div>
                       <label
@@ -222,6 +195,12 @@
                   </div>
                 </div>
               </div>
+              <button
+                    type="submit"
+                    class="mt-1 ml-1 bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
+                  >
+                    Show
+                  </button>
             </div>
           </form>
           <!--Coba Form Lagi-->

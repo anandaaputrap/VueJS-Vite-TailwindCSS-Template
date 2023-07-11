@@ -10,15 +10,7 @@
         @toggle-sidebar="sidebarOpen = !sidebarOpen"
       />
       <main>
-        <div class="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-          <!-- Dashboard actions -->
-          <div class="sm:flex sm:justify-between sm:items-center">
-            <!-- Right: Actions -->
-            <div
-              class="grid grid-flow-col sm:auto-cols-max justify-start sm:justify-end gap-2"
-            ></div>
-          </div>
-
+        <div class="sm:px-3 lg:px-2 py-2 w-full max-w-9xl mx-auto">
           <!-- Filter Tanggal -->
           <div
             class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-cyan-400 border-2 dark:border-slate-700 mb-1"
@@ -76,13 +68,6 @@
           <div
             class="col-span-full xl:col-span-8 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-cyan-400 border-2 dark:border-slate-700"
           >
-            <header
-              class="px-5 py-4 border-b border-slate-100 dark:border-slate-700"
-            >
-              <h2 class="font-semibold text-slate-800 dark:text-slate-100">
-                List Data Calon Pelanggan
-              </h2>
-            </header>
             <div class="p-3">
               <!-- Table -->
               <div class="overflow-x-scroll overflow-y-scroll max-h-96">
@@ -263,7 +248,7 @@ export default {
   methods: {
     fetchData() {
       const requestBody = {
-        Key: "2",
+        App: "2",
         Sif: '',
         Search: "A"
       };
@@ -271,8 +256,8 @@ export default {
       axios
         .post("http://192.168.11.54:8000/api/listCalonPelanggan", requestBody)
         .then((response) => {
-          this.items = response.data;
-          this.allItems = response.data;
+          this.items = response.data.data;
+          this.allItems = response.data.data;
           console.log(response.data);
         })
         .catch((error) => {
@@ -300,4 +285,5 @@ export default {
     },
   },
 };
+
 </script>
