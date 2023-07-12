@@ -177,12 +177,15 @@ export default {
   data() {
     return {
       sidebarOpen: false,
-      telp: "",
-      nama: "",
-      alamat: "",
-      email: "",
-      tipepelanggan: "", 
-      sumber: "",
+      Telp: "",
+      Nama: "",
+      Alamat: "",
+      Email: "",
+      Tipepelanggan: "", 
+      Sumber: "",
+      App: "2",
+      Sif: "",
+      Operator: "",
       isChecked: false,
       isNumberChecked: false,
       showAlert: false,
@@ -192,8 +195,14 @@ export default {
   methods: {
     fetchData() {
       const requestBody = {
-        App: '2',
+        Telp: this.Telp,
+        Nama: this.Nama,
+        Alamat: this.Alamat,
+        Email: this.Email,
+        TipePel: this.TipePel,
+        Sumber: this.Sumber,
         Sif: '',
+        App: '2',  
         Operator: '',
       };
       return requestBody;
