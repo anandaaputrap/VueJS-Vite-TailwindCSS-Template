@@ -178,6 +178,11 @@ export default {
     return {
       sidebarOpen: false,
       telp: "",
+      nama: "",
+      alamat: "",
+      email: "",
+      tipepelanggan: "", 
+      sumber: "",
       isChecked: false,
       isNumberChecked: false,
       showAlert: false,
@@ -187,9 +192,9 @@ export default {
   methods: {
     fetchData() {
       const requestBody = {
-        App: "2",
-        Sif: "",
-        Operator: "",
+        App: '2',
+        Sif: '',
+        Operator: '',
       };
       return requestBody;
     },

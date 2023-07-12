@@ -132,9 +132,7 @@
                       <option value="" disabled selected>
                         Pilih Tipe Dokumen
                       </option>
-                      <option value="option1">Tipe 1</option>
-                      <option value="option2">Tipe 2</option>
-                      <option value="option3">Tipe 3</option>
+                      <option value="WI">WI</option>
                     </select>
                   </div>
                   <div class="w-full md:w-1/5 px-3 mb-1 md:mb-0">
