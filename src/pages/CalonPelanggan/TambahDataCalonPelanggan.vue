@@ -24,7 +24,19 @@
                 Input Data Baru Calon Pelanggan
               </h2>
             </div> -->
-            <form>
+            <form @submit.prevent="submitForm">
+              <!--Alert-->
+              <div
+                v-if="showAlert"
+                class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mx-3 mt-3"
+                role="alert"
+              >
+                <strong class="font-bold">Mohon Maaf!</strong>
+                <span class="block sm:inline">
+                  Nomor Yang Anda Masukkan Sudah Ada.</span
+                >
+              </div>
+              <!--Alert-->
               <div class="grid gap-1 mb-2 md:grid-cols-2 px-1">
                 <div>
                   <label
@@ -37,13 +49,14 @@
                     min="0"
                     id="telp"
                     name="telp"
+                    v-model="telp"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Masukkan Nomor Telepon"
+                    placeholder="Masukkan Nomor Telepon Tanpa 0/62"
                     required
                   />
                   <button
                     class="px-1 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg mt-2"
-                    onclick="checkNumber()"
+                    @click="checkNumber"
                   >
                     Cek Nomor Telp
                   </button>
@@ -52,7 +65,8 @@
                     id="checklist"
                     name="checklist"
                     class="ml-2"
-                    disabled
+                    v-model="isChecked"
+                    :disabled="!isNumberChecked"
                   />
                 </div>
                 <div>
@@ -87,16 +101,16 @@
                 </div>
                 <div>
                   <label
-                    for="segment"
+                    for="tipepelanggan"
                     class="block text-sm font-medium text-gray-900 dark:text-white"
-                    >Segment</label
+                    >Tipe Pelanggan</label
                   >
                   <input
                     type="text"
-                    id="segment"
-                    name="segment"
+                    id="tipepelanggan"
+                    name="tipepelanggan"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Masukkan Segment Disini"
+                    placeholder="Masukkan Tipe Pelanggan Disini"
                     required
                   />
                 </div>
@@ -131,12 +145,14 @@
                   />
                 </div>
               </div>
-              <button
-                type="submit"
-                class="text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-1 py-2 text-center ml-1 mb-1"
-              >
-                Simpan
-              </button>
+              <div class="flex justify-end mr-5">
+                <button
+                  type="submit"
+                  class="text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-1 py-2 text-center ml-1 mb-1"
+                >
+                  Simpan
+                </button>
+              </div>
             </form>
           </div>
           <!-- Main -->
@@ -150,6 +166,7 @@
 import { ref } from "vue";
 import Sidebar from "../../partials/Sidebar.vue";
 import Header from "../../partials/Header.vue";
+import axios from "axios";
 
 export default {
   name: "TambahDataCalonPelanggan",
@@ -157,12 +174,72 @@ export default {
     Sidebar,
     Header,
   },
-  setup() {
-    const sidebarOpen = ref(false);
-
+  data() {
     return {
-      sidebarOpen,
+      sidebarOpen: false,
+      telp: "",
+      isChecked: false,
+      isNumberChecked: false,
+      showAlert: false,
+      alertMessage: "Nomor Telp Sudah Ada",
     };
+  },
+  methods: {
+    fetchData() {
+      const requestBody = {
+        App: "2",
+        Sif: "",
+        Operator: "",
+      };
+      return requestBody;
+    },
+    async checkNumber() {
+      try {
+        const response = await axios.post(
+          "http://192.168.11.54:8000/api/ceknomor",
+          { telp: "+62" + this.telp }
+        );
+        const data = response.data;
+        if (data.status === "202") {
+          this.isChecked = false;
+          this.isNumberChecked = true;
+          this.showAlert = true;
+          console.log("Nomor Telp Sudah Ada");
+          setTimeout(() => {
+            this.showAlert = false;
+          }, 5000); // 5 detik
+        } else {
+          this.isChecked = true;
+          this.isNumberChecked = false;
+          this.showAlert = false;
+          console.log("Nomor Telp Belum Ada");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async submitForm() {
+      try {
+        const requestBody = this.fetchData();
+        const postData = {
+          Telp: this.telp,
+          Nama: this.nama,
+          Alamat: this.alamat,
+          Email: this.email,
+          TipePel: this.tipepelanggan,
+          Sumber: this.sumber,
+          ...requestBody,
+        };
+
+        const response = await axios.post(
+          "http://192.168.11.54:8000/api/createcalonpelanggan",
+          postData
+        );
+        console.log(response.data); // Output response dari API
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 };
 </script>

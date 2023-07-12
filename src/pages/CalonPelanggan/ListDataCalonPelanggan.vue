@@ -230,9 +230,11 @@ export default {
     return {
       sidebarOpen: false,
       items: [
-        // Add more data here if needed
+
       ],
-      allItems: [],
+      allItems: [
+        
+      ],
       selectAll: false,
       showAddForm: false,
       showDetails: false,
