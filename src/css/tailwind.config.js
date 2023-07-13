@@ -4,6 +4,7 @@ module.exports = {
   content: [
     './index.html',
     './src/**/*.{vue,js,ts,jsx,tsx}',
+    "./node_modules/flowbite/**/*.js",
   ],
   darkMode: 'class',
   theme: {
@@ -59,6 +60,7 @@ module.exports = {
     // eslint-disable-next-line global-require
     require('tailwindcss-animated'),
     require('@tailwindcss/forms'),
+    require('flowbite/plugin'),
     // add custom variant for expanding sidebar
     plugin(({ addVariant, e }) => {
       addVariant('sidebar-expanded', ({ modifySelectors, separator }) => {

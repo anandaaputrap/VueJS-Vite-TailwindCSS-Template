@@ -15,14 +15,7 @@
           <div
             class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border-cyan-400 border-2 dark:border-slate-700 mb-1"
           >
-            <!-- <div class="px-5 pt-5">
-              <h2
-                class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2"
-              >
-                Cari Berdasarkan Tanggal
-              </h2>
-            </div> -->
-            <form>
+            <form @submit.prevent="cariTanggal">
               <div class="grid gap-1 mb-1 mt-1 md:grid-cols-2 px-1">
                 <div>
                   <label
@@ -158,10 +151,10 @@
                         <div class="text-left">{{ item.NamaCalonCust }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.TglAwal }}</div>
+                        <div class="text-left">{{ formatDate(item.TglAwal) }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.TglAkhir }}</div>
+                        <div class="text-left">{{ formatDate(item.TglAkhir) }}</div>
                       </td>
                       <td class="p-2">
                         <div class="text-left">{{ item.Alamat }}</div>
@@ -219,11 +212,11 @@
             </div>
             <div class="mb-2">
               <strong>Tanggal Awal:</strong>
-              {{ items[selectedItemIndex].TglAwal }}
+              {{ formatDate(items[selectedItemIndex].TglAwal) }}
             </div>
             <div class="mb-2">
               <strong>Tanggal Akhir:</strong>
-              {{ items[selectedItemIndex].TglAkhir }}
+              {{ formatDate(items[selectedItemIndex].TglAkhir) }}
             </div>
             <div class="mb-2">
               <strong>Alamat:</strong>
@@ -261,9 +254,7 @@ export default {
   data() {
     return {
       sidebarOpen: false,
-      items: [
-        // Add more data here if needed
-      ],
+      items: [],
       allItems: [],
       selectAll: false,
       showAddForm: false,
@@ -275,21 +266,24 @@ export default {
     };
   },
   created() {
-    axios
-      .post("http://192.168.11.54:8000/api/RetentionListWeb", {
-        TglAwal: this.tanggalAwal,
-        TglAkhir: this.tanggalAkhir,
-      })
-      .then((response) => {
-        this.items = response.data.data;
-        this.allItems = response.data.data;
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.fetchData();
   },
   methods: {
+    fetchData() {
+      axios
+        .post("http://192.168.11.54:8000/api/RetentionListWeb", {
+          TglAwal: this.tanggalAwal,
+          TglAkhir: this.tanggalAkhir,
+        })
+        .then((response) => {
+          this.items = response.data.data;
+          this.allItems = response.data.data;
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
     showDetail(index) {
       this.selectedItemIndex = index;
       this.showDetails = true;
@@ -304,18 +298,15 @@ export default {
       });
     },
     cariTanggal() {
-      axios
-        .post("http://192.168.11.54:8000/api/RetentionListWeb", {
-          TglAwal: this.tanggalAwal,
-          TglAkhir: this.tanggalAkhir,
-        })
-        .then((response) => {
-          this.items = response.data.data;
-          console.log(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      this.fetchData();
+    },  
+    formatDate(date) {
+      // Mengganti Format Tanggal dari DD-MM-YYYY menjadi YYYY-MM-DD
+      const dateParts = date.split("-");
+      if (dateParts.length === 3) {
+        return `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
+      } 
+      return date;
     },
     editItem(item) {
       // Logika untuk mengedit item

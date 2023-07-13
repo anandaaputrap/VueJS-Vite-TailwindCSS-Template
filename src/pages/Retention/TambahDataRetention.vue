@@ -256,6 +256,13 @@
                         <div
                           class="font-semibold text-left text-cyan-400 dark:text-white"
                         >
+                          Tanggal
+                        </div>
+                      </th>
+                      <th class="p-2">
+                        <div
+                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                        >
                           Sales
                         </div>
                       </th>
@@ -278,13 +285,6 @@
                           class="font-semibold text-left text-cyan-400 dark:text-white"
                         >
                           Toleransi Top
-                        </div>
-                      </th>
-                      <th class="p-2">
-                        <div
-                          class="font-semibold text-left text-cyan-400 dark:text-white"
-                        >
-                          Tanggal
                         </div>
                       </th>
                       <th class="p-2">
@@ -320,6 +320,9 @@
                         <div class="text-left">{{ item.kota }}</div>
                       </td>
                       <td class="p-2">
+                        <div class="text-left">{{ item.tanggal }}</div>
+                      </td>
+                      <td class="p-2">
                         <div class="text-left">{{ item.sales }}</div>
                       </td>
                       <td class="p-2">
@@ -330,9 +333,6 @@
                       </td>
                       <td class="p-2">
                         <div class="text-left">{{ item.toleransitop }}</div>
-                      </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ item.tanggal }}</div>
                       </td>
                       <td class="p-2">
                         <div class="text-left">{{ item.keterangan }}</div>
