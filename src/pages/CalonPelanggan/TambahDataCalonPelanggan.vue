@@ -17,13 +17,6 @@
           <div
             class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border border-cyan-500 border-2 dark:border-slate-700 mb-5"
           >
-            <!-- <div class="px-5 pt-5">
-              <h2
-                class="text-lg font-semibold text-slate-800 dark:text-slate-100 mb-2"
-              >
-                Input Data Baru Calon Pelanggan
-              </h2>
-            </div> -->
             <form @submit.prevent="submitForm">
               <!--Alert-->
               <div
@@ -146,19 +139,21 @@
                 </div>
                 <div>
                   <input
-                    type="text"
+                    type="hidden"
                     id="sif"
                     name="sif"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    value="''"
+                    class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Masukkan Sumber Disini"
                     required
                   />
                 </div>
                 <div>
                   <input
-                    type="text"
+                    type="hidden"
                     id="app"
                     name="app"
+                    value="2"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Masukkan Sumber Disini"
                     required
@@ -166,9 +161,10 @@
                 </div>
                 <div>
                   <input
-                    type="text"
+                    type="hidden"
                     id="operator"
                     name="operator"
+                    value="wildan.y@altius.com"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Masukkan Sumber Disini"
                     required
@@ -213,6 +209,9 @@ export default {
       email: "",
       tipepelanggan: "",
       sumber: "",
+      sif: "",
+      app: "",
+      operator: "",
       isChecked: false,
       isNumberChecked: false,
       showAlert: false,
@@ -222,15 +221,15 @@ export default {
   methods: {
     fetchData() {
       const requestBody = {
-        telp: this.telp,
-        nama: this.nama,
-        alamat: this.alamat,
-        email: this.email,
-        tipepelanggan: this.tipepelanggan,
-        sumber: this.sumber,
-        Sif: "''",
-        App: "2",
-        Operator: "wildan.y@altius-erp.com",
+        Telp: this.telp,
+        Nama: this.nama,
+        Alamat: this.alamat,
+        Email: this.email,
+        TipePel: this.tipepelanggan,
+        Sumber: this.sumber,
+        Sif: this.sif,
+        App: this.app,
+        Operator: this.operator,
       };
       return requestBody;
     },

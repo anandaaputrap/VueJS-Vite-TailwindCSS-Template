@@ -15,7 +15,7 @@
         <div class="sm:px-2 lg:px-2 py-1 w-full max-w-9xl mx-auto">
           <!-- <h1 class="text-black">RETENTION</h1> -->
           <!--Coba Form Lagi-->
-          <form action="">
+          <form action="" @submit.prevent="showData">
             <div class="grid grid-cols-2 gap-1">
               <div
                 class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border-cyan-400 border-2 dark:border-slate-700"
@@ -24,18 +24,23 @@
                   <div class="col-span-1">
                     <div class="flex flex-col">
                       <label
-                        for="segment"
+                        for="tipepelanggan"
                         class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                        >Segment</label
+                        >Tipe Pelanggan</label
                       >
-                      <input
-                        type="text"
-                        id="segment"
-                        name="segment"
-                        placeholder="Masukkan Segment"
+                      <select
+                        id="tipepelanggan"
+                        name="tipepelanggan"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required
-                      />
+                      >
+                        <option value="" disabled selected>
+                          Pilih Tipe Pelanggan
+                        </option>
+                        <option value="MMH">MMH</option>
+                        <option value="ULC">ULC</option>
+                        <option value="PREMIUM">PREMIUM</option>
+                      </select>
                     </div>
                     <div class="flex flex-col">
                       <label
@@ -84,7 +89,7 @@
                       />
                     </div>
                   </div>
-                  <div class="col-span-1">
+                  <!-- <div class="col-span-1">
                     <div class="flex flex-col">
                       <label
                         for="tanggal"
@@ -156,8 +161,8 @@
                         required
                       />
                     </div>
-                  </div>
-                  <div class="col-span-1">
+                  </div> -->
+                  <!-- <div class="col-span-1">
                     <div class="flex flex-col">
                       <label
                         for="toleransitop"
@@ -188,7 +193,7 @@
                         required
                       ></textarea>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -228,7 +233,21 @@
                         <div
                           class="font-semibold text-left text-cyan-400 dark:text-white"
                         >
-                          Segment
+                          Kode
+                        </div>
+                      </th>
+                      <th class="p-2">
+                        <div
+                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                        >
+                          Nama
+                        </div>
+                      </th>
+                      <th class="p-2">
+                        <div
+                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                        >
+                          Tipe Pelanggan
                         </div>
                       </th>
                       <th class="p-2">
@@ -256,42 +275,7 @@
                         <div
                           class="font-semibold text-left text-cyan-400 dark:text-white"
                         >
-                          Tanggal
-                        </div>
-                      </th>
-                      <th class="p-2">
-                        <div
-                          class="font-semibold text-left text-cyan-400 dark:text-white"
-                        >
-                          Sales
-                        </div>
-                      </th>
-                      <th class="p-2">
-                        <div
-                          class="font-semibold text-left text-cyan-400 dark:text-white"
-                        >
-                          Tipe Dokumen
-                        </div>
-                      </th>
-                      <th class="p-2">
-                        <div
-                          class="font-semibold text-left text-cyan-400 dark:text-white"
-                        >
-                          Top
-                        </div>
-                      </th>
-                      <th class="p-2">
-                        <div
-                          class="font-semibold text-left text-cyan-400 dark:text-white"
-                        >
-                          Toleransi Top
-                        </div>
-                      </th>
-                      <th class="p-2">
-                        <div
-                          class="font-semibold text-left text-cyan-400 dark:text-white"
-                        >
-                          Keterangan
+                          Email
                         </div>
                       </th>
                     </tr>
@@ -301,41 +285,32 @@
                     class="text-sfm font-medium divide-y divide-slate-100 dark:divide-slate-700"
                   >
                     <!-- Row -->
-                    <tr v-for="(item, index) in filteredItems" :key="index">
+                    <tr v-for="(item, index) in items" :key="index">
                       <td class="p-2">
                         <div class="flex items-center">
                           <input type="checkbox" v-model="item.checked" />
                         </div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.segment }}</div>
+                        <div class="text-left">{{ item.kode }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.alamat }}</div>
+                        <div class="text-left">{{ item.Nama }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.telp }}</div>
+                        <div class="text-left">{{ item.TipePelanggan }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.kota }}</div>
+                        <div class="text-left">{{ item.Alamat }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.tanggal }}</div>
+                        <div class="text-left">{{ item.Telp }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.sales }}</div>
+                        <div class="text-left">{{ item.Kota }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.tipedokumen }}</div>
-                      </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ item.top }}</div>
-                      </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ item.toleransitop }}</div>
-                      </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ item.keterangan }}</div>
+                        <div class="text-left">{{ item.Email }}</div>
                       </td>
                     </tr>
                   </tbody>
@@ -377,24 +352,22 @@ export default {
         // Add more data here if needed
       ],
       selectAll: false,
-      sales: "",
-      tanggal: "",
-      top: "",
-      toleransi: "",
-      tipeDokumen: "",
-      keterangan: "",
       filterChecked: {
-        segment: false,
+        tipepelanggan: false,
         alamat: false,
         telp: false,
         kota: false,
       },
       salesOptions: [],
+      tipepelanggan: "",
+      alamat: "",
+      telp: "",
+      kota: "",
     };
   },
   computed: {
     filteredItems(){
-
+      return this.items;
     }
   },
   methods: {
@@ -411,6 +384,23 @@ export default {
         const data = response.data;
         if (data.status === "202") {
           this.salesOptions = data.data;
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    async showData() {
+      try {
+        const response = await axios.post("http://192.168.11.54:8000/api/ViewCalonPelangganRetention", {
+          TipePel: this.tipepelanggan,
+          Alamat: this.alamat,
+          Telp: this.telp,
+          Kota: this.kota,
+        });
+        const data = response.data;
+        console.log(data);
+        if (data.status === "202") {
+          this.items = data.data;
         }
       } catch (error) {
         console.log(error);
