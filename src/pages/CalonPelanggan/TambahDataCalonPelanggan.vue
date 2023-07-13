@@ -144,6 +144,36 @@
                     required
                   />
                 </div>
+                <div>
+                  <input
+                    type="text"
+                    id="sif"
+                    name="sif"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Masukkan Sumber Disini"
+                    required
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    id="app"
+                    name="app"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Masukkan Sumber Disini"
+                    required
+                  />
+                </div>
+                <div>
+                  <input
+                    type="text"
+                    id="operator"
+                    name="operator"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Masukkan Sumber Disini"
+                    required
+                  />
+                </div>
               </div>
               <div class="flex justify-end mr-5">
                 <button
@@ -177,15 +207,12 @@ export default {
   data() {
     return {
       sidebarOpen: false,
-      Telp: "",
-      Nama: "",
-      Alamat: "",
-      Email: "",
-      Tipepelanggan: "", 
-      Sumber: "",
-      App: "2",
-      Sif: "",
-      Operator: "",
+      telp: "",
+      nama: "",
+      alamat: "",
+      email: "",
+      tipepelanggan: "",
+      sumber: "",
       isChecked: false,
       isNumberChecked: false,
       showAlert: false,
@@ -195,15 +222,15 @@ export default {
   methods: {
     fetchData() {
       const requestBody = {
-        Telp: this.Telp,
-        Nama: this.Nama,
-        Alamat: this.Alamat,
-        Email: this.Email,
-        TipePel: this.TipePel,
-        Sumber: this.Sumber,
-        Sif: '',
-        App: '2',  
-        Operator: '',
+        telp: this.telp,
+        nama: this.nama,
+        alamat: this.alamat,
+        email: this.email,
+        tipepelanggan: this.tipepelanggan,
+        sumber: this.sumber,
+        Sif: "''",
+        App: "2",
+        Operator: "wildan.y@altius-erp.com",
       };
       return requestBody;
     },
@@ -235,19 +262,9 @@ export default {
     async submitForm() {
       try {
         const requestBody = this.fetchData();
-        const postData = {
-          Telp: this.telp,
-          Nama: this.nama,
-          Alamat: this.alamat,
-          Email: this.email,
-          TipePel: this.tipepelanggan,
-          Sumber: this.sumber,
-          ...requestBody,
-        };
-
         const response = await axios.post(
           "http://192.168.11.54:8000/api/createcalonpelanggan",
-          postData
+          requestBody
         );
         console.log(response.data); // Output response dari API
       } catch (error) {

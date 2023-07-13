@@ -99,11 +99,6 @@
                       </th>
                       <th class="p-2">
                         <div class="font-semibold text-left text-cyan-400">
-                          Nama Sales
-                        </div>
-                      </th>
-                      <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400">
                           Kode Calon Customer
                         </div>
                       </th>
@@ -120,6 +115,16 @@
                       <th class="p-2">
                         <div class="font-semibold text-left text-cyan-400">
                           Tanggal Akhir
+                        </div>
+                      </th>
+                      <th class="p-2">
+                        <div class="font-semibold text-left text-cyan-400">
+                          Alamat
+                        </div>
+                      </th>
+                      <th class="p-2">
+                        <div class="font-semibold text-left text-cyan-400">
+                          Telp
                         </div>
                       </th>
                       <th class="p-2">
@@ -147,9 +152,6 @@
                         <div class="text-left">{{ item.KodeSales }}</div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.NamaSales }}</div>
-                      </td>
-                      <td class="p-2">
                         <div class="text-left">{{ item.KodeCalonCust }}</div>
                       </td>
                       <td class="p-2">
@@ -160,6 +162,12 @@
                       </td>
                       <td class="p-2">
                         <div class="text-left">{{ item.TglAkhir }}</div>
+                      </td>
+                      <td class="p-2">
+                        <div class="text-left">{{ item.Alamat }}</div>
+                      </td>
+                      <td class="p-2">
+                        <div class="text-left">{{ item.Telp }}</div>
                       </td>
                       <td class="p-2">
                         <div class="flex items-center justify-center">
@@ -202,10 +210,6 @@
               {{ items[selectedItemIndex].KodeSales }}
             </div>
             <div class="mb-2">
-              <strong>Nama Sales :</strong>
-              {{ items[selectedItemIndex].NamaSales }}
-            </div>
-            <div class="mb-2">
               <strong>Kode Calon Customer :</strong>
               {{ items[selectedItemIndex].KodeCalonCust }}
             </div>
@@ -220,6 +224,14 @@
             <div class="mb-2">
               <strong>Tanggal Akhir:</strong>
               {{ items[selectedItemIndex].TglAkhir }}
+            </div>
+            <div class="mb-2">
+              <strong>Alamat:</strong>
+              {{ items[selectedItemIndex].Alamat }}
+            </div>
+            <div class="mb-2">
+              <strong>Nomor Telp:</strong>
+              {{ items[selectedItemIndex].Telp }}
             </div>
           </div>
           <button
@@ -252,6 +264,7 @@ export default {
       items: [
         // Add more data here if needed
       ],
+      allItems: [],
       selectAll: false,
       showAddForm: false,
       showDetails: false,
@@ -259,16 +272,18 @@ export default {
       tanggalAwal: "",
       tanggalAkhir: "",
       isSearching: false,
-      allItems: [],
     };
   },
   created() {
     axios
-      .get("http://192.168.11.54:8000/api/retentionsql")
+      .post("http://192.168.11.54:8000/api/RetentionListWeb", {
+        TglAwal: this.tanggalAwal,
+        TglAkhir: this.tanggalAkhir,
+      })
       .then((response) => {
         this.items = response.data.data;
         this.allItems = response.data.data;
-        console.log(response.data.data);
+        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -289,17 +304,18 @@ export default {
       });
     },
     cariTanggal() {
-      // Filter data berdasarkan rentang tanggal
-      const filteredItems = this.allItems.filter((item) => {
-        const itemDate = new Date(item.TglAwal);
-        const startDate = new Date(this.tanggalAwal);
-        const endDate = new Date(this.tanggalAkhir);
-
-        return itemDate >= startDate && itemDate <= endDate;
-      });
-
-      // Tampilkan data yang sesuai di tabel
-      this.items = filteredItems;
+      axios
+        .post("http://192.168.11.54:8000/api/RetentionListWeb", {
+          TglAwal: this.tanggalAwal,
+          TglAkhir: this.tanggalAkhir,
+        })
+        .then((response) => {
+          this.items = response.data.data;
+          console.log(response.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
     editItem(item) {
       // Logika untuk mengedit item

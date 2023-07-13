@@ -106,15 +106,20 @@
                         >Sales</label
                       >
                       <select
+                        v-model="sales"
                         id="sales"
                         name="sales"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         required
                       >
                         <option value="" disabled selected>Pilih Sales</option>
-                        <option value="option1">Sales 1</option>
-                        <option value="option2">Sales 2</option>
-                        <option value="option3">Sales 3</option>
+                        <option
+                          v-for="option in salesOptions"
+                          :key="option.Kode"
+                          :value="option.Nama"
+                        >
+                        {{ option.Kode }} - {{ option.Nama }}
+                        </option>
                       </select>
                     </div>
                     <div class="flex flex-col">
@@ -357,6 +362,7 @@
 import { ref } from "vue";
 import Sidebar from "../../partials/Sidebar.vue";
 import Header from "../../partials/Header.vue";
+import axios from "axios";
 
 export default {
   name: "TambahDataRetention",
@@ -383,28 +389,13 @@ export default {
         telp: false,
         kota: false,
       },
+      salesOptions: [],
     };
   },
   computed: {
-    filteredItems() {
-      return this.items.filter((item) => {
-        const isTextMatch =
-          item.nama.toLowerCase().includes(this.sales.toLowerCase()) &&
-          item.kode.toLowerCase().includes(this.tanggal.toLowerCase()) &&
-          item.alamat.toLowerCase().includes(this.top.toLowerCase()) &&
-          item.telp.toLowerCase().includes(this.toleransi.toLowerCase()) &&
-          item.segment.toLowerCase().includes(this.tipeDokumen.toLowerCase()) &&
-          item.keterangan.toLowerCase().includes(this.keterangan.toLowerCase());
+    filteredItems(){
 
-        const isFilterMatch =
-          (!this.filterChecked.segment || item.segment === "segment") &&
-          (!this.filterChecked.alamat || item.alamat === "alamat") &&
-          (!this.filterChecked.telp || item.telp === "telp") &&
-          (!this.filterChecked.kota || item.kota === "kota");
-
-        return isTextMatch && isFilterMatch;
-      });
-    },
+    }
   },
   methods: {
     toggleAllCheckboxes() {
@@ -412,19 +403,25 @@ export default {
         item.checked = this.selectAll;
       });
     },
-    showData() {
-      console.log(this.sales);
-      console.log(this.tanggal);
-      console.log(this.top);
-      console.log(this.toleransi);
-      console.log(this.tipeDokumen);
-      console.log(this.keterangan);
-      console.log(this.filterChecked);
-      console.log(this.filteredItems);
+    async fetchSalesOptions(search) {
+      try {
+        const response = await axios.post("http://192.168.11.54:8000/api/DropDownSales", {
+          Search: search || "A",
+        });
+        const data = response.data;
+        if (data.status === "202") {
+          this.salesOptions = data.data;
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
     saveData() {
       // Implement your save data logic here
     },
+  },
+  mounted() {
+    this.fetchSalesOptions();
   },
 };
 </script>
