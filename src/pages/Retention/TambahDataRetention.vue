@@ -15,196 +15,197 @@
         <div class="sm:px-2 lg:px-2 py-1 w-full max-w-9xl mx-auto">
           <!-- <h1 class="text-black">RETENTION</h1> -->
           <!--Coba Form Lagi-->
-          <form action="" @submit.prevent="showData">
-            <div class="grid grid-cols-2 gap-1">
-              <div
-                class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border-cyan-400 border-2 dark:border-slate-700"
-              >
-                <div class="grid grid-cols-3 gap-0.5 px-2">
-                  <div class="col-span-1">
-                    <div class="flex flex-col">
-                      <label
-                        for="tipepelanggan"
-                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                        >Tipe Pelanggan</label
-                      >
-                      <select
-                        id="tipepelanggan"
-                        name="tipepelanggan"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required
-                      >
-                        <option value="" disabled selected>
-                          Pilih Tipe Pelanggan
-                        </option>
-                        <option value="MMH">MMH</option>
-                        <option value="ULC">ULC</option>
-                        <option value="PREMIUM">PREMIUM</option>
-                      </select>
-                    </div>
-                    <div class="flex flex-col">
-                      <label
-                        for="alamat"
-                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                        >Alamat</label
-                      >
-                      <input
-                        type="text"
-                        id="alamat"
-                        name="alamat"
-                        placeholder="Masukkan Alamat"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required
-                      />
-                    </div>
-                    <div class="flex flex-col">
-                      <label
-                        for="telp"
-                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                        >Telp</label
-                      >
-                      <input
-                        type="number"
-                        min="0"
-                        id="telp"
-                        name="telp"
-                        placeholder="0"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required
-                      />
-                    </div>
-                    <div class="flex flex-col mb-2">
-                      <label
-                        for="kota"
-                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                        >Kota</label
-                      >
-                      <input
-                        type="text"
-                        id="kota"
-                        name="kota"
-                        placeholder="Masukkan Kota"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required
-                      />
-                    </div>
+          <div
+            class="flex flex-col col-span-full sm:col-span-6 xl:col-span-4 bg-white dark:bg-slate-800 shadow-lg rounded-sm border-cyan-400 border-2 dark:border-slate-700"
+          >
+            <div class="grid grid-cols-3 gap-0.5 px-2">
+              <!-- Form 1 -->
+              <form @submit.prevent="showData">
+                <div class="col-span-1">
+                  <div class="flex flex-col">
+                    <label
+                      for="tipepelanggan"
+                      class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                      >Tipe Pelanggan</label
+                    >
+                    <select
+                      id="tipepelanggan"
+                      name="tipepelanggan"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      required
+                    >
+                      <option value="" disabled selected>
+                        Pilih Tipe Pelanggan
+                      </option>
+                      <option value="MMH">MMH</option>
+                      <option value="ULC">ULC</option>
+                      <option value="PREMIUM">PREMIUM</option>
+                    </select>
                   </div>
-                  <!-- <div class="col-span-1">
-                    <div class="flex flex-col">
-                      <label
-                        for="tanggal"
-                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                        >Tanggal</label
-                      >
-                      <input
-                        type="date"
-                        id="tanggal"
-                        name="tanggal"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required
-                      />
-                    </div>
-                    <div class="flex flex-col">
-                      <label
-                        for="sales"
-                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                        >Sales</label
-                      >
-                      <select
-                        v-model="sales"
-                        id="sales"
-                        name="sales"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required
-                      >
-                        <option value="" disabled selected>Pilih Sales</option>
-                        <option
-                          v-for="option in salesOptions"
-                          :key="option.Kode"
-                          :value="option.Nama"
-                        >
-                        {{ option.Kode }} - {{ option.Nama }}
-                        </option>
-                      </select>
-                    </div>
-                    <div class="flex flex-col">
-                      <label
-                        for="tipedokumen"
-                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                        >Tipe Dokumen</label
-                      >
-                      <select
-                        id="tipedokumen"
-                        name="tipedokumen"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        required
-                      >
-                        <option value="" disabled selected>
-                          Pilih Tipe Dokumen
-                        </option>
-                        <option value="WI">WI</option>
-                      </select>
-                    </div>
-                    <div class="flex flex-col">
-                      <label
-                        for="top"
-                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                        >Top</label
-                      >
-                      <input
-                        type="number"
-                        id="top"
-                        name="top"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="0"
-                        min="0"
-                        required
-                      />
-                    </div>
-                  </div> -->
-                  <!-- <div class="col-span-1">
-                    <div class="flex flex-col">
-                      <label
-                        for="toleransitop"
-                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                        >Toleransi Top</label
-                      >
-                      <input
-                        type="number"
-                        id="toleransitop"
-                        name="toleransitop"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="0"
-                        min="0"
-                        required
-                      />
-                    </div>
-                    <div class="flex flex-col">
-                      <label
-                        for="keterangan"
-                        class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
-                        >Keterangan</label
-                      >
-                      <textarea
-                        id="keterangan"
-                        name="keterangan"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Keterangan"
-                        required
-                      ></textarea>
-                    </div>
-                  </div> -->
+                  <div class="flex flex-col">
+                    <label
+                      for="alamat"
+                      class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                      >Alamat</label
+                    >
+                    <input
+                      type="text"
+                      id="alamat"
+                      name="alamat"
+                      placeholder="Masukkan Alamat"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      required
+                    />
+                  </div>
+                  <div class="flex flex-col">
+                    <label
+                      for="telp"
+                      class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                      >Telp</label
+                    >
+                    <input
+                      type="number"
+                      min="0"
+                      id="telp"
+                      name="telp"
+                      placeholder="0"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      required
+                    />
+                  </div>
+                  <div class="flex flex-col mb-2">
+                    <label
+                      for="kota"
+                      class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                      >Kota</label
+                    >
+                    <input
+                      type="text"
+                      id="kota"
+                      name="kota"
+                      placeholder="Masukkan Kota"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      required
+                    />
+                  </div>
                 </div>
-              </div>
+                <button
+                  type="submit"
+                  class="ml-1 mt-1 bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
+                >
+                  Show
+                </button>
+              </form>
+              <!-- Form 2 -->
+              <form>
+                <div class="col-span-1">
+                  <div class="flex flex-col">
+                    <label
+                      for="tanggal"
+                      class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                      >Tanggal</label
+                    >
+                    <input
+                      type="date"
+                      id="tanggal"
+                      name="tanggal"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      required
+                    />
+                  </div>
+                  <div class="flex flex-col">
+                    <label
+                      for="sales"
+                      class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                      >Sales</label
+                    >
+                    <select
+                      v-model="sales"
+                      id="sales"
+                      name="sales"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      required
+                    >
+                      <option value="" disabled selected>Pilih Sales</option>
+                      <option
+                        v-for="option in salesOptions"
+                        :key="option.Kode"
+                        :value="option.Nama"
+                      >
+                        {{ option.Kode }} - {{ option.Nama }}
+                      </option>
+                    </select>
+                  </div>
+                  <div class="flex flex-col">
+                    <label
+                      for="tipedokumen"
+                      class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                      >Tipe Dokumen</label
+                    >
+                    <select
+                      id="tipedokumen"
+                      name="tipedokumen"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      required
+                    >
+                      <option value="" disabled selected>
+                        Pilih Tipe Dokumen
+                      </option>
+                      <option value="WI">WI</option>
+                    </select>
+                  </div>
+                  <div class="flex flex-col">
+                    <label
+                      for="top"
+                      class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                      >Top</label
+                    >
+                    <input
+                      type="number"
+                      id="top"
+                      name="top"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="0"
+                      min="0"
+                      required
+                    />
+                  </div>
+                </div>
+                <div class="col-span-1">
+                  <div class="flex flex-col">
+                    <label
+                      for="toleransitop"
+                      class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                      >Toleransi Top</label
+                    >
+                    <input
+                      type="number"
+                      id="toleransitop"
+                      name="toleransitop"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="0"
+                      min="0"
+                      required
+                    />
+                  </div>
+                  <div class="flex flex-col">
+                    <label
+                      for="keterangan"
+                      class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                      >Keterangan</label
+                    >
+                    <textarea
+                      id="keterangan"
+                      name="keterangan"
+                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      placeholder="Keterangan"
+                      required
+                    ></textarea>
+                  </div>
+                </div>
+              </form>
             </div>
-            <button
-              type="submit"
-              class="ml-1 mt-1 bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
-            >
-              Show
-            </button>
-          </form>
-
+          </div>
           <!--Coba Form Lagi-->
 
           <!--Tabel Dimulai Dibawah Ini-->
@@ -366,9 +367,9 @@ export default {
     };
   },
   computed: {
-    filteredItems(){
+    filteredItems() {
       return this.items;
-    }
+    },
   },
   methods: {
     toggleAllCheckboxes() {
@@ -378,9 +379,12 @@ export default {
     },
     async fetchSalesOptions(search) {
       try {
-        const response = await axios.post("http://192.168.11.54:8000/api/DropDownSales", {
-          Search: search || "A",
-        });
+        const response = await axios.post(
+          "http://192.168.11.54:8000/api/DropDownSales",
+          {
+            Search: search || "A",
+          }
+        );
         const data = response.data;
         if (data.status === "202") {
           this.salesOptions = data.data;
@@ -391,12 +395,15 @@ export default {
     },
     async showData() {
       try {
-        const response = await axios.post("http://192.168.11.54:8000/api/ViewCalonPelangganRetention", {
-          TipePel: this.tipepelanggan,
-          Alamat: this.alamat,
-          Telp: this.telp,
-          Kota: this.kota,
-        });
+        const response = await axios.post(
+          "http://192.168.11.54:8000/api/ViewCalonPelangganRetention",
+          {
+            TipePel: this.tipepelanggan,
+            Alamat: this.alamat,
+            Telp: this.telp,
+            Kota: this.kota,
+          }
+        );
         const data = response.data;
         console.log(data);
         if (data.status === "202") {
