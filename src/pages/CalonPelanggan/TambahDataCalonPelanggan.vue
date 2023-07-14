@@ -72,6 +72,7 @@
                     type="text"
                     id="email"
                     name="email"
+                    v-model="email"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="example@example.com"
                     required
@@ -87,6 +88,7 @@
                     type="text"
                     id="nama"
                     name="nama"
+                    v-model="nama"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Masukkan Nama Disini"
                     required
@@ -102,6 +104,7 @@
                     type="text"
                     id="tipepelanggan"
                     name="tipepelanggan"
+                    v-model="tipepelanggan"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Masukkan Tipe Pelanggan Disini"
                     required
@@ -117,6 +120,7 @@
                     type="text"
                     id="alamat"
                     name="alamat"
+                    v-model="alamat"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Masukkan Alamat Disini"
                     required
@@ -132,6 +136,7 @@
                     type="text"
                     id="sumber"
                     name="sumber"
+                    v-model="sumber"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Masukkan Sumber Disini"
                     required
@@ -164,7 +169,7 @@
                     type="hidden"
                     id="operator"
                     name="operator"
-                    value="wildan.y@altius.com"
+                    value="wildan.y@altius-erp.com"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Masukkan Sumber Disini"
                     required
@@ -209,9 +214,9 @@ export default {
       email: "",
       tipepelanggan: "",
       sumber: "",
-      sif: "",
-      app: "",
-      operator: "",
+      sif: "''",
+      app: "2",
+      operator: "wildan.y@altius-erp.com",
       isChecked: false,
       isNumberChecked: false,
       showAlert: false,
@@ -220,6 +225,16 @@ export default {
   },
   methods: {
     fetchData() {
+      console.log("Telp : ", this.telp);
+      console.log("Nama : ",  this.nama);
+      console.log("Alamat : ", this.alamat);
+      console.log("Email : ", this.email);
+      console.log("Tipe Pelanggan : ", this.tipepelanggan);
+      console.log("Sumber : ", this.sumber);
+      console.log("Sif : ", this.sif);
+      console.log("App : ", this.app);
+      console.log("Operator : ", this.operator);
+
       const requestBody = {
         Telp: this.telp,
         Nama: this.nama,
