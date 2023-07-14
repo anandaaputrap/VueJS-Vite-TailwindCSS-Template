@@ -20,7 +20,7 @@
             <div class="grid grid-cols-2 gap-0.5 px-2">
               <!-- Form 1 -->
               <form @submit.prevent="showData" class="col-span-1">
-                <div class="grid grid-cols-2 gap-0.5">
+                <div class="grid grid-cols-3 gap-0.5">
                   <div class="flex flex-col col-span-1">
                     <label
                       for="tipepelanggan"
@@ -37,7 +37,7 @@
                         Pilih Tipe Pelanggan
                       </option>
                       <option value="">ALL</option>
-                      <option value="MMH">MMH</option>
+                      <option value="MMH">MMH - Mass Mid High</option>
                       <option value="ULC">ULC</option>
                       <option value="PREMIUM">PREMIUM</option>
                     </select>
@@ -93,6 +93,7 @@
                 <button
                   type="submit"
                   class="mt-1 bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
+                  @click="saveData"
                 >
                   Show
                 </button>
@@ -100,7 +101,7 @@
 
               <!-- Form 2 -->
               <form class="col-span-1">
-                <div class="grid grid-cols-4 gap-0.5">
+                <div class="grid grid-cols-3 gap-0.5">
                   <div class="flex flex-col">
                     <label
                       for="tanggal"
@@ -111,6 +112,7 @@
                       type="date"
                       id="tanggal"
                       name="tanggal"
+                      v-model="tanggal"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
                   </div>
@@ -130,9 +132,10 @@
                       <option
                         v-for="option in salesOptions"
                         :key="option.Kode"
-                        :value="option.Nama"
+                        :value="option"
                       >
-                        {{ option.Kode }} - {{ option.Nama }}
+                        {{ option.Depo }} - {{ option.Kode }} -
+                        {{ option.Nama }}
                       </option>
                     </select>
                   </div>
@@ -145,12 +148,14 @@
                     <select
                       id="tipedokumen"
                       name="tipedokumen"
+                      v-model="tipedokumen"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     >
                       <option value="" disabled selected>
                         Pilih Tipe Dokumen
                       </option>
                       <option value="WI">WI</option>
+                      <option value="WI">Non WI</option>
                     </select>
                   </div>
                   <div class="flex flex-col">
@@ -163,6 +168,7 @@
                       type="number"
                       id="top"
                       name="top"
+                      v-model="top"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="0"
                       min="0"
@@ -178,6 +184,7 @@
                       type="number"
                       id="toleransitop"
                       name="toleransitop"
+                      v-model="toleransitop"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="0"
                       min="0"
@@ -275,7 +282,11 @@
                     <tr v-for="(item, index) in items" :key="index">
                       <td class="p-2">
                         <div class="flex items-center">
-                          <input type="checkbox" v-model="item.checked" />
+                          <input
+                            type="checkbox"
+                            v-model="item.checked"
+                            @change="updateSelectedItems(item)"
+                          />
                         </div>
                       </td>
                       <td class="p-2">
@@ -353,9 +364,14 @@ export default {
       telp: "",
       kota: "",
       sales: "",
+      tanggal: "",
+      tipedokumen: "",
+      top: "",
+      toleransitop: "",
       selectedItems: [
         // Add more data here if needed
       ],
+      selectedCodes: [],
     };
   },
   computed: {
@@ -368,14 +384,29 @@ export default {
       if (this.selectAll) {
         this.items.forEach((item) => {
           item.checked = true;
+          this.updateSelectedItems(item);
         });
       } else {
         this.items.forEach((item) => {
           item.checked = false;
+          this.updateSelectedItems(item);
         });
       }
     },
-
+    updateSelectedItems(item) {
+      if (item.checked) {
+        this.selectedItems.push(item.kode);
+        console.log("Kode yang dipilih:", item.kode);
+        console.log("Array selectedItems:", this.selectedItems);
+      } else {
+        const index = this.selectedItems.indexOf(item.kode);
+        if (index !== -1) {
+          this.selectedItems.splice(index, 1);
+        }
+        console.log("Kode yang dihapus:", item.kode);
+        console.log("Array selectedItems:", this.selectedItems);
+      }
+    },
     async fetchSalesOptions(search) {
       try {
         const response = await axios.post(
@@ -419,9 +450,75 @@ export default {
         console.log(error);
       }
     },
+    // saveData() {
+    //   // Menggabungkan kode yang dipilih menjadi satu string
+    //   const calonCust = this.selectedItems.join("");
 
+    //   // Mengirim data melalui permintaan POST
+    //   axios
+    //     .post("http://192.168.11.54:8000/api/lala", {
+    //       SIF: this.sales.Kode, // Kode sales yang dipilih
+    //       CalonCust: calonCust, // Kode yang dipilih dari checkbox
+    //       Tgl: this.tanggal, // Tanggal dari input
+    //       TOPLamaKredit: this.top, // TOPLamaKredit dari input
+    //       ToleransiTop: this.toleransitop, // ToleransiTop dari input
+    //     })
+    //     .then((response) => {
+    //       console.log(response.data); // Tampilkan respons dari server
+    //     })
+    //     .catch((error) => {
+    //       console.log(error); // Tampilkan kesalahan jika terjadi
+    //     });
+    // },
+    // saveData() {
+    //   const postData = {
+    //     SIF: this.sales.Kode,
+    //     CalonCust: this.selectedItems.map((item) => item.kode),
+    //     Tgl: this.tanggal,
+    //     TOPLamaKredit: this.top,
+    //     ToleransiTop: this.toleransitop,
+    //   };
+
+    //   fetch("http://192.168.11.54:8000/api/lala", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(postData),
+    //   })
+    //     .then((response) => {
+    //       if (response.ok) {
+    //         console.log("Data saved successfully");
+    //       } else {
+    //         console.log("Failed to save data");
+    //       }
+    //     })
+    //     .catch((error) => {
+    //       console.error("Error:", error);
+    //     });
+    // },
     saveData() {
-      // Implement your save data logic here
+      // Mendapatkan kode sales dari objek sales yang dipilih
+      const salesKode = this.sales.Kode;
+
+      const postData = {
+        SIF: salesKode,
+        CalonCust: this.selectedItems,
+        Tgl: this.tanggal,
+        TOPLamaKredit: this.top,
+        ToleransiTop: this.toleransitop,
+      };
+
+      axios
+        .post("http://192.168.11.54:8000/api/lala", postData)
+        .then((response) => {
+          console.log("Response:", response);
+          // Lakukan tindakan lain setelah berhasil menyimpan data
+        })
+        .catch((error) => {
+          console.log("Error:", error);
+          // Lakukan penanganan kesalahan
+        });
     },
   },
   mounted() {
