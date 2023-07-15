@@ -154,8 +154,8 @@
                       <option value="" disabled selected>
                         Pilih Tipe Dokumen
                       </option>
-                      <option value="WI">WI</option>
-                      <option value="WI">Non WI</option>
+                      <option value="WI">WI - Walk In</option>
+                      <option value="NWI">NWI - Non Walk In</option>
                     </select>
                   </div>
                   <div class="flex flex-col">
@@ -510,7 +510,7 @@ export default {
       };
 
       axios
-        .post("http://192.168.11.54:8000/api/lala", postData)
+        .post("http://192.168.11.54:8000/api/GenerateNotaRetention", postData)
         .then((response) => {
           console.log("Response:", response);
           // Lakukan tindakan lain setelah berhasil menyimpan data
