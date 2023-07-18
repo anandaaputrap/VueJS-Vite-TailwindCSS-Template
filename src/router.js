@@ -13,19 +13,19 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      name: "Dashboard",
-      component: Dashboard,
+      name: "TambahDataRetention",
+      component: TambahDataRetention,
     },
     {
       path: "/listdataretention",
       name: "ListDataRetention",
       component: ListDataRetention,
     },
-    {
-      path: "/tambahdataretention",
-      name: "TambahDataRetention",
-      component: TambahDataRetention,
-    },
+    // {
+    //   path: "/tambahdataretention",
+    //   name: "TambahDataRetention",
+    //   component: TambahDataRetention,
+    // },
     {
       path: "/listdatacalonpelanggan",
       name: "ListDataCalonPelanggan",

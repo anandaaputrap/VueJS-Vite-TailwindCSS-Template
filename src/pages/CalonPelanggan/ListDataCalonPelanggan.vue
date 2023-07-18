@@ -17,13 +17,29 @@
             <div class="">
               <!-- Table -->
               <div class="overflow-x-scroll overflow-y-scroll max-h-96">
+                <div class="flex items-center mb-0.5 mt-0.5 mr-1 justify-end">
+                  <label
+                    for="search"
+                    class="block mr-1 ml-1 text-sm font-medium text-gray-900 dark:text-white"
+                    >Pencarian:</label
+                  >
+                  <input
+                    type="text"
+                    id="search"
+                    name="search"
+                    v-model="searchQuery"
+                    @input="performSearch"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-40 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Cari..."
+                  />
+                </div>
                 <table class="table-auto w-full dark:text-slate-300">
                   <!-- Table header -->
                   <thead
                     class="text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm"
                   >
                     <tr>
-                      <th class="p-2">
+                      <!-- <th class="p-2">
                         <div class="flex items-center">
                           <input
                             type="checkbox"
@@ -31,32 +47,69 @@
                             @change="toggleAllCheckboxes"
                           />
                         </div>
+                      </th> -->
+                      <th class="p-2">
+                        <div
+                          class="font-medium text-left text-cyan-400 text-xs"
+                        >
+                          Kode
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Kode</div>
+                        <div
+                          class="font-medium text-left text-cyan-400 text-xs"
+                        >
+                          Telp
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Telp</div>
+                        <div
+                          class="font-medium text-left text-cyan-400 text-xs"
+                        >
+                          Nama
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Nama</div>
+                        <div
+                          class="font-medium text-left text-cyan-400 text-xs"
+                        >
+                          Email
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Email</div>
+                        <div
+                          class="font-medium text-left text-cyan-400 text-xs"
+                        >
+                          Alamat
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Alamat</div>
+                        <div
+                          class="font-medium text-left text-cyan-400 text-xs"
+                        >
+                          Kota
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">
+                        <div
+                          class="font-medium text-left text-cyan-400 text-xs"
+                        >
                           Tipe Pelanggan
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left">Sumber</div>
+                        <div
+                          class="font-semibold text-left text-cyan-400 text-xs"
+                        >
+                          Sumber
+                        </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-center">Aksi</div>
+                        <div
+                          class="font-semibold text-left text-cyan-400 text-xs"
+                        >
+                          Aksi
+                        </div>
                       </th>
                     </tr>
                   </thead>
@@ -66,11 +119,11 @@
                   >
                     <!-- Row -->
                     <tr v-for="(item, index) in items" :key="index">
-                      <td class="p-2">
+                      <!-- <td class="p-2">
                         <div class="flex items-center">
                           <input type="checkbox" v-model="item.checked" />
                         </div>
-                      </td>
+                      </td> -->
                       <td class="p-2">
                         <div class="text-left">{{ item.kode }}</div>
                       </td>
@@ -87,6 +140,9 @@
                         <div class="text-left">{{ item.Alamat }}</div>
                       </td>
                       <td class="p-2">
+                        <div class="text-left">{{ item.Kota }}</div>
+                      </td>
+                      <td class="p-2">
                         <div class="text-left">{{ item.TipePelanggan }}</div>
                       </td>
                       <td class="p-2">
@@ -94,12 +150,12 @@
                       </td>
                       <td class="p-2">
                         <div class="flex items-center justify-center gap-1">
-                          <button
+                          <!-- <button
                             class="btn btn-sm bg-cyan-500 hover:bg-cyan-600 text-white"
                             @click="showDetail(index)"
                           >
                             Detail
-                          </button>
+                          </button> -->
                           <button
                             class="btn btn-sm bg-amber-500 hover:bg-amber-600 text-white"
                             @click="editItem(item)"
@@ -176,7 +232,7 @@
             class="border-2 border-cyan-500 cursor-pointer hover:border-cyan-600 duration-500"
           />
           <div v-if="selectedItemIndex !== null">
-            <div class="mb-2">
+            <!-- <div class="mb-2">
               <strong>Kode :</strong> {{ items[selectedItemIndex].kode }}
             </div>
             <div class="mb-2">
@@ -186,32 +242,46 @@
                 type="text"
                 class="border border-gray-300 px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-            </div>
+            </div> -->
             <div class="mb-2">
               <strong>Nama :</strong>
+              <br />
               <input
                 v-model="editedItem.Nama"
                 type="text"
+                style="width: 100%"
                 class="border border-gray-300 px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div class="mb-2">
               <strong>Email :</strong>
+              <br />
               <input
                 v-model="editedItem.Email"
                 type="text"
+                style="width: 100%"
                 class="border border-gray-300 px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
             <div class="mb-2">
-              <strong>Alamat : </strong>
-              <input
+              <strong>Alamat :</strong>
+              <textarea
                 v-model="editedItem.Alamat"
+                style="width: 100%"
+                class="border border-gray-300 px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              ></textarea>
+            </div>
+            <div class="mb-2">
+              <strong>Kota : </strong>
+              <br />
+              <input
+                v-model="editedItem.Kota"
                 type="text"
+                style="width: 100%"
                 class="border border-gray-300 px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-            <div class="mb-2">
+            <!-- <div class="mb-2">
               <label
                 for="tipepelanggan"
                 class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
@@ -230,15 +300,15 @@
                 <option value="ULC">ULC</option>
                 <option value="PREMIUM">PREMIUM</option>
               </select>
-            </div>
-            <div class="mb-2">
+            </div> -->
+            <!-- <div class="mb-2">
               <strong>Sumber : </strong>
               <input
                 v-model="editedItem.Sumber"
                 type="text"
                 class="border border-gray-300 px-2 py-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-            </div>
+            </div> -->
           </div>
           <button
             class="btn btn-primary bg-cyan-500 hover:bg-cyan-600 text-white"
@@ -284,6 +354,7 @@ export default {
         Nama: "",
         Alamat: "",
         Email: "",
+        Kota: "",
         TipePelanggan: "",
         Sumber: "",
       },
@@ -317,6 +388,32 @@ export default {
           console.log(error);
         });
     },
+    performSearch() {
+      // Menyalin semua item ke dalam variabel tempItems
+      let tempItems = [...this.allItems];
+
+      // Mengecek apakah ada input pencarian yang dimasukkan
+      if (this.searchQuery !== "") {
+        // Mengonversi query pencarian menjadi huruf kecil untuk pencarian case-insensitive
+        const query = this.searchQuery.toLowerCase();
+
+        // Melakukan pencarian berdasarkan Telp, Nama, Email, Alamat, Kota, TipePelanggan, dan Sumber
+        tempItems = tempItems.filter((item) => {
+          return (
+            item.Telp.toLowerCase().includes(query) ||
+            item.Nama.toLowerCase().includes(query) ||
+            item.Email.toLowerCase().includes(query) ||
+            item.Alamat.toLowerCase().includes(query) ||
+            item.Kota.toLowerCase().includes(query) ||
+            item.TipePelanggan.toLowerCase().includes(query) ||
+            item.Sumber.toLowerCase().includes(query)
+          );
+        });
+      }
+
+      // Mengupdate items dengan hasil pencarian
+      this.items = tempItems;
+    },
     showDetail(index) {
       this.selectedItemIndex = index;
       this.showDetails = true;
@@ -340,6 +437,7 @@ export default {
       console.log("Nama : " + this.editedItem.Nama);
       console.log("Alamat : " + this.editedItem.Alamat);
       console.log("Email : " + this.editedItem.Email);
+      console.log("Kota : " + this.editedItem.Kota);
       console.log("Tipe Pelanggan : " + this.editedItem.TipePelanggan);
       console.log("Sumber : " + this.editedItem.Sumber);
       console.log("Sif : " + this.sif);
@@ -351,6 +449,7 @@ export default {
         Telp: "",
         Nama: "",
         Alamat: "",
+        Kota: "",
         Email: "",
         TipePelanggan: "",
         Sumber: "",
@@ -363,6 +462,7 @@ export default {
         Telp: this.editedItem.Telp,
         Nama: this.editedItem.Nama,
         Alamat: this.editedItem.Alamat,
+        Kota: this.editedItem.Kota,
         Email: this.editedItem.Email,
         TipePel: this.editedItem.TipePelanggan,
         Sumber: this.editedItem.Sumber,
@@ -377,6 +477,7 @@ export default {
           console.log("Data Berhasil Diperbarui:", response.data);
           this.items[this.selectedItemIndex] = updatedItem;
           this.closeEditModal();
+          window.location.reload();
         })
         .catch((error) => {
           console.log("Terjadi Kesalahan Saat Memperbarui Data:", error);
@@ -388,3 +489,10 @@ export default {
   },
 };
 </script>
+<style scoped>
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+</style>

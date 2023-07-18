@@ -36,7 +36,7 @@
                       <option value="" disabled selected>
                         Pilih Tipe Pelanggan
                       </option>
-                      <option value="">ALL</option>
+                      <option value="%">ALL</option>
                       <option value="MMH">MMH - Mass Mid High</option>
                       <option value="ULC">ULC</option>
                       <option value="PREMIUM">PREMIUM</option>
@@ -64,12 +64,14 @@
                       >Telp</label
                     >
                     <div class="flex items-center">
-                      <span class="text-gray-500">+62</span>
                       <input
-                        type="tel"
+                        type="text"
                         id="telp"
                         name="telp"
                         v-model="telp"
+                        @input="validatePhoneNumber"
+                        pattern="[0-9]*"
+                        placeholder="Masukkan Telp"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 ml-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       />
                     </div>
@@ -93,7 +95,6 @@
                 <button
                   type="submit"
                   class="mt-1 bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-cyan-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-500 dark:hover:bg-cyan-600 dark:focus:ring-cyan-700 text-white"
-                  @click="saveData"
                 >
                   Show
                 </button>
@@ -113,8 +114,15 @@
                       id="tanggal"
                       name="tanggal"
                       v-model="tanggal"
+                      :required="!tanggal"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
+                    <p
+                      v-show="isSubmitted && !tanggal"
+                      class="text-red-500 text-xs mt-1"
+                    >
+                      Tanggal harus diisi.
+                    </p>
                   </div>
                   <div class="flex flex-col">
                     <label
@@ -126,6 +134,7 @@
                       v-model="sales"
                       id="sales"
                       name="sales"
+                      :required="!sales"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     >
                       <option value="" disabled selected>Pilih Sales</option>
@@ -138,6 +147,12 @@
                         {{ option.Nama }}
                       </option>
                     </select>
+                    <p
+                      v-show="isSubmitted && !sales"
+                      class="text-red-500 text-xs mt-1"
+                    >
+                      Sales harus diisi.
+                    </p>
                   </div>
                   <div class="flex flex-col">
                     <label
@@ -149,6 +164,7 @@
                       id="tipedokumen"
                       name="tipedokumen"
                       v-model="tipedokumen"
+                      :required="!tipedokumen"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     >
                       <option value="" disabled selected>
@@ -157,6 +173,12 @@
                       <option value="WI">WI - Walk In</option>
                       <option value="NWI">NWI - Non Walk In</option>
                     </select>
+                    <p
+                      v-show="isSubmitted && !tipedokumen"
+                      class="text-red-500 text-xs mt-1"
+                    >
+                      Tipe Dokumen harus diisi.
+                    </p>
                   </div>
                   <div class="flex flex-col">
                     <label
@@ -168,11 +190,18 @@
                       type="number"
                       id="top"
                       name="top"
+                      :required="!top"
                       v-model="top"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="0"
                       min="0"
                     />
+                    <p
+                      v-show="isSubmitted && !top"
+                      class="text-red-500 text-xs mt-1"
+                    >
+                      Top harus diisi.
+                    </p>
                   </div>
                   <div class="flex flex-col">
                     <label
@@ -185,10 +214,17 @@
                       id="toleransitop"
                       name="toleransitop"
                       v-model="toleransitop"
+                      :required="!toleransitop"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                       placeholder="0"
                       min="0"
                     />
+                    <p
+                      v-show="isSubmitted && !toleransitop"
+                      class="text-red-500 text-xs mt-1"
+                    >
+                      Toleransi Top harus diisi.
+                    </p>
                   </div>
                 </div>
                 <!-- <div class="flex flex-col">
@@ -208,6 +244,22 @@
             <div class="">
               <!-- Table -->
               <div class="overflow-x-scroll overflow-y-scroll max-h-96">
+                <div class="flex items-center mb-0.5 mt-0.5 mr-1 justify-end">
+                  <label
+                    for="search"
+                    class="block mr-1 ml-1 text-sm font-medium text-gray-900 dark:text-white"
+                    >Pencarian:</label
+                  >
+                  <input
+                    type="text"
+                    id="search"
+                    name="search"
+                    v-model="searchQuery"
+                    @input="performSearch"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-40 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Cari..."
+                  />
+                </div>
                 <table class="table-auto w-full dark:text-slate-300">
                   <!-- Table header -->
                   <thead
@@ -225,42 +277,42 @@
                       </th>
                       <th class="p-2">
                         <div
-                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                          class="font-semibold text-left text-cyan-400 dark:text-white text-xs"
                         >
                           Kode
                         </div>
                       </th>
                       <th class="p-2">
                         <div
-                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                          class="font-semibold text-left text-cyan-400 dark:text-white text-xs"
                         >
                           Nama
                         </div>
                       </th>
                       <th class="p-2">
                         <div
-                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                          class="font-semibold text-left text-cyan-400 dark:text-white text-xs"
                         >
-                          Tipe Pelanggan
+                          Segment
                         </div>
                       </th>
                       <th class="p-2">
                         <div
-                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                          class="font-semibold text-left text-cyan-400 dark:text-white text-xs"
                         >
                           Alamat
                         </div>
                       </th>
                       <th class="p-2">
                         <div
-                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                          class="font-semibold text-left text-cyan-400 dark:text-white text-xs"
                         >
                           Telp
                         </div>
                       </th>
                       <th class="p-2">
                         <div
-                          class="font-semibold text-left text-cyan-400 dark:text-white"
+                          class="font-semibold text-left text-cyan-400 dark:text-white text-xs"
                         >
                           Kota
                         </div>
@@ -279,7 +331,7 @@
                     class="text-sfm font-medium divide-y divide-slate-100 dark:divide-slate-700"
                   >
                     <!-- Row -->
-                    <tr v-for="(item, index) in items" :key="index">
+                    <tr v-for="(item, index) in filteredItems" :key="index">
                       <td class="p-2">
                         <div class="flex items-center">
                           <input
@@ -289,26 +341,28 @@
                           />
                         </div>
                       </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ item.kode }}</div>
+                      <td class="">
+                        <div class="text-left text-xs">{{ item.kode }}</div>
                       </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ item.Nama }}</div>
+                      <td class="">
+                        <div class="text-left text-xs">{{ item.Nama }}</div>
                       </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ item.TipePelanggan }}</div>
+                      <td class="">
+                        <div class="text-left text-xs">
+                          {{ item.TipePelanggan }}
+                        </div>
                       </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ item.Alamat }}</div>
+                      <td class="">
+                        <div class="text-left text-xs">{{ item.Alamat }}</div>
                       </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ item.Telp }}</div>
+                      <td class="">
+                        <div class="text-left text-xs">{{ item.Telp }}</div>
                       </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ item.Kota }}</div>
+                      <td class="">
+                        <div class="text-left text-xs">{{ item.Kota }}</div>
                       </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ item.Email }}</div>
+                      <td class="">
+                        <div class="text-left text-xs">{{ item.Email }}</div>
                       </td>
                     </tr>
                   </tbody>
@@ -366,12 +420,14 @@ export default {
       sales: "",
       tanggal: "",
       tipedokumen: "",
-      top: "",
-      toleransitop: "",
+      top: "0",
+      toleransitop: "0",
       selectedItems: [
         // Add more data here if needed
       ],
       selectedCodes: [],
+      searchQuery: "",
+      originalItems: [],
     };
   },
   computed: {
@@ -396,14 +452,14 @@ export default {
     updateSelectedItems(item) {
       if (item.checked) {
         this.selectedItems.push(item.kode);
-        console.log("Kode yang dipilih:", item.kode);
+        console.log("Kode Yang Dipilih:", item.kode);
         console.log("Array selectedItems:", this.selectedItems);
       } else {
         const index = this.selectedItems.indexOf(item.kode);
         if (index !== -1) {
           this.selectedItems.splice(index, 1);
         }
-        console.log("Kode yang dihapus:", item.kode);
+        console.log("Kode Yang Dihapus:", item.kode);
         console.log("Array selectedItems:", this.selectedItems);
       }
     },
@@ -423,81 +479,158 @@ export default {
         console.log(error);
       }
     },
+    getCurrentDate() {
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = `${today.getMonth() + 1}`.padStart(2, "0");
+      const day = `${today.getDate()}`.padStart(2, "0");
+      return `${year}-${month}-${day}`;
+    },
+    // formatNumberInput() {
+    //   // Dapatkan nama properti yang sedang diubah
+    //   const propertyName = event.target.name;
+
+    //   // Dapatkan nilai properti yang sedang diubah
+    //   let propertyValue = this[propertyName];
+
+    //   // Hapus angka 0 di awal jika ada
+    //   if (propertyValue.charAt(0) === "0") {
+    //     propertyValue = propertyValue.substr(1);
+    //   }
+
+    //   // Update nilai properti dengan nilai yang sudah diformat
+    //   this[propertyName] = propertyValue;
+    // },
+    validatePhoneNumber() {
+      if (!/^[0-9]*$/.test(this.telp)) {
+        this.telp = this.telp.replace(/[^0-9]/g, "");
+      }
+    },
+    performSearch() {
+      const query = this.searchQuery.toLowerCase();
+      if (query) {
+        this.items = this.originalItems.filter((item) => {
+          return (
+            (item.Kode && item.Kode.toLowerCase().includes(query)) ||
+            (item.Nama && item.Nama.toLowerCase().includes(query)) ||
+            (item.TipePelanggan &&
+              item.TipePelanggan.toLowerCase().includes(query)) ||
+            (item.Alamat && item.Alamat.toLowerCase().includes(query)) ||
+            (item.Telp && item.Telp.toLowerCase().includes(query)) ||
+            (item.Kota && item.Kota.toLowerCase().includes(query)) ||
+            (item.Email && item.Email.toLowerCase().includes(query))
+          );
+        });
+      } else {
+        this.items = [...this.originalItems]; // Kembalikan items ke salinan data awal
+      }
+    },
+
     async showData() {
       console.log("Tipe Pelanggan:", this.tipepelanggan);
-      console.log("Alamat:", this.alamat);
-      console.log("Telp:", this.telp);
       console.log("Kota:", this.kota);
+      console.log("Alamat:", this.alamat);
+
+      let alamatValue = this.alamat !== "" ? this.alamat : "%";
+      let telpValue = this.telp !== "" ? this.telp : "%";
+      let kotaValue = this.kota !== "" ? this.kota : "%";
+
+      if (
+        this.tipepelanggan === "" &&
+        this.alamat === "" &&
+        this.kota === "" &&
+        this.telp === ""
+      ) {
+        alamatValue = "%";
+        telpValue = "%";
+        kotaValue = "%";
+      } else {
+        if (this.tipepelanggan !== "") {
+          // Filter berdasarkan tipe pelanggan
+        } else {
+          tipePelangganValue = "%";
+        }
+
+        if (this.alamat !== "") {
+          // Filter berdasarkan alamat
+        } else {
+          alamatValue = "%";
+        }
+
+        if (this.kota !== "") {
+          // Filter berdasarkan kota
+        } else {
+          kotaValue = "%";
+        }
+
+        if (this.telp !== "") {
+          // Filter berdasarkan nomor telepon
+        } else {
+          telpValue = "%";
+        }
+      }
 
       try {
         const response = await axios.post(
           "http://192.168.11.54:8000/api/ViewCalonPelangganRetention",
           {
             TipePel: this.tipepelanggan,
-            Alamat: this.alamat,
-            Telp: this.telp,
-            Kota: this.kota,
+            Alamat: alamatValue,
+            Telp: telpValue,
+            Kota: kotaValue,
           }
         );
         const data = response.data;
         console.log(data);
         if (data.status === "202" && data.data.length > 0) {
           this.items = data.data;
+          this.originalItems = [...data.data]; // Simpan salinan data ke originalItems
         } else {
           this.items = [];
+          this.originalItems = []; // Jika tidak ada data, set originalItems menjadi array kosong
         }
       } catch (error) {
         console.log(error);
       }
     },
-    // saveData() {
-    //   // Menggabungkan kode yang dipilih menjadi satu string
-    //   const calonCust = this.selectedItems.join("");
+    validateForm() {
+      const errors = [];
 
-    //   // Mengirim data melalui permintaan POST
-    //   axios
-    //     .post("http://192.168.11.54:8000/api/lala", {
-    //       SIF: this.sales.Kode, // Kode sales yang dipilih
-    //       CalonCust: calonCust, // Kode yang dipilih dari checkbox
-    //       Tgl: this.tanggal, // Tanggal dari input
-    //       TOPLamaKredit: this.top, // TOPLamaKredit dari input
-    //       ToleransiTop: this.toleransitop, // ToleransiTop dari input
-    //     })
-    //     .then((response) => {
-    //       console.log(response.data); // Tampilkan respons dari server
-    //     })
-    //     .catch((error) => {
-    //       console.log(error); // Tampilkan kesalahan jika terjadi
-    //     });
-    // },
-    // saveData() {
-    //   const postData = {
-    //     SIF: this.sales.Kode,
-    //     CalonCust: this.selectedItems.map((item) => item.kode),
-    //     Tgl: this.tanggal,
-    //     TOPLamaKredit: this.top,
-    //     ToleransiTop: this.toleransitop,
-    //   };
+      if (!this.tanggal) {
+        errors.push("Tanggal");
+      }
 
-    //   fetch("http://192.168.11.54:8000/api/lala", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(postData),
-    //   })
-    //     .then((response) => {
-    //       if (response.ok) {
-    //         console.log("Data saved successfully");
-    //       } else {
-    //         console.log("Failed to save data");
-    //       }
-    //     })
-    //     .catch((error) => {
-    //       console.error("Error:", error);
-    //     });
-    // },
+      if (!this.sales) {
+        errors.push("Sales");
+      }
+
+      if (!this.tipedokumen) {
+        errors.push("Tipe Dokumen");
+      }
+
+      if (!this.top) {
+        errors.push("TOP");
+      }
+
+      if (!this.toleransitop) {
+        errors.push("Toleransi TOP");
+      }
+
+      if (errors.length > 0) {
+        // Menampilkan pesan kesalahan per input yang belum terisi
+        const errorMessage =
+          "Mohon Lengkapi Field Berikut: " + errors.join(", ");
+        alert(errorMessage);
+        return false;
+      }
+
+      return true;
+    },
     saveData() {
+      if (!this.validateForm()) {
+        // Menghentikan proses penyimpanan jika validasi gagal
+        return;
+      }
       // Mendapatkan kode sales dari objek sales yang dipilih
       const salesKode = this.sales.Kode;
 
@@ -512,17 +645,29 @@ export default {
       axios
         .post("http://192.168.11.54:8000/api/GenerateNotaRetention", postData)
         .then((response) => {
-          console.log("Response:", response);
+          console.log("Data Berhasil Tersimpan:", response);
           // Lakukan tindakan lain setelah berhasil menyimpan data
+          alert("Data Berhasil Disimpan!");
+
+          // Me-refresh halaman
+          window.location.reload();
         })
         .catch((error) => {
-          console.log("Error:", error);
+          console.log("Terjadi Kesalahan:", error);
           // Lakukan penanganan kesalahan
         });
     },
   },
   mounted() {
     this.fetchSalesOptions();
+    this.tanggal = this.getCurrentDate();
   },
 };
 </script>
+<style scoped>
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+</style>

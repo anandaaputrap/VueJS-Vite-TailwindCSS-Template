@@ -25,12 +25,12 @@
                 role="alert"
               >
                 <strong class="font-bold">Mohon Maaf!</strong>
-                <span class="block sm:inline">
-                  Nomor Yang Anda Masukkan Sudah Ada.</span
+                <span class="block sm:inline"
+                  >Nomor Yang Anda Masukkan Sudah Ada.</span
                 >
               </div>
               <!--Alert-->
-              <div class="grid gap-1 mb-2 md:grid-cols-2 px-1">
+              <div class="grid gap-1 mb-2 md:grid-cols-1 px-1">
                 <div>
                   <label
                     for="telp"
@@ -38,7 +38,7 @@
                     >Telp</label
                   >
                   <input
-                    type="number"
+                    type="text"
                     min="0"
                     id="telp"
                     name="telp"
@@ -96,19 +96,40 @@
                 </div>
                 <div>
                   <label
-                    for="tipepelanggan"
+                    for="kota"
                     class="block text-sm font-medium text-gray-900 dark:text-white"
-                    >Tipe Pelanggan</label
+                    >Kota</label
                   >
                   <input
                     type="text"
+                    id="kota"
+                    name="kota"
+                    v-model="kota"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Masukkan Nama Disini"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    for="tipepelanggan"
+                    class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                    >Tipe Pelanggan</label
+                  >
+                  <select
                     id="tipepelanggan"
                     name="tipepelanggan"
                     v-model="tipepelanggan"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Masukkan Tipe Pelanggan Disini"
                     required
-                  />
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  >
+                    <option value="" disabled selected>
+                      Pilih Tipe Pelanggan
+                    </option>
+                    <option value="MMH">MMH - Mass Mid High</option>
+                    <option value="ULC">ULC</option>
+                    <option value="PREMIUM">PREMIUM</option>
+                  </select>
                 </div>
                 <div class="">
                   <label
@@ -129,26 +150,57 @@
                 <div>
                   <label
                     for="sumber"
-                    class="block text-sm font-medium text-gray-900 dark:text-white"
+                    class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
                     >Sumber</label
                   >
-                  <input
-                    type="text"
+                  <select
                     id="sumber"
                     name="sumber"
                     v-model="sumber"
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Masukkan Sumber Disini"
                     required
-                  />
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  >
+                    <option value="" disabled selected>Pilih Sumber</option>
+                    <option value="Existing (Altius)">Existing (Altius)</option>
+                    <option value="Samsung Store">Samsung Store</option>
+                    <option value="Digital">Digital</option>
+                    <option value="Event Marketing">Event Marketing</option>
+                    <option value="Lainnya (Leasing, Bank, Partner)">
+                      Lainnya (Leasing, Bank, Partner)
+                    </option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    for="sales"
+                    class="block mb-1 text-sm font-medium text-gray-900 dark:text-white"
+                    >Sales</label
+                  >
+                  <select
+                    v-model="sales"
+                    id="sales"
+                    name="sales"
+                    required
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  >
+                    <option value="" disabled selected>Pilih Sales</option>
+                    <option
+                      v-for="option in salesOptions"
+                      :key="option.Kode"
+                      :value="option"
+                    >
+                      {{ option.Depo }} - {{ option.Kode }} -
+                      {{ option.Nama }}
+                    </option>
+                  </select>
                 </div>
                 <div>
                   <input
                     type="hidden"
                     id="sif"
                     name="sif"
-                    value="''"
-                    class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    v-model="sif"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Masukkan Sumber Disini"
                     required
                   />
@@ -158,7 +210,7 @@
                     type="hidden"
                     id="app"
                     name="app"
-                    value="2"
+                    v-model="app"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Masukkan Sumber Disini"
                     required
@@ -169,7 +221,7 @@
                     type="hidden"
                     id="operator"
                     name="operator"
-                    value="wildan.y@altius-erp.com"
+                    v-model="operator"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Masukkan Sumber Disini"
                     required
@@ -179,13 +231,23 @@
               <div class="flex justify-end mr-5">
                 <button
                   type="submit"
+                  @click="submitForm"
                   class="text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-1 py-2 text-center ml-1 mb-1"
                 >
                   Simpan
                 </button>
               </div>
             </form>
+            <div
+              v-if="isAlertVisible"
+              class="fixed top-0 left-0 w-full bg-green-100 border border-green-400 text-green-700 px-4 py-3 z-50"
+              role="alert"
+            >
+              <strong class="font-bold">{{ alertStatus }}</strong>
+              <span class="block sm:inline">{{ alertMessage }}</span>
+            </div>
           </div>
+
           <!-- Main -->
         </div>
       </main>
@@ -212,23 +274,29 @@ export default {
       nama: "",
       alamat: "",
       email: "",
+      kota: "",
       tipepelanggan: "",
       sumber: "",
-      sif: "''",
+      sales: "",
+      sif: "",
       app: "2",
       operator: "wildan.y@altius-erp.com",
+      isAlertVisible: false,
+      alertTimer: null,
       isChecked: false,
       isNumberChecked: false,
       showAlert: false,
+      salesOptions: [],
       alertMessage: "Nomor Telp Sudah Ada",
     };
   },
   methods: {
     fetchData() {
       console.log("Telp : ", this.telp);
-      console.log("Nama : ",  this.nama);
+      console.log("Nama : ", this.nama);
       console.log("Alamat : ", this.alamat);
       console.log("Email : ", this.email);
+      console.log("Kota : ", this.kota);
       console.log("Tipe Pelanggan : ", this.tipepelanggan);
       console.log("Sumber : ", this.sumber);
       console.log("Sif : ", this.sif);
@@ -236,10 +304,11 @@ export default {
       console.log("Operator : ", this.operator);
 
       const requestBody = {
-        Telp: this.telp,
+        Telp: "+62" + this.telp,
         Nama: this.nama,
         Alamat: this.alamat,
         Email: this.email,
+        Kota: this.kota,
         TipePel: this.tipepelanggan,
         Sumber: this.sumber,
         Sif: this.sif,
@@ -247,6 +316,22 @@ export default {
         Operator: this.operator,
       };
       return requestBody;
+    },
+    async fetchSalesOptions(search) {
+      try {
+        const response = await axios.post(
+          "http://192.168.11.54:8000/api/DropDownSales",
+          {
+            Search: search || "A",
+          }
+        );
+        const data = response.data;
+        if (data.status === "202") {
+          this.salesOptions = data.data;
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
     async checkNumber() {
       try {
@@ -273,18 +358,54 @@ export default {
         console.log(error);
       }
     },
+    clearAlertTimer() {
+      if (this.alertTimer) {
+        clearTimeout(this.alertTimer);
+      }
+    },
     async submitForm() {
+      if (!this.isChecked) {
+        alert("Harap Dicek Nomor Telp Terlebih Dahulu");
+        return;
+      }
       try {
         const requestBody = this.fetchData();
+        if (this.sales) {
+          requestBody.Sif = this.sales.Kode;
+        }
+
         const response = await axios.post(
           "http://192.168.11.54:8000/api/createcalonpelanggan",
           requestBody
         );
+
+        // Perbarui properti alertStatus dan alertMessage
+        this.alertStatus = response.data.status;
+        this.alertMessage = response.data.data[0].Pesan;
+
+        // Tampilkan alert
+        this.isAlertVisible = true;
+
+        this.alertTimer = setTimeout(() => {
+          this.isAlertVisible = false;
+        }, 5000);
+
+        // Refresh Window
+        setTimeout(() => {
+          window.location.reload();
+        }, 5000);
+
         console.log(response.data); // Output response dari API
       } catch (error) {
         console.log(error);
       }
     },
+  },
+  beforeDestroy() {
+    this.clearAlertTimer();
+  },
+  mounted() {
+    this.fetchSalesOptions();
   },
 };
 </script>

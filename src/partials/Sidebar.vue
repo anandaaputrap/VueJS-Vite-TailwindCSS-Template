@@ -68,7 +68,7 @@
           </h3>
           <ul class="mt-3">
             <!-- Dashboard -->
-            <SidebarLinkGroup
+            <!-- <SidebarLinkGroup
               v-slot="parentLink"
               :activeCondition="
                 currentRoute.fullPath === '/' ||
@@ -131,16 +131,20 @@
                   </div>
                 </div>
               </router-link>
-            </SidebarLinkGroup>
+            </SidebarLinkGroup> -->
             <!-- Menu 2  -->
             <SidebarLinkGroup
               v-slot="parentLink"
-              :activeCondition="currentRoute.fullPath.includes('retention')"
+              :activeCondition="
+                currentRoute.fullPath === '/' ||
+                currentRoute.fullPath.includes('retention')
+              "
+              :expanded="currentRoute.fullPath.includes('retention')"
             >
               <a
                 class="block text-slate-200 truncate transition duration-150"
                 :class="
-                  currentRoute.fullPath.includes('menu1')
+                  currentRoute.fullPath.includes('retention')
                     ? 'hover:text-slate-200'
                     : 'hover:text-white'
                 "
@@ -202,7 +206,7 @@
               <div class="lg:hidden lg:sidebar-expanded:block 2xl:block">
                 <ul class="pl-9 mt-1" :class="!parentLink.expanded && 'hidden'">
                   <router-link
-                    to="/tambahdataretention"
+                    to="/"
                     custom
                     v-slot="{ href, navigate, isExactActive }"
                   >
@@ -250,12 +254,14 @@
                 </ul>
               </div>
             </SidebarLinkGroup>
+
             <!-- Menu 3  -->
             <SidebarLinkGroup
               v-slot="parentLink"
               :activeCondition="
                 currentRoute.fullPath.includes('calonpelanggan')
               "
+              :expanded="currentRoute.fullPath.includes('calonpelanggan')"
             >
               <a
                 class="block text-slate-200 truncate transition duration-150"

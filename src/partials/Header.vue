@@ -19,7 +19,7 @@
         </div>
         <!-- Header: Right side -->
         <div class="flex items-center space-x-3">
-          <ThemeToggle />
+          <!-- <ThemeToggle /> -->
           <!-- Divider -->
           <hr class="w-px h-6 bg-slate-200 dark:bg-slate-700 border-none" />
           <UserMenu align="right" />

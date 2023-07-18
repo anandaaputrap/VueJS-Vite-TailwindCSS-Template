@@ -65,13 +65,29 @@
             <div class="">
               <!-- Table -->
               <div class="overflow-x-scroll overflow-y-scroll max-h-96">
+                <div class="flex items-center mb-0.5 mt-0.5 mr-1 justify-end">
+                  <label
+                    for="search"
+                    class="block mr-1 ml-1 text-sm font-medium text-gray-900 dark:text-white"
+                    >Pencarian:</label
+                  >
+                  <input
+                    type="text"
+                    id="search"
+                    name="search"
+                    v-model="searchQuery"
+                    @input="performSearch"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-40 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Cari..."
+                  />
+                </div>
                 <table class="table-auto w-full dark:text-slate-300">
                   <!-- Table header -->
                   <thead
                     class="text-xs uppercase text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-700 dark:bg-opacity-50 rounded-sm"
                   >
                     <tr>
-                      <th class="p-2">
+                      <!-- <th class="p-2">
                         <div class="flex items-center">
                           <input
                             type="checkbox"
@@ -79,49 +95,95 @@
                             @change="toggleAllCheckboxes"
                           />
                         </div>
-                      </th>
+                      </th> -->
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400">
-                          Kode Nota
+                        <div
+                          class="font-semibold text-left text-cyan-400 text-xs"
+                        >
+                          Nota
                         </div>
                       </th>
-                      <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400">
+                      <!-- <th class="p-2">
+                        <div
+                          class="font-semibold text-left text-cyan-400 text-xs"
+                        >
                           Kode Sales
                         </div>
-                      </th>
+                      </th> -->
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400">
+                        <div
+                          class="font-semibold text-left text-cyan-400 text-xs"
+                        >
+                          Sales
+                        </div>
+                      </th>
+                      <!-- <th class="p-2">
+                        <div
+                          class="font-semibold text-left text-cyan-400 text-xs"
+                        >
                           Kode Calon Customer
                         </div>
-                      </th>
+                      </th> -->
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400">
-                          Nama Calon Customer
+                        <div
+                          class="font-semibold text-left text-cyan-400 text-xs"
+                        >
+                          Calon Customer
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400">
-                          Tanggal Awal
+                        <div
+                          class="font-semibold text-left text-cyan-400 text-xs"
+                        >
+                          Tgl Awal
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400">
-                          Tanggal Akhir
+                        <div
+                          class="font-semibold text-left text-cyan-400 text-xs"
+                        >
+                          Tgl Akhir
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400">
+                        <div
+                          class="font-semibold text-left text-cyan-400 text-xs"
+                        >
                           Alamat
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-left text-cyan-400">
+                        <div
+                          class="font-semibold text-left text-cyan-400 text-xs"
+                        >
                           Telp
                         </div>
                       </th>
                       <th class="p-2">
-                        <div class="font-semibold text-center text-cyan-400">
+                        <div
+                          class="font-semibold text-left text-cyan-400 text-xs"
+                        >
+                          Status
+                        </div>
+                      </th>
+                      <th class="p-2">
+                        <div
+                          class="font-semibold text-left text-cyan-400 text-xs"
+                        >
+                          Created At
+                        </div>
+                      </th>
+                      <th class="p-2">
+                        <div
+                          class="font-semibold text-left text-cyan-400 text-xs"
+                        >
+                          Created By
+                        </div>
+                      </th>
+                      <th class="p-2">
+                        <div
+                          class="font-semibold text-center text-cyan-400 text-xs"
+                        >
                           Aksi
                         </div>
                       </th>
@@ -132,37 +194,67 @@
                     class="text-sm font-medium divide-y divide-slate-100 dark:divide-slate-700"
                   >
                     <!-- Row -->
-                    <tr v-for="(item, index) in items" :key="index">
-                      <td class="p-2">
+                    <tr v-for="item in items" :key="item.id">
+                      <!-- <td class="p-2">
                         <div class="flex items-center">
                           <input type="checkbox" v-model="item.checked" />
                         </div>
+                      </td> -->
+                      <td class="p-2">
+                        <div class="text-left text-xs">{{ item.KodeNota }}</div>
+                      </td>
+                      <!-- <td class="p-2">
+                        <div class="text-left text-xs">
+                          {{ item.KodeSales }}
+                        </div>
+                      </td> -->
+                      <td class="p-2">
+                        <div class="text-left text-xs">
+                          {{ item.NamaSales }}
+                        </div>
+                      </td>
+                      <!-- <td class="p-2">
+                        <div class="text-left text-xs">
+                          {{ item.KodeCalonCust }}
+                        </div>
+                      </td> -->
+                      <td class="p-2">
+                        <div class="text-left text-xs">
+                          {{ item.NamaCalonCust }}
+                        </div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.KodeNota }}</div>
+                        <div class="text-left text-xs">
+                          {{ formatDate(item.TglAwal) }}
+                        </div>
                       </td>
                       <td class="p-2">
-                        <div class="text-left">{{ item.KodeSales }}</div>
-                      </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ item.KodeCalonCust }}</div>
-                      </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ item.NamaCalonCust }}</div>
-                      </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ formatDate(item.TglAwal) }}</div>
-                      </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ formatDate(item.TglAkhir) }}</div>
+                        <div class="text-left text-xs">
+                          {{ formatDate(item.TglAkhir) }}
+                        </div>
                       </td>
                       <td class="p-2">
                         <div class="text-left">{{ item.Alamat }}</div>
                       </td>
-                      <td class="p-2">
-                        <div class="text-left">{{ item.Telp }}</div>
+                      <td class="">
+                        <div class="text-left text-xs">{{ item.Telp }}</div>
                       </td>
-                      <td class="p-2">
+                      <td class="">
+                        <div class="text-center text-xs">
+                          {{ item.isClose }}
+                        </div>
+                      </td>
+                      <td class="">
+                        <div class="text-center text-xs">
+                          {{ item.CreateDate }}
+                        </div>
+                      </td>
+                      <td class="">
+                        <div class="text-center text-xs">
+                          {{ item.CreateBy }}
+                        </div>
+                      </td>
+                      <td class="">
                         <div class="flex items-center justify-center">
                           <button
                             class="btn btn-sm bg-cyan-500 hover:bg-cyan-600 text-white"
@@ -263,6 +355,7 @@ export default {
       tanggalAwal: "",
       tanggalAkhir: "",
       isSearching: false,
+      searchQuery: "",
     };
   },
   created() {
@@ -297,16 +390,58 @@ export default {
         item.checked = this.selectAll;
       });
     },
+    performSearch() {
+      const query = this.searchQuery.toLowerCase();
+      if (query) {
+        // Jika query pencarian tidak kosong, filter data berdasarkan query
+        this.items = this.allItems.filter((item) => {
+          const namaCalonCust = item.NamaCalonCust
+            ? item.NamaCalonCust.toLowerCase()
+            : "";
+          const tipePelanggan = item.TipePelanggan
+            ? item.TipePelanggan.toLowerCase()
+            : "";
+          const alamat = item.Alamat ? item.Alamat.toLowerCase() : "";
+          const telp = item.Telp ? item.Telp.toLowerCase() : "";
+          const kota = item.Kota ? item.Kota.toLowerCase() : "";
+          const namaSales = item.NamaSales ? item.NamaSales.toLowerCase() : "";
+          const isClose = item.isClose ? item.isClose.toLowerCase() : "";
+
+          return (
+            namaCalonCust.includes(query) ||
+            tipePelanggan.includes(query) ||
+            alamat.includes(query) ||
+            telp.includes(query) ||
+            kota.includes(query) ||
+            namaSales.includes(query) ||
+            isClose.includes(query)
+          );
+        });
+      } else {
+        // Jika query pencarian kosong, tampilkan semua data
+        this.items = this.allItems;
+      }
+    },
     cariTanggal() {
       this.fetchData();
-    },  
+    },
     formatDate(date) {
-      // Mengganti Format Tanggal dari DD-MM-YYYY menjadi YYYY-MM-DD
-      const dateParts = date.split("-");
-      if (dateParts.length === 3) {
-        return `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`;
-      } 
-      return date;
+      if (!date) {
+        return ""; // Jika tanggal null atau undefined, kembalikan string kosong
+      }
+
+      // Mendapatkan objek Date dari tanggal yang diberikan
+      const parsedDate = new Date(date);
+
+      // Mengambil bagian tanggal, bulan, dan tahun dari objek Date
+      const day = parsedDate.getDate();
+      const month = parsedDate.getMonth() + 1; // Perhatikan penambahan 1 karena bulan dimulai dari 0
+      const year = parsedDate.getFullYear();
+
+      // Menggabungkan tanggal, bulan, dan tahun menjadi format yang diinginkan (misalnya, "DD-MM-YYYY")
+      const formattedDate = `${day}-${month}-${year}`;
+
+      return formattedDate;
     },
     editItem(item) {
       // Logika untuk mengedit item
@@ -317,3 +452,10 @@ export default {
   },
 };
 </script>
+<style scoped>
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+</style>
