@@ -128,7 +128,7 @@
                         <div
                           class="font-semibold text-left text-cyan-400 text-xs"
                         >
-                          Calon Customer
+                          Customer
                         </div>
                       </th>
                       <th class="p-2">
@@ -258,7 +258,7 @@
                         <div class="flex items-center justify-center">
                           <button
                             class="btn btn-sm bg-cyan-500 hover:bg-cyan-600 text-white"
-                            @click="showDetail(index)"
+                            @click="showDetail(item)"
                           >
                             Detail
                           </button>
@@ -274,57 +274,69 @@
       </main>
 
       <!-- Modal -->
+      <!-- Modal -->
       <div
-        v-show="showDetails"
-        class="fixed inset-0 flex items-center justify-center z-50 animate-fade-up animate-once"
+        v-if="showModal"
+        class="fixed inset-0 flex items-center justify-center z-50"
       >
         <div
-          class="bg-white rounded shadow-lg p-4 max-w-md w-full border-solid border-2 border-cyan-500"
+          class="bg-white rounded shadow-lg p-2 max-w-4xl w-full h-96 overflow-y-auto border-solid border-2 border-cyan-500"
         >
-          <h3 class="text-lg font-semibold mb-2">Detail Data</h3>
+          <div class="flex justify-end mt-2">
+            <button
+              class="btn btn-primary bg-red-500 hover:bg-red-600 text-white"
+              @click="closeModal"
+            >
+              X
+            </button>
+          </div>
+          <h3 class="text-lg font-semibold mb-1">Detail Data</h3>
           <hr
             class="border-2 border-cyan-500 cursor-pointer hover:border-cyan-600 duration-500"
           />
-          <div v-if="selectedItemIndex !== null">
+          <div>
             <div class="mb-2">
-              <strong>Kode Nota :</strong>
-              {{ items[selectedItemIndex].KodeNota }}
+              <strong>Nota :</strong> {{ selectedItemModal.KodeNota }}
             </div>
             <div class="mb-2">
-              <strong>Kode Sales :</strong>
-              {{ items[selectedItemIndex].KodeSales }}
+              <strong>Sales :</strong> {{ selectedItemModal.NamaSales }}
             </div>
             <div class="mb-2">
-              <strong>Kode Calon Customer :</strong>
-              {{ items[selectedItemIndex].KodeCalonCust }}
+              <strong>Customer :</strong> {{ selectedItemModal.NamaCalonCust }}
             </div>
             <div class="mb-2">
-              <strong>Nama Calon Customer :</strong>
-              {{ items[selectedItemIndex].NamaCalonCust }}
+              <strong>Telp :</strong> {{ selectedItemModal.Telp }}
             </div>
             <div class="mb-2">
-              <strong>Tanggal Awal:</strong>
-              {{ formatDate(items[selectedItemIndex].TglAwal) }}
+              <strong>Alamat :</strong> {{ selectedItemModal.Alamat }}
             </div>
-            <div class="mb-2">
-              <strong>Tanggal Akhir:</strong>
-              {{ formatDate(items[selectedItemIndex].TglAkhir) }}
-            </div>
-            <div class="mb-2">
-              <strong>Alamat:</strong>
-              {{ items[selectedItemIndex].Alamat }}
-            </div>
-            <div class="mb-2">
-              <strong>Nomor Telp:</strong>
-              {{ items[selectedItemIndex].Telp }}
-            </div>
+            <hr
+              class="border-2 border-cyan-500 cursor-pointer hover:border-cyan-600 duration-500"
+            />
+            <table class="table-auto w-full mt-1">
+              <thead>
+                <tr>
+                  <th class="px-2 py-2 text-center">Tgl Entry</th>
+                  <th class="px-2 py-2 text-center">Status</th>
+                  <th class="px-2 py-2 text-center">Keterangan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  v-for="logData in selectedItemModal.logRetentionData"
+                  :key="logData.Kodenota"
+                >
+                  <td class="px-2 py-2 text-center">{{ logData.Tglentry }}</td>
+                  <td class="px-2 py-2 text-center">
+                    {{ logData.ConversationStatus }}
+                  </td>
+                  <td class="px-2 py-2 text-center">
+                    {{ logData.Keterangan }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-          <button
-            class="btn btn-primary bg-red-500 hover:bg-red-600 text-white"
-            @click="closeDetail"
-          >
-            Tutup
-          </button>
         </div>
       </div>
     </div>
@@ -351,11 +363,15 @@ export default {
       selectAll: false,
       showAddForm: false,
       showDetails: false,
-      selectedItemIndex: null,
+      selectedItem: null,
       tanggalAwal: "",
       tanggalAkhir: "",
       isSearching: false,
       searchQuery: "",
+      showModal: false,
+      selectedItemModal: {
+        logRetentionData: [],
+      },
     };
   },
   created() {
@@ -372,18 +388,51 @@ export default {
           this.items = response.data.data;
           this.allItems = response.data.data;
           console.log(response.data);
+          console.log(this.items);
         })
         .catch((error) => {
           console.log(error);
         });
     },
-    showDetail(index) {
-      this.selectedItemIndex = index;
-      this.showDetails = true;
+    showDetail(item) {
+      this.fetchLogRetentionData(item.KodeNota)
+        .then(() => {
+          this.selectedItemModal = item;
+          this.showModal = true;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
+    async fetchLogRetentionData(key) {
+      try {
+        const response = await axios.post(
+          "http://192.168.11.54:8000/api/GetLogRetention",
+          { Kodenota: key }
+        );
+        const data = response.data.data;
+
+        // Cek apakah ada data yang ditemukan
+        if (data.length > 0) {
+          const logRetentionData = data.map((item) => {
+            return {
+              Tglentry: item.Tglentry,
+              ConversationStatus: item.ConversationStatus,
+              Keterangan: item.Keterangan,
+            };
+          });
+
+          this.selectedItemModal.logRetentionData = logRetentionData;
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
     closeDetail() {
-      this.selectedItemIndex = null;
       this.showDetails = false;
+    },
+    closeModal() {
+      this.showModal = false;
     },
     toggleAllCheckboxes() {
       this.items.forEach((item) => {

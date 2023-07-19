@@ -364,8 +364,23 @@ export default {
       }
     },
     async submitForm() {
+      if (
+        !this.telp ||
+        !this.nama ||
+        !this.alamat ||
+        !this.email ||
+        !this.kota ||
+        !this.tipepelanggan ||
+        !this.sumber ||
+        !this.sales
+      ) {
+        alert("Harap isi semua input sebelum menyimpan data!");
+        return;
+      }
+
+      // Memastikan bahwa checkbox tercentang sebelum menyimpan data
       if (!this.isChecked) {
-        alert("Harap Dicek Nomor Telp Terlebih Dahulu");
+        alert("Harap centang checklist pada Cek Nomor Telp!");
         return;
       }
       try {
