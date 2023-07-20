@@ -258,7 +258,7 @@
                         <div class="flex items-center justify-center">
                           <button
                             class="btn btn-sm bg-cyan-500 hover:bg-cyan-600 text-white"
-                            @click="showDetail(item)"
+                            @click="openModal(item)"
                           >
                             Detail
                           </button>
@@ -393,6 +393,11 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    openModal(item) {
+      this.selectedItemModal = item;
+      this.fetchLogRetentionData(item.KodeNota);
+      this.showModal = true;
     },
     showDetail(item) {
       this.fetchLogRetentionData(item.KodeNota)
