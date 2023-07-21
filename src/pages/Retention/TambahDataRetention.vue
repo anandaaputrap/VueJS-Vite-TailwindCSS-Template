@@ -428,6 +428,9 @@ export default {
       selectedCodes: [],
       searchQuery: "",
       originalItems: [],
+      operator: "gbs@gbs.com",
+      token:
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiR0JTIiwiZW1haWwiOiJnYnNAZ2JzLmNvbSIsInBhc3N3b3JkIjoiSkVsSzRVbUVVMnBOVUZxcFh3QkZzVzBFczRXelU1NmU1cVRyIiwiZXhwIjoxNjg5OTIwODI1LCJpc3MiOiJHQlMifQ.0rViO47_GWHwsKmSknw2jmgxfly2G3MgzWq4CbYEMF0",
     };
   },
   computed: {
@@ -641,10 +644,21 @@ export default {
         Tgl: this.tanggal,
         TOPLamaKredit: this.top,
         ToleransiTop: this.toleransitop,
+        Operator: this.operator,
+      };
+
+      const config = {
+        headers: {
+          Authorization: `Bearer ${this.token}`,
+        },
       };
 
       axios
-        .post("http://192.168.11.54:8000/api/GenerateNotaRetention", postData)
+        .post(
+          import.meta.env.VITE_APP_API_URL + "generatenotaretention",
+          postData,
+          config
+        )
         .then((response) => {
           console.log("Data Berhasil Tersimpan:", response);
           // Lakukan tindakan lain setelah berhasil menyimpan data
