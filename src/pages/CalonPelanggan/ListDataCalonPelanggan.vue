@@ -378,7 +378,10 @@ export default {
       };
 
       axios
-        .post("http://192.168.11.54:8000/api/listCalonPelanggan", requestBody)
+        .post(
+          import.meta.env.VITE_APP_API_URL + "listcalonpelanggan",
+          requestBody
+        )
         .then((response) => {
           this.items = response.data.data;
           this.allItems = response.data.data;
@@ -399,14 +402,16 @@ export default {
 
         // Melakukan pencarian berdasarkan Telp, Nama, Email, Alamat, Kota, TipePelanggan, dan Sumber
         tempItems = tempItems.filter((item) => {
+          // Pemeriksaan untuk memastikan properti tidak bernilai null sebelum memanggil toLowerCase()
           return (
-            item.Telp.toLowerCase().includes(query) ||
-            item.Nama.toLowerCase().includes(query) ||
-            item.Email.toLowerCase().includes(query) ||
-            item.Alamat.toLowerCase().includes(query) ||
-            item.Kota.toLowerCase().includes(query) ||
-            item.TipePelanggan.toLowerCase().includes(query) ||
-            item.Sumber.toLowerCase().includes(query)
+            (item.Telp && item.Telp.toLowerCase().includes(query)) ||
+            (item.Nama && item.Nama.toLowerCase().includes(query)) ||
+            (item.Email && item.Email.toLowerCase().includes(query)) ||
+            (item.Alamat && item.Alamat.toLowerCase().includes(query)) ||
+            (item.Kota && item.Kota.toLowerCase().includes(query)) ||
+            (item.TipePelanggan &&
+              item.TipePelanggan.toLowerCase().includes(query)) ||
+            (item.Sumber && item.Sumber.toLowerCase().includes(query))
           );
         });
       }
@@ -414,6 +419,7 @@ export default {
       // Mengupdate items dengan hasil pencarian
       this.items = tempItems;
     },
+
     showDetail(index) {
       this.selectedItemIndex = index;
       this.showDetails = true;

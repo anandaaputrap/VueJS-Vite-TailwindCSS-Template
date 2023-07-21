@@ -320,13 +320,13 @@ export default {
     async fetchSalesOptions(search) {
       try {
         const response = await axios.post(
-          "http://192.168.11.54:8000/api/DropDownSales",
+          import.meta.env.VITE_APP_API_URL + "dropdownsales",
           {
             Search: search || "A",
           }
         );
         const data = response.data;
-        if (data.status === "202") {
+        if (data.success === true) {
           this.salesOptions = data.data;
         }
       } catch (error) {
@@ -336,11 +336,11 @@ export default {
     async checkNumber() {
       try {
         const response = await axios.post(
-          "http://192.168.11.54:8000/api/ceknomor",
-          { telp: "+62" + this.telp }
+          import.meta.env.VITE_APP_API_URL + "ceknomor",
+          { Telp: "+62" + this.telp }
         );
         const data = response.data;
-        if (data.status === "202") {
+        if (data.success == true && data.data.Kode !== null) {
           this.isChecked = false;
           this.isNumberChecked = true;
           this.showAlert = true;
@@ -390,7 +390,7 @@ export default {
         }
 
         const response = await axios.post(
-          "http://192.168.11.54:8000/api/createcalonpelanggan",
+          import.meta.env.VITE_APP_API_URL + "createcalonpelanggan",
           requestBody
         );
 

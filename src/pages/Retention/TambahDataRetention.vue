@@ -466,13 +466,14 @@ export default {
     async fetchSalesOptions(search) {
       try {
         const response = await axios.post(
-          "http://192.168.11.54:8000/api/DropDownSales",
+          import.meta.env.VITE_APP_API_URL + "dropdownsales",
           {
             Search: search || "A",
           }
         );
         const data = response.data;
-        if (data.status === "202") {
+        console.log(data);
+        if (data.success === true) {
           this.salesOptions = data.data;
         }
       } catch (error) {
@@ -572,7 +573,7 @@ export default {
 
       try {
         const response = await axios.post(
-          "http://192.168.11.54:8000/api/ViewCalonPelangganRetention",
+          import.meta.env.VITE_APP_API_URL + "viewcalonpelangganretention",
           {
             TipePel: this.tipepelanggan,
             Alamat: alamatValue,
@@ -582,7 +583,7 @@ export default {
         );
         const data = response.data;
         console.log(data);
-        if (data.status === "202" && data.data.length > 0) {
+        if (data.success === true && data.data.length > 0) {
           this.items = data.data;
           this.originalItems = [...data.data]; // Simpan salinan data ke originalItems
         } else {

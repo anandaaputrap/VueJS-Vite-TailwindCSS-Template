@@ -1,10 +1,16 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 // https://vitejs.dev/config/
 export default defineConfig({
   define: {
-    'process.env': process.env
+    'process.env': {
+      VITE_API_TITLE: JSON.stringify(process.env.VITE_APP_TITLE),
+      VITE_API_URL: JSON.stringify(process.env.VITE_APP_API_URL),
+    }
   },
   plugins: [vue()],
   resolve: {

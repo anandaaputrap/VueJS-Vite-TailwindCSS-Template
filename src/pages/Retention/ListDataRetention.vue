@@ -380,7 +380,7 @@ export default {
   methods: {
     fetchData() {
       axios
-        .post("http://192.168.11.54:8000/api/RetentionListWeb", {
+        .post(import.meta.env.VITE_APP_API_URL + "retentionlistweb", {
           TglAwal: this.tanggalAwal,
           TglAkhir: this.tanggalAkhir,
         })
@@ -412,7 +412,7 @@ export default {
     async fetchLogRetentionData(key) {
       try {
         const response = await axios.post(
-          "http://192.168.11.54:8000/api/GetLogRetention",
+          import.meta.env.VITE_APP_API_URL + "getlogretention",
           { Kodenota: key }
         );
         const data = response.data.data;
