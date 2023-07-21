@@ -117,12 +117,12 @@
                       :required="!tanggal"
                       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
-                    <p
+                    <!-- <p
                       v-show="isSubmitted && !tanggal"
                       class="text-red-500 text-xs mt-1"
                     >
                       Tanggal harus diisi.
-                    </p>
+                    </p> -->
                   </div>
                   <div class="flex flex-col">
                     <label
@@ -147,12 +147,12 @@
                         {{ option.Nama }}
                       </option>
                     </select>
-                    <p
+                    <!-- <p
                       v-show="isSubmitted && !sales"
                       class="text-red-500 text-xs mt-1"
                     >
                       Sales harus diisi.
-                    </p>
+                    </p> -->
                   </div>
                   <div class="flex flex-col">
                     <label
@@ -173,12 +173,12 @@
                       <option value="WI">WI - Walk In</option>
                       <option value="NWI">NWI - Non Walk In</option>
                     </select>
-                    <p
+                    <!-- <p
                       v-show="isSubmitted && !tipedokumen"
                       class="text-red-500 text-xs mt-1"
                     >
                       Tipe Dokumen harus diisi.
-                    </p>
+                    </p> -->
                   </div>
                   <div class="flex flex-col">
                     <label
@@ -196,12 +196,12 @@
                       placeholder="0"
                       min="0"
                     />
-                    <p
+                    <!-- <p
                       v-show="isSubmitted && !top"
                       class="text-red-500 text-xs mt-1"
                     >
                       Top harus diisi.
-                    </p>
+                    </p> -->
                   </div>
                   <div class="flex flex-col">
                     <label
@@ -219,12 +219,12 @@
                       placeholder="0"
                       min="0"
                     />
-                    <p
+                    <!-- <p
                       v-show="isSubmitted && !toleransitop"
                       class="text-red-500 text-xs mt-1"
                     >
                       Toleransi Top harus diisi.
-                    </p>
+                    </p> -->
                   </div>
                 </div>
                 <!-- <div class="flex flex-col">
@@ -430,7 +430,7 @@ export default {
       originalItems: [],
       operator: "gbs@gbs.com",
       token:
-        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiR0JTIiwiZW1haWwiOiJnYnNAZ2JzLmNvbSIsInBhc3N3b3JkIjoiSkVsSzRVbUVVMnBOVUZxcFh3QkZzVzBFczRXelU1NmU1cVRyIiwiZXhwIjoxNjg5OTIwODI1LCJpc3MiOiJHQlMifQ.0rViO47_GWHwsKmSknw2jmgxfly2G3MgzWq4CbYEMF0",
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiR0JTIiwiZW1haWwiOiJnYnNAZ2JzLmNvbSIsInBhc3N3b3JkIjoiSkVsSzRVbUVVMnBOVUZxcFh3QkZzVzBFczRXelU1NmU1cVRyIiwiZXhwIjoxNjg5OTMxNzE5LCJpc3MiOiJHQlMifQ.jAYbNAqRIvM76GYJbDkLMIiV8CKNTKzJZJz8QQGcnzU",
     };
   },
   computed: {

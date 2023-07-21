@@ -388,7 +388,7 @@ export default {
         if (this.sales) {
           requestBody.Sif = this.sales.Kode;
         }
-        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiR0JTIiwiZW1haWwiOiJnYnNAZ2JzLmNvbSIsInBhc3N3b3JkIjoiSkVsSzRVbUVVMnBOVUZxcFh3QkZzVzBFczRXelU1NmU1cVRyIiwiZXhwIjoxNjg5OTIwODI1LCJpc3MiOiJHQlMifQ.0rViO47_GWHwsKmSknw2jmgxfly2G3MgzWq4CbYEMF0';
+        const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiR0JTIiwiZW1haWwiOiJnYnNAZ2JzLmNvbSIsInBhc3N3b3JkIjoiSkVsSzRVbUVVMnBOVUZxcFh3QkZzVzBFczRXelU1NmU1cVRyIiwiZXhwIjoxNjg5OTMxNzE5LCJpc3MiOiJHQlMifQ.jAYbNAqRIvM76GYJbDkLMIiV8CKNTKzJZJz8QQGcnzU';
         const response = await axios.post(
           import.meta.env.VITE_APP_API_URL + "createcalonpelanggan",
           requestBody,
